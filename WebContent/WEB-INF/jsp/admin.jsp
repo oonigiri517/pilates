@@ -5,16 +5,40 @@
 <head>
 <meta charset="UTF-8">
 <title>Pilatise管理画面</title>
+<style>
+li{
+  border: 1px solid #222;
+  width: 200px;
+  margin-bottom: 5px;
+  list-style: none;
+  background-color: green;
+  color:white;
+  
+}
+a:active {
+  color:white;
+  text-decoration: none;
+}
+a:link {
+  color:white;
+  text-decoration: none;
+  
+}
+a:visited {
+  color:white;
+  text-decoration: none;
+  
+}
+
+</style>
 </head>
 <body>
 <h1>レッスン予定日編集</h1>
-	<p>希望の操作を選択してください</p>
-	<p><input type="button" value="レッスン予定日編集" onclick="/Pilates/Admin"></p>
-	<p><input type="button" value="予約キャンセル" onclick="#"></p>
-	<p><input type="button" value="予約履歴" onclick="#"></p>
-	<p><input type="button" value="顧客一覧" onclick="#"></p>
-	<br></br>
-    <p><input type="button" value="TOPへ戻る" onclick="/Pilates/login.jsp"></p>
-<a href="/Pilates/login.jsp">TOPへ</a>
+<ul>
+<li><a href="/Pilates/Admin?page=l1">レッスン予定日編集画面</a></li>
+<li><a href="/Pilates/Admin?page=l2">予約キャンセル</a></li>
+<li><a href="/Pilates/Admin?page=l3">予約履歴</a></li>
+<li><a href="/Pilates/Admin?page=l4">顧客一覧</a></li>
+</ul>
 </body>
 </html>

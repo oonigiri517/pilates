@@ -14,9 +14,12 @@ public class Admin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		getParameter
 		//フォワード
+		String forwardPath = "";
+		if(value.equals("a")) {}
 		RequestDispatcher dispatcher =
-				request.getRequestDispatcher("/WEB-INF/jsp/adLesson.jsp");
+				request.getRequestDispatcher(forwardPath);
 				dispatcher.forward(request, response);
 	}
 
