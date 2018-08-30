@@ -25,7 +25,7 @@ public class Admin extends HttpServlet {
 		}else if(page.equals("l3")) {
 			forwardPath="/WEB-INF/jsp/inquiry.jsp";
 		}else if(page.equals("l4")) {
-			forwardPath="/WEB-INF/jsp/kokyaku.jsp";
+			forwardPath="/WEB-INF/jsp/customer.jsp";
 		}
 		RequestDispatcher dispatcher =
 				request.getRequestDispatcher(forwardPath);
