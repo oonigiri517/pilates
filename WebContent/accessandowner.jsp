@@ -27,12 +27,17 @@
 
 			<div id="contentsInner">
 
-				<h3><img src="images/subTtl3.png" width="560" height="40" alt="レッスン内容" /></h3>
-				<p id="introTxt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・1レッスン60分　Max定員2名のプライベート空間です。<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・始めてでも安心してレッスンを受けていただけます。<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・通いやすい回数券もご用意しています。</p>
+				<h3><img src="images/subTtl3.png" width="560" height="40" alt="アクセス方法" /></h3>
+				<p id="introTxt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・兵庫県明石市大久保。中八木駅から徒歩2分。<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・駐車場もあります。<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・場所が不明な場合はメールよりお問い合わせください。
+				<br><br><br></p>
 
-				<h3><img src="images/subTtl4.png" width="560" height="40" alt="価格表" /></h3>
+				<h3><img src="images/subTtl4.png" width="560" height="40" alt="オーナーについて" /></h3>
+				<p id="introTxt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・ピラティス暦10年。<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・30代女性。食べることとスノーボードが大好き。<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・レッスン後のおしゃべりも是非どうぞ。
+				<br><br><br><br><br><br><br></p>
 <footer>
 <jsp:include page="/footer.jsp"/>
 </footer>
