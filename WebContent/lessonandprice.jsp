@@ -19,7 +19,7 @@
 <body>
 		<div id="main">
 			<div id="mainInner">
-				<h2><img src="images/menuTtl1.png" width="210" height="60" alt="Menu メニュー" /></h2>
+				<h2><img src="images/menuTtl2.png" width="210" height="60" alt="Menu メニュー" /></h2>
 			</div>
 		<!-- #main --></div>
 
@@ -27,14 +27,14 @@
 
 			<div id="contentsInner">
 
-				<h3><img src="images/subTtl2.png" width="560" height="40" alt="レッスン内容" /></h3>
+				<h3><img src="images/subTtl1.png" width="560" height="40" alt="レッスン内容" /></h3>
 				<p id="introTxt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・1レッスン60分　Max定員2名のプライベート空間です。<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・始めてでも安心してレッスンを受けていただけます。<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・通いやすい回数券もご用意しています。</p>
 
 
 
-				<h3><img src="images/subTtl2.png" width="560" height="40" alt="レッスン内容" /></h3>
+				<h3><img src="images/subTtl2.png" width="560" height="40" alt="価格表" /></h3>
 <footer>
 <jsp:include page="/footer.jsp"/>
 </footer>
