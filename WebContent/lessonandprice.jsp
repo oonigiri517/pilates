@@ -19,7 +19,7 @@
 <body>
 		<div id="main">
 			<div id="mainInner">
-				<h2><img src="images/menuTtl2.png" width="210" height="60" alt="Menu メニュー" /></h2>
+				<h2><img src="images/menuTtl1.png" width="210" height="60" alt="Menu メニュー" /></h2>
 			</div>
 		<!-- #main --></div>
 
