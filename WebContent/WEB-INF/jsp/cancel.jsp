@@ -13,12 +13,15 @@
 予約番号入力 ※半角小文字
 <br></br>
 <input type="text" name = "number">
+<br></br>
 予約済日時入力 ※半角小文字
 <br></br>
 <input type="text" name = "date">
+<br></br>
 メールアドレス入力
 <br></br>
 <input type="text" name = "addres">
+<br></br>
 <input type="submit" value="送信">
 
 </form>
