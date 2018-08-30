@@ -1,7 +1,7 @@
 <!-- 予約フォームの画面 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="model.ReserveData,java.util.HashMap" %>
+<%@ page import="model.ReserveData,java.util.HashMap,model.Color" %>
 <%
 //初期化
 	String family_name="";
@@ -53,7 +53,7 @@
 		}
 
 		th{
-			background-color:#c6ecf2;
+			background-color:<%= Color.getTableColor()%>;
 			text-align:left;
 			padding:10px 10px
 		}

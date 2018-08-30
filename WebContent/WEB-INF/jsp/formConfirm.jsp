@@ -1,9 +1,10 @@
 <!-- 確認画面(行く先はReserve.java(servlet)) -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="model.ReserveData" %>
+<%@ page import="model.ReserveData,model.Color" %>
 <%
 ReserveData reserveData=(ReserveData) session.getAttribute("reserveData");
+Color color=new Color();
 %>
 <!DOCTYPE html>
 <html>
@@ -14,25 +15,42 @@ ReserveData reserveData=(ReserveData) session.getAttribute("reserveData");
 
 		body{
 				  width:100%; /*ページ全体の幅は100%と指定する*/
-				  text-align:center; /*ページ全体を中央揃えにする*/
+				  /*ページ全体を中央揃えにする*/
 				}
 
+		div{
+			width:600px;
+
+			margin:0 auto;
+			text-align:center;
+		}
+
 		table{
+			background-color:<%= color.getTableColor()%>;
 			margin-left:auto;
 			margin-right:auto;
+			width:600px;
 		}
 
 		td{
 			background-color:#fff;
 			text-align:left;
-
-			padding:10px 10px
+			padding:10px 10px;
+			width:400px
 		}
 
 		th{
-			background-color:#c6ecf2;
+			background-color:#fff;
 			text-align:left;
 			padding:10px 10px
+		}
+
+		.modoru{
+			text-align:right;
+		}
+
+		a{
+			text-decoration:none;
 		}
 
 		.button {
@@ -57,9 +75,12 @@ ReserveData reserveData=(ReserveData) session.getAttribute("reserveData");
 
 
 
+
+
 </style>
 </head>
 <body>
+<div>
 <h1>確認画面</h1>
 
 
@@ -96,14 +117,15 @@ ReserveData reserveData=(ReserveData) session.getAttribute("reserveData");
 <td><%=reserveData.getMemo() %></td>
 </tr>
 </table>
-<br>
-<br>
-<a href="/Pilates/Form?action=cancel">キャンセル</a>
-<br>
+
+<p class="modoru">
+<a href="/Pilates/Form?action=cancel" >キャンセル</a>
+</p>
+
 <input type="submit" value="確定" class="button">
 
 </form>
 
-
+</div>
 </body>
 </html>
