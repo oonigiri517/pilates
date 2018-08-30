@@ -10,9 +10,9 @@
 <body>
 		<div id="header">
 			<div id="headerInner" class="clearfix">
-				<h1 class="mouseHvr"><a href="index.html"><img src="images/logo.png" width="210" height="160" alt=" Beauty Time" /></a></h1>
+				<h1 class="mouseHvr"><a href="index.html"><img src="images/logo.png" width="210" height="160" alt="Relax Pilates" /></a></h1>
 				<ul id="gloNav" class="clearfix">
-					<li id="nav01"><a href="#"><img src="images/nav01-off.png" width="80" height="80" alt="About アバウト" /></a></li>
+					<li id="nav01"><a href="#"><img src="images/nav01-off.png" width="80" height="80" alt="ピラティスについてAbout アバウト" /></a></li>
 					<li id="nav02"><a href="menu.html"><img src="images/nav02-off.png" width="80" height="80" alt="Menu メニュー" /></a></li>
 					<li id="nav03"><a href="#"><img src="images/nav03-off.png" width="80" height="80" alt="Staff スタッフ" /></a></li>
 					<li id="nav04"><a href="#"><img src="images/nav04-off.png" width="80" height="80" alt="Access アクセス" /></a></li>
