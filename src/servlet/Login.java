@@ -31,7 +31,7 @@ public class Login extends HttpServlet {
 		//ログイン結果画面にフォワード
 		RequestDispatcher dispatcher =
 				request.getRequestDispatcher(forwardPath);
-		dispatcher.forward(request, response);
+				dispatcher.forward(request, response);
 	}
 
 }
