@@ -19,5 +19,11 @@ public class Lesson implements Serializable {
 	public void setTime(String time) {
 		this.time = time;
 	}
+	public String getDate() {
+		return date;
+	}
+	public String getTime() {
+		return time;
+	}
 
 }
