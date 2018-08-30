@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+/* メインビジュアル */
+#main {
+	width: 100%;
+	height: 200px;
+	background-color: #ffffff;
+}
+
+#mainInner {
+	background: url('../images/subMain.jpg') no-repeat center center;
+	width: 960px;
+	height: 200px;
+	margin: 0 auto;
+}
+
+#mainInner h2 {
+	line-height: 0;
+	margin-left: 120px;
+	padding-top: 90px;
+}
+
+
+/* コンテンツ */
+#contentsArea {
+	background: url('../images/wave.png') repeat-x center top;
+	margin-top: -40px;
+	position: relative;
+	z-index: 2;
+}
+
+#contentsInner {
+	width: 960px;
+	margin: 0 auto;
+	padding-top: 90px;
+	position: relative;
+}
+
+#contentsInner h3 {
+	margin: 0 0 25px 200px;
+	line-height: 0;
+}
+
+#introTxt {
+	width: 610px;
+	margin-left: 175px;
+	color: #170000;
+	font-size: 90%;
+	line-height: 220%;
+}
+
+#localNav {
+	width: 700px;
+	height: 110px;
+	margin: 50px auto 0;
+}
+
+#localNav li {
+	width: 200px;
+	margin-right: 50px;
+	line-height: 0;
+	float: left;
+}
+
+.noMargin {
+	margin: 0 !important;
+}
+
+#menu01 {
+	margin-top: 50px;
+}
+
+#menu02 {
+	margin-top: 75px;
+}
+
+#menu03 {
+	margin-top: 80px;
+}
+
+#menu01Ttl {
+	width: 300px;
+	height: 330px;
+	background: url('../images/menuBg01.jpg') no-repeat center center;
+	margin-right: 50px;
+	float: left;
+}
+
+#menu02Ttl {
+	width: 300px;
+	height: 330px;
+	background: url('../images/menuBg02.jpg') no-repeat center center;
+	margin-right: 50px;
+	float: left;
+}
+
+#menu03Ttl {
+	width: 300px;
+	height: 330px;
+	background: url('../images/menuBg03.jpg') no-repeat center center;
+	margin-right: 50px;
+	float: left;
+}
+
+#menu01Ttl h4,#menu02Ttl h4,#menu03Ttl h4 {
+	margin-left: 214px;
+	line-height: 0;
+}
+
+#menu01Cnt,#menu02Cnt,#menu03Cnt {
+	width: 610px;
+	float: left;
+}
+
+.menuTxt01 {
+	color: #170000;
+	font-size: 90%;
+	line-height: 200%;
+	margin-bottom: 30px;
+	padding-top: 40px;
+}
+
+.menuTxt02 {
+	color: #170000;
+	font-size: 90%;
+	line-height: 200%;
+	margin-bottom: 20px;
+}
+
+.menuList li {
+	color: #170000;
+	font-size: 90%;
+	line-height: 190%;
+	width: 610px;
+	padding: 35px 0 25px;
+	background: url('../images/line.png') no-repeat center top;
+}
+
+.menuList li span {
+	color: #f08e8e;
+	display: block;
+}

@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+/* 背景カラー */
+#contentsBox {
+	width: 100%;
+	min-height: 100%;
+	background-color: #f9f7ed;
+}
+
+
+/* ホバー */
+.mouseHvr {
+	opacity: 1;
+}
+
+.mouseHvr:hover {
+	opacity: 0.8;
+}
+
+
+/* ヘッダー */
+#header {
+	width: 100%;
+	height: 80px;
+	background: url('../images/headerBg.png') repeat-x center center;
+}
+
+#headerInner {
+	width: 960px;
+	margin: 0 auto;
+	position: relative;
+	background: url('../images/headerBg.png') repeat-x scroll center center rgba(0, 0, 0, 0);
+}
+
+h1 {
+	line-height: 0;
+	position: absolute;
+	top: 0;
+	left: 375px;
+	z-index: 2;
+}
+
+#gloNav li {
+	width: 80px;
+	line-height: 0;
+	float: left;
+}
+
+#nav01 {
+	margin-left: 55px;
+	position: relative;
+	z-index: 4;
+}
+
+#nav02 {
+	margin-left: 120px;
+}
+
+#nav03 {
+	margin-left: 290px;
+}
+
+#nav04 {
+	margin-left: 120px;
+}
+
+#illust01 {
+	line-height: 0;
+	position: absolute;
+	top: 0;
+	left: -40px;
+	z-index: 3;
+}
+
+#illust02 {
+	line-height: 0;
+	position: absolute;
+	top: 60px;
+	right: 20px;
+	z-index: 3;
+}
+
+
+/* ページトップ */
+#pageTop {
+	width: 960px;
+	margin: 105px auto 7px;
+}
+
+#pageTop p {
+	width: 95px;
+	margin-left: 856px;
+	line-height: 0;
+}
+
+
+/* フッター */
+#footer {
+	width: 100%;
+	height: 238px;
+	background: url('../images/footerBg.png') repeat-x center center;
+}
+
+#footerContents {
+	width: 960px;
+	height: 238px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#footerContents h2 {
+	line-height: 0;
+	position: absolute;
+	bottom: 95px;
+	left: 0;
+}
+
+#telNum {
+	margin: 0 0 30px 230px;
+	padding-top: 18px;
+	line-height: 0;
+}
+
+#shopAddress {
+	margin: 0 0 75px 230px;
+	line-height: 0;
+}
+
+address {
+	text-align: center;
+	line-height: 0;
+}
