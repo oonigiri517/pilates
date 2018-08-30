@@ -13,9 +13,9 @@
 <option value="サンプル1">2018年</option>
 <option value="サンプル2">2019年</option>
 <option value="サンプル3">2020年</option>
-<option value="サンプル1">2021年</option>
-<option value="サンプル2">2022年</option>
-<option value="サンプル3">2023年</option>
+<option value="サンプル4">2021年</option>
+<option value="サンプル5">2022年</option>
+<option value="サンプル6">2023年</option>
 </select>
 </body>
 </html>
