@@ -88,14 +88,14 @@ public class Form extends HttpServlet {
 		}else{
 			if(!mail.equals(confMail)){
 				ems.put("confMail","<br>"+"メールアドレスが一致しません");
-			}/*else{
-				 pat = Pattern.compile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
-				 m = pat.matcher(mail);
+			}else{
+				Pattern pat = Pattern.compile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
+				Matcher m = pat.matcher(confMail);
 
 					if(!m.find()){
-						ems.put("mail","<br>"+"書式が正しくありません");
+						ems.put("confMail","<br>"+"書式が正しくありません");
 				}
-			}*/
+			}
 		}
 
 		if(tel !=null && tel.length()>1){
