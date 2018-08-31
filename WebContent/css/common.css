@@ -132,7 +132,12 @@ address {
 }
 /*地図*/
 
-.map1 { text-align: center;
+.map1 {
+	text-align: center;
+}
+
+.tableprice{
+	margin-left: ;
 
 }
 

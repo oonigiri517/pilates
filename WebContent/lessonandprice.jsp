@@ -36,6 +36,22 @@
 
 				<h3><img src="images/subTtl2.png" width="560" height="40" alt="価格表" /></h3>
 
+
+
+				<table border="1" cellspacing="0" align="center">
+					<tr style="background-color:#F0F7F9;font-weight:bold;">
+						<td style="padding: 8px;text-align:center;font-size:20px;">Trial lesson</td>
+						<td style="padding: 8px; text-align:center;font-size:20px;">1 lesson</td>
+						<td style="padding: 8px; text-align:center;font-size:20px;">4 lesson</td>
+					</tr>
+					<tr style="background-color:#F0F7F9;font-weight:bold;">
+						<td style="padding: 8px; text-align:center;font-size:20px;">2,500 yen</td>
+						<td style="padding: 8px; text-align:center;font-size:20px;">3,000 yen</td>
+						<td style="padding: 8px; text-align:center;font-size:20px;">11,000 yen</td>
+					</tr>
+				</table>
+				<br><br>
+
 				</div>
 				</div>
 <footer>
