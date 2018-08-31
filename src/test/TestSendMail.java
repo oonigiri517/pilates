@@ -5,7 +5,7 @@ import model.MailData;
 
 public class TestSendMail {
 	public static void main(String[] args) {
-		MailData mailData = new MailData("1","2018/08/28","10:00","山田","花子","relax.pilates123@mail.com");
+		MailData mailData = new MailData();
 		testFindNum(mailData);
 	}
 
