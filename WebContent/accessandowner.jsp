@@ -45,6 +45,8 @@
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・30代女性。食べることとスノーボードが大好き。<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・レッスン後のおしゃべりも是非どうぞ。
 				<br><br><br><br><br><br><br></p>
+			</div>
+			</div>
 <footer>
 <jsp:include page="/footer.jsp"/>
 </footer>
