@@ -35,6 +35,9 @@
 
 
 				<h3><img src="images/subTtl2.png" width="560" height="40" alt="価格表" /></h3>
+
+				</div>
+				</div>
 <footer>
 <jsp:include page="/footer.jsp"/>
 </footer>
