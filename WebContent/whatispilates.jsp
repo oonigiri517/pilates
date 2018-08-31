@@ -79,6 +79,9 @@
 			<!-- #contentsInner --></div>
 
 		<!-- #contentsArea --></div>
+				<div id="pageTop">
+			<p class="mouseHvr"><a href="#"><img src="images/pageTop.png" width="95" height="100" alt="PageTop" /></a></p>
+		<!-- #pageTop --></div>
 <footer>
 <jsp:include page="/footer.jsp"/>
 </footer>
