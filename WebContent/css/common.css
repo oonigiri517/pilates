@@ -32,13 +32,7 @@
 	background: url('../images/headerBg.png') repeat-x scroll center center rgba(0, 0, 0, 0);
 }
 
-h1 {
-	line-height: 0;
-	position: absolute;
-	top: 0;
-	left: 375px;
-	z-index: 2;
-}
+
 
 #gloNav li {
 	width: 80px;
