@@ -1,3 +1,5 @@
+//使用前にメールアドレスとパスワード設定すること
+
 package bo;
 
 import java.util.Date;
@@ -40,8 +42,8 @@ public class SendMail {
 
 		String toAddress=mail;//送信先アドレス
 
-		String fromAddress="relax.pilates123@gmail.com";//送信元
-		String password="relax321";//送信元のパスわード
+		String fromAddress="*****";//送信元
+		String password="*****";//送信元のパスわード
 
 		mailSend(title,text,toAddress,fromAddress,password);//パスワード
 		return true;//うーん。。
