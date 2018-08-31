@@ -28,7 +28,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>予約フォーム</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>ピラティススタジオ | Relax Pilates 予約フォーム</title>
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<link href="css/reset.css" type="text/css" rel="stylesheet" />
+	<link href="css/common.css" type="text/css" rel="stylesheet" />
+	<link href="css/menu.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/function.js"></script>
+
+	<jsp:include page="/menu.jsp"/>
 <style>
 		.error{
 			color:#ff0000;
@@ -38,6 +49,11 @@
 		body{
 		  width:100%; /*ページ全体の幅は100%と指定する*/
 		  text-align:center; /*ページ全体を中央揃えにする*/
+		}
+
+		#wrapper{
+			margin-top:120px;
+			margin-bottom:80px;
 		}
 
 		table{
@@ -77,12 +93,17 @@
 		  color         : rgba(102, 226, 226, 0.76);     /* 背景色     */
 		  background    : #ffffff;     /* 文字色     */
 		}
+		h2{
+		font-size:200%;
+		}
+
 
 </style>
 </head>
 <body>
-<h1>予約フォーム</h1>
-<h2>お客様の情報をご入力ください</h2>
+<div id="wrapper">
+<h2>予約フォーム</h2>
+<h3>お客様の情報をご入力ください</h3>
 
 
 <form action="/Pilates/Form" method="post">
@@ -183,6 +204,10 @@ placeholder="何でも書いてね♪"><%= memo %></textarea>
 
 </form>
 
+</div>
 
+<footer>
+<jsp:include page="/footer.jsp"/>
+</footer>
 </body>
 </html>

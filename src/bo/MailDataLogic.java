@@ -8,9 +8,9 @@ import model.ReserveData;
 public class MailDataLogic {
 
 	public MailData rsvData(Lesson lesson, ReserveData rData) {
-
 		DataDAO dataDAO = new DataDAO();
 		MailData mailData = new MailData();
-		return mailData=dataDAO.findNum(lesson, rData);
+		mailData=dataDAO.findNum(lesson, rData);
+		return mailData;
 	}
 }
