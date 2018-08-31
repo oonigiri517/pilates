@@ -81,7 +81,7 @@ public class Form extends HttpServlet {
 				if(!m.find()){
 					ems.put("mail","<br>"+"書式が正しくありません");
 			}
-
+		}
 
 		if(confMail ==null || confMail.length() ==0){
 			ems.put("confMail","<br>"+"確認メールが未入力です");
@@ -95,12 +95,12 @@ public class Form extends HttpServlet {
 					if(!m.find()){
 						ems.put("mail","<br>"+"書式が正しくありません");
 				}
-			}
-		}*/
+			}*/
+		}
 
 		if(tel !=null && tel.length()>1){
-			 pat = Pattern.compile("^0[0-9]{1,4}-?[0-9]{1,4}-?[0-9]{4}$");
-			 m = pat.matcher(tel);
+			Pattern pat = Pattern.compile("^0[0-9]{1,4}-?[0-9]{1,4}-?[0-9]{4}$");
+			Matcher m = pat.matcher(tel);
 			if(!m.find()){
 				ems.put("tel","<br>"+"書式が正しくありません");
 			}
@@ -126,5 +126,5 @@ public class Form extends HttpServlet {
 		dis.forward(request, response);
 		}
 	}
-	}
-}
+
+
