@@ -3,6 +3,8 @@ package servlet;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -72,12 +74,35 @@ public class Form extends HttpServlet {
 		}
 		if(mail ==null || mail.length() ==0){
 			ems.put("mail","<br>"+"メールが未入力です");
-		}
+		}else{
+			Pattern pat = Pattern.compile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
+			Matcher m = pat.matcher(mail);
+
+				if(!m.find()){
+					ems.put("mail","<br>"+"書式が正しくありません");
+			}
+
+
 		if(confMail ==null || confMail.length() ==0){
 			ems.put("confMail","<br>"+"確認メールが未入力です");
 		}else{
 			if(!mail.equals(confMail)){
 				ems.put("confMail","<br>"+"メールアドレスが一致しません");
+			}/*else{
+				 pat = Pattern.compile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
+				 m = pat.matcher(mail);
+
+					if(!m.find()){
+						ems.put("mail","<br>"+"書式が正しくありません");
+				}
+			}
+		}*/
+
+		if(tel !=null && tel.length()>1){
+			 pat = Pattern.compile("^0[0-9]{1,4}-?[0-9]{1,4}-?[0-9]{4}$");
+			 m = pat.matcher(tel);
+			if(!m.find()){
+				ems.put("tel","<br>"+"書式が正しくありません");
 			}
 		}
 
@@ -99,7 +124,7 @@ public class Form extends HttpServlet {
 		//フォワード
 		RequestDispatcher dis=request.getRequestDispatcher(forwardPath);
 		dis.forward(request, response);
-
+		}
 	}
-
+	}
 }
