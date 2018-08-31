@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Calendar;
 
 import model.Lesson;
 import model.MailData;
@@ -17,17 +18,19 @@ public class LessonDAO {
 	final String DB_PASS = "root";
 	Connection conn = null;
 
-	public boolean check(Lesson lesson, ReserveData rData) {
+
+	public boolean check(Calendar day) {
 
 		try {
 			Class.forName(DRIVER_NAME);
 			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 
 			// entrantテーブルにデータを挿入
-			String sql = "SELECT*FROM lesson where date=? and time=?";
+			String sql = "SELECT*FROM lesson where date=?";
 			PreparedStatement pStmt1 = conn.prepareStatement(sql);
-			pStmt1.setString(1, lesson.getDate());
-			pStmt1.setString(2, lesson.getTime());
+			pStmt1.setString(1, day);
+
+
 
 
 			ResultSet rs = pStmt1.executeQuery();
