@@ -14,7 +14,7 @@
 				<ul id="gloNav" class="clearfix">
 					<li id="nav01"><a href="whatispilates.jsp"><img src="images/nav01-off.png" width="80" height="80" alt="ピラティスについて What is pilates" /></a></li>
 					<li id="nav02"><a href="lessonandprice.jsp"><img src="images/nav02-off.png" width="80" height="80" alt="レッスン＆価格 lesson and price" /></a></li>
-					<li id="nav03"><a href="#"><img src="images/nav03-off.png" width="80" height="80" alt="予約 reservation" /></a></li>
+					<li id="nav03"><a href="form.jsp"><img src="images/nav03-off.png" width="80" height="80" alt="予約 reservation" /></a></li>
 					<li id="nav04"><a href="accessandowner.jsp"><img src="images/nav04-off.png" width="80" height="80" alt="アクセス＆オーナーaccess and owner" /></a></li>
 				</ul>
 				<p id="illust01"><img src="images/illust01.png" width="140" height="290" alt="" /></p>
