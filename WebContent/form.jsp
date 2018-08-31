@@ -184,6 +184,15 @@ if(ems != null && ems.size()>0){
 <td>
 <input type="text" name="tel"  size="20" maxlength="20"
 value="<%= tel %>" placeholder="09012345678">
+<span class="error">
+<%
+if(ems != null && ems.size()>0){
+	if(ems.containsKey("tel")){
+		out.print(ems.get("tel"));
+	}
+}
+%>
+</span><br>
 </td>
 </tr>
 
