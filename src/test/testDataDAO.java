@@ -16,7 +16,6 @@ public class testDataDAO {
 
 	}
 
-
 	public static void testFindNum(Lesson lesson, ReserveData rData){
 		DataDAO dataDAO=new DataDAO();
 		MailData mailData = null;
