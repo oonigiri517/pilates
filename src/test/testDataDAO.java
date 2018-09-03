@@ -7,7 +7,7 @@ import model.ReserveData;
 
 public class testDataDAO {
 	public static void main(String[] args) {
-		Lesson lesson=new Lesson("20180828","10:00");
+		Lesson lesson=new Lesson("2018/08/28","10:00");
 		ReserveData rData=new ReserveData("山田","花子","yamada@mail.com","yamada@mail.com","090-0000-9999","test");
 
 		testFindNum(lesson, rData);
