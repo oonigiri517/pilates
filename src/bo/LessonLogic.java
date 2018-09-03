@@ -4,13 +4,7 @@ import java.util.Calendar;
 import dao.LessonDAO;
 import model.Schedule;
 public class LessonLogic {
-<<<<<<< HEAD
-	public Lesson showSchedule(Calendar calendar){
-while( ){
-		Lesson le= new Lesson();
-return le;
-	}}
-=======
+
 
 	public Schedule showSchedule(Calendar calendar){
 		calendar=Calendar.getInstance();
@@ -35,7 +29,7 @@ return le;
 
 
 		}else{
-			String DATE=sLM+"/"+sLD
+			String DATE=sLM+"/"+sLD;
 			LessonDAO LDAO=new LessonDAO();
 			LDAO.findDay(sLM,sLD);
 
@@ -44,6 +38,5 @@ return le;
 		Schedule sle=new Schedule(le);
 return sle;
 	}
->>>>>>> Branchテスト
 
 }

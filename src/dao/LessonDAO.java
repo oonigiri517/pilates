@@ -5,18 +5,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-<<<<<<< HEAD
 import java.util.Calendar;
 
 import model.Lesson;
 import model.MailData;
 import model.ReserveData;
-=======
 
-import model.Lesson;
 
-;
->>>>>>> Branchテスト
 
 public class LessonDAO {
 	final String DRIVER_NAME = "com.mysql.jdbc.Driver";
@@ -166,10 +161,6 @@ public class LessonDAO {
 	}
 
 
-		private final String DRIVER_NAME="com.mysql.jdbc.Driver";
-		private final String JDBC_URL="jdbc:mysql//localhost/data/DokoTsubu/useSSL=false";
-		private final String DB_USER="sa";
-		private final String DB_PASS="";
 
 
 		public Lesson[] findDay(String day){

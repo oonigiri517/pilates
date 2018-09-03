@@ -17,7 +17,7 @@ public class Schedule implements Serializable {
 	}
 
 	public void setSchedule(String[] schedule) {
-		Schedule = schedule;
+		this.schedule = schedule;
 	}
 
 
