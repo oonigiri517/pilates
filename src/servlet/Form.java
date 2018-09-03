@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Lesson;
 import model.ReserveData;
 
 
@@ -60,10 +61,8 @@ public class Form extends HttpServlet {
 
 		//情報を設定
 		ReserveData reserveData=new ReserveData(family_name,first_name,mail,confMail,tel,memo);
-
-
 		//セッションスコープに保存
-		HttpSession se=request.getSession();
+		HttpSession session=request.getSession();
 
 		//入力チェック
 		if(family_name ==null || family_name.length() ==0){
@@ -108,8 +107,12 @@ public class Form extends HttpServlet {
 
 
 		if(ems.size() == 0){
+			//カレンダーと連携するまでこの形で！
+			Lesson lesson=new Lesson("2018/08/30","10:00");
+			session.setAttribute("lesson",lesson);
+
 			//データをセッションスコープに保存
-			se.setAttribute("reserveData", reserveData);
+			session.setAttribute("reserveData", reserveData);
 			forwardPath = "/WEB-INF/jsp/formConfirm.jsp";
 		}else{
 			//ErrorBeans eb = new ErrorBeans();
@@ -119,7 +122,6 @@ public class Form extends HttpServlet {
 			//修正があるのでform.jspを再表示
 			forwardPath = "/form.jsp";
 		}
-
 
 		//フォワード
 		RequestDispatcher dis=request.getRequestDispatcher(forwardPath);
