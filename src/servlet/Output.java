@@ -26,8 +26,10 @@ public class Output extends HttpServlet {
 		String csvData = odao.OutputCSV() ;
 
 		//csvData = new String(csvData.getBytes("UTF-8"), "SHIFT-JIS");
+		//ファイル名生成
 		SimpleDateFormat simpleDataFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String filename = simpleDataFormat.format(new Date()) + ".xlsx";
+		String filename = simpleDataFormat.format(new Date()) + ".csv";
+
 		//application/octet-stream
 		response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 	    response.setHeader("Content-Disposition"
@@ -35,7 +37,7 @@ public class Output extends HttpServlet {
 	         response.setCharacterEncoding("UTF-8");
 	    //"attachment; filename=\"downloadFile.csv\""
 	    OutputStream out = response.getOutputStream();
-	    byte[] downloadData = csvData.getBytes();
+	    byte[] downloadData = csvData.getBytes("SHIFT-JIS");
 	    out.write(downloadData);
 	    out.close();
 
