@@ -32,12 +32,12 @@
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・始めてでも安心してレッスンを受けていただけます。<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・通いやすい回数券もご用意しています。</p>
 
-
+				<br><br>
 
 				<h3><img src="images/subTtl2.png" width="560" height="40" alt="価格表" /></h3>
 
 
-
+			<div id=table align="center">
 				<table border="1" cellspacing="0" align="center">
 					<tr style="background-color:#F0F7F9;font-weight:bold;">
 						<td style="padding: 8px;text-align:center;font-size:20px;">Trial lesson</td>
@@ -50,6 +50,7 @@
 						<td style="padding: 8px; text-align:center;font-size:20px;">11,000 yen</td>
 					</tr>
 				</table>
+			</div>
 				<br><br>
 
 				</div>
