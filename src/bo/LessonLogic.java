@@ -23,8 +23,8 @@ public class LessonLogic {
 		boolean N=calendar.after(today);
 		String[] le= new String[6];
 		le[1] = sLM;
-		le[2]=sLD;
-		if(N=false){
+		le[2]= sLD;
+		if(N==false){
 
 			le[3]="締切";
 			le[4]="";
@@ -47,7 +47,7 @@ public class LessonLogic {
 
 
 			}
-			int CC2 =CCDAO.countCustomer(DATE,le[3]);
+			int CC2 =CCDAO.countCustomer(DATE,le[5]);
 			switch(CC2){
 			case 0:le[6]="残り2人";break;
 			case 1:le[6]="残り１人";break;
