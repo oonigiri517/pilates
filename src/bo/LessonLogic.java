@@ -1,11 +1,17 @@
 package bo;
 import java.util.Calendar;
 
-import model.Lesson;
+import dao.LessonDAO;
+import model.Schedule;
 public class LessonLogic {
 
-	public Lesson showSchedule(Calendar calendar){
+	public Schedule showSchedule(Calendar calendar){
 		calendar=Calendar.getInstance();
+		int LY = calendar.get(Calendar.YEAR);
+		int LM = calendar.get(Calendar.MONTH);
+		int LD = calendar.get(Calendar.DATE);
+		String sLM=String.valueOf(LM);
+		String sLD=String.valueOf(LD);
 		Calendar today=Calendar.getInstance();
 		int Y=today.get(Calendar.YEAR);
 		int M=today.get(Calendar.MONTH);
@@ -13,8 +19,22 @@ public class LessonLogic {
 		today.set(Y,M,D);
 		today.add(D,2);
 		boolean N=calendar.after(today);
-		Lesson le= new Lesson();
-return le;
+		String[] le= new String[4];
+		if(N=false){
+			le[1] = sLM;
+			le[2]=sLD;
+			le[3]="締切";
+			le[4]="";
+
+
+		}else{
+			LessonDAO LDAO=new LessonDAO();
+			LDAO.findDay(sLM,sLD);
+
+
+		}
+		Schedule sle=new Schedule(le);
+return sle;
 	}
 
 }
