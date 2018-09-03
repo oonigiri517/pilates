@@ -11,6 +11,8 @@ import model.Lesson;
 import model.MailData;
 import model.ReserveData;
 
+
+
 public class LessonDAO {
 	final String DRIVER_NAME = "com.mysql.jdbc.Driver";
 	final String JDBC_URL = "jdbc:mysql://localhost/pilates";
@@ -159,4 +161,73 @@ public class LessonDAO {
 	}
 
 
-}
+
+
+		public String[] findDay(String day){
+			Connection conn =null;
+			int I=0;
+			String[] FDL= new String[]{"無し","無し"};
+			try{Class.forName(DRIVER_NAME);
+			conn=DriverManager.getConnection(JDBC_URL,DB_USER,DB_PASS);
+
+			String sql="SELECT l_date,l_time FROM lesson WHERE l_date=?";
+			PreparedStatement pStmt=conn.prepareStatement(sql);
+			pStmt.setString(1, day);
+			ResultSet rs=pStmt.executeQuery();
+			while (rs.next()) {
+
+	     		String l_time=rs.getString("l_time");
+	     		FDL[I]=l_time;
+	     		I=I+1;
+			}
+			return FDL;
+
+
+			}catch(SQLException e){
+				e.printStackTrace();
+				return null;
+			}catch(ClassNotFoundException e){
+				e.printStackTrace();
+				return null;
+			}finally{
+				if(conn !=null){
+					try{
+						conn.close();
+					}catch(SQLException e){
+						e.printStackTrace();
+						return null;
+					}
+				}
+			}
+		}
+
+		public boolean create(Lesson lesson){
+			Connection conn=null;
+			try{
+				conn=DriverManager.getConnection(JDBC_URL,DB_USER,DB_PASS);
+				String sql="INSERT INTO MUTTER(l_day,l_time) VALUES(?,?)";
+				PreparedStatement pStmt=conn.prepareStatement(sql);
+				pStmt.setString(1,lesson.getDate());
+				pStmt.setString(2,lesson.getTime());
+
+				int result=pStmt.executeUpdate();
+				if(result !=1){
+					return false;
+				}
+			}catch(SQLException e){
+				e.printStackTrace();
+				return false;
+			}finally{
+				if(conn !=null){
+					try{
+
+					conn.close();
+					}catch(SQLException e){
+						e.printStackTrace();
+
+					}
+
+				}
+			}return true;
+		}
+		}
