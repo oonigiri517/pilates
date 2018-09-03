@@ -46,7 +46,7 @@ public class SendMail {
 		String password="relax321";//送信元のパスわード
 
 		mailSend(title,text,toAddress,fromAddress,password);//パスワード
-		return true;//うーん。。
+		return true;//時間があれば送信できてないか確認追加する
 	}
 
 	public static void mailSend(String title, String text, String toAddress,

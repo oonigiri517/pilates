@@ -105,7 +105,6 @@ public class Form extends HttpServlet {
 			}
 		}
 
-
 		if(ems.size() == 0){
 			//カレンダーと連携するまでこの形で！
 			Lesson lesson=new Lesson("2018/08/30","10:00");

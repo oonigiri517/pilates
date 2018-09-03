@@ -11,10 +11,9 @@ public class MailDataLogic {
 		DataDAO dataDAO = new DataDAO();
 		MailData mailData = null;
 		SendMail sm=new SendMail();
-		boolean result=false;
 
 		mailData=dataDAO.findNum(lesson, rData);
-		result=sm.send(mailData);
+		boolean result=sm.send(mailData);
 
 		return result;
 	}
