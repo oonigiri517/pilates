@@ -21,9 +21,10 @@ public class LessonLogic {
 		today.add(D,2);
 		boolean N=calendar.after(today);
 		String[] le= new String[4];
+		le[1] = sLM;
+		le[2]=sLD;
 		if(N=false){
-			le[1] = sLM;
-			le[2]=sLD;
+
 			le[3]="締切";
 			le[4]="";
 

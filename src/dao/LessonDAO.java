@@ -163,10 +163,10 @@ public class LessonDAO {
 
 
 
-		public Lesson[] findDay(String day){
+		public String[] findDay(String day){
 			Connection conn =null;
 			int I=0;
-			Lesson[] FDL= new Lesson[2];
+			String[] FDL= new String[]{"無し","無し"};
 			try{Class.forName(DRIVER_NAME);
 			conn=DriverManager.getConnection(JDBC_URL,DB_USER,DB_PASS);
 
@@ -175,11 +175,10 @@ public class LessonDAO {
 			pStmt.setString(1, day);
 			ResultSet rs=pStmt.executeQuery();
 			while (rs.next()) {
-	     		I=I+1;
-	     		String l_date =rs.getString("l_date");
+
 	     		String l_time=rs.getString("l_time");
-	     		Lesson lesson=new Lesson(l_date,l_time);
-	     		FDL[I]=lesson;
+	     		FDL[I]=l_time;
+	     		I=I+1;
 			}
 			return FDL;
 
