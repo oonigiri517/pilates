@@ -51,7 +51,7 @@ public class OutPutDAO {
 			Statement stmt = conn.createStatement();
 
 			//項目名を表示するSQL文
-			String sql = "show columns from 家計簿";
+			String sql = "show columns from kakeibp";
 			ResultSet rs = stmt.executeQuery(sql);
 
 			//項目名を書き込む
@@ -66,7 +66,7 @@ public class OutPutDAO {
 			bw.write("\n");
 			sb.append("\n");
 			//データを表示するSQL分
-			sql = "SELECT * FROM 家計簿";
+			sql = "SELECT * FROM kakeibp";
 			rs = stmt.executeQuery(sql);
 
 			//データを書き込む
