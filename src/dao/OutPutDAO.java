@@ -33,8 +33,12 @@ public class OutPutDAO {
 	        String now = df.format(d);
 
 	        //現在時間をつけたファイルを生成
+<<<<<<< Updated upstream
 //	        String realPath = this.getServletContext().getRealPath("/WEB-INF/name.txt");
 			File f = new File("/WEB-INF/jsp/家計簿"+now+".csv");
+=======
+			File f = new File("C:\\Users\\s1-01.S1-01\\Desktop\\家計簿"+now+".csv");
+>>>>>>> Stashed changes
 
 			//文字コードを指定して書き込むやつ？
 		    OutputStreamWriter osw  = new OutputStreamWriter(new FileOutputStream(f), "SHIFT-JIS");
