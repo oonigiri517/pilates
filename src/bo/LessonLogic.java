@@ -31,7 +31,7 @@ public class LessonLogic {
 		}else{
 			String DATE=sLM+"/"+sLD;
 			LessonDAO LDAO=new LessonDAO();
-			LDAO.findDay(sLM,sLD);
+			LDAO.findDay(DATE);
 
 
 		}
