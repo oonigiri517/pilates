@@ -101,7 +101,8 @@ th {
 	<div id="main">
 		<div id="mainInner">
 			<h2>
-				<img src="images/menuTtl4.png" width="210" height="60" alt="Menu メニュー" />
+				<img src="images/menuTtl4.png" width="210" height="60"
+					alt="Menu メニュー" />
 			</h2>
 		</div>
 		<!-- #main -->
@@ -111,101 +112,103 @@ th {
 
 		<div id="contentsInner">
 
-		<h3><img src="images/subTtl5.png" width="560" height="40" alt="お客様情報を入力してください" /></h3>
+			<h3>
+				<img src="images/subTtl5.png" width="560" height="40"
+					alt="お客様情報を入力してください" />
+			</h3>
 
 			<div id="wrapper">
 
 
-				<form action="/Pilates/Form" method="post">
+					<form action="/Pilates/Form" method="post">
 
-					<table>
+						<table align="center">
 
-						<tr>
-							<th>姓</th>
-							<td><input type="text" name="family_name" size="20"
-								maxlength="20" value="<%=family_name%>" placeholder="山田">
-								<span class="error"> <%
+							<tr>
+								<th>姓</th>
+								<td><input type="text" name="family_name" size="20"
+									maxlength="20" value="<%=family_name%>" placeholder="山田">
+									<span class="error"> <%
  	if (ems != null && ems.size() > 0) {
  		if (ems.containsKey("family_name")) {
  			out.print(ems.get("family_name"));
  		}
  	}
  %>
-							</span><br></td>
-						</tr>
+								</span><br></td>
+							</tr>
 
-						<tr>
-							<th>名</th>
-							<td><input type="text" name="first_name" size="20"
-								maxlength="20" value="<%=first_name%>" placeholder="花子">
-								<span class="error"> <%
+							<tr>
+								<th>名</th>
+								<td><input type="text" name="first_name" size="20"
+									maxlength="20" value="<%=first_name%>" placeholder="花子">
+									<span class="error"> <%
  	if (ems != null && ems.size() > 0) {
  		if (ems.containsKey("first_name")) {
  			out.print(ems.get("first_name"));
  		}
  	}
  %>
-							</span><br></td>
-						</tr>
+								</span><br></td>
+							</tr>
 
-						<tr>
-							<th>メールアドレス</th>
-							<td><input type="text" name="mail" size="60" maxlength="100"
-								value="<%=mail%>" placeholder="yamada@mail.com"> <span
-								class="error"> <%
+							<tr>
+								<th>メールアドレス</th>
+								<td><input type="text" name="mail" size="60"
+									maxlength="100" value="<%=mail%>" placeholder="yamada@mail.com">
+									<span class="error"> <%
  	if (ems != null && ems.size() > 0) {
  		if (ems.containsKey("mail")) {
  			out.print(ems.get("mail"));
  		}
  	}
  %>
-							</span><br></td>
-						</tr>
+								</span><br></td>
+							</tr>
 
-						<tr>
-							<th>確認用メールアドレス
+							<tr>
+								<th>確認用メールアドレス
 
-								<div style="font-size: small;">※コピー&ペーストNG</div>
-							</th>
-							<td><input type="text" oncopy="return false"
-								onpaste="return false" oncontextmenu="return false"
-								name="confMail" size="60" maxlength="100"
-								value="<%=confMail%>" placeholder="yamada@mail.com"> <span
-								class="error"> <%
- 	if (ems != null && ems.size() > 0) {
- 		if (ems.containsKey("confMail")) {
- 			out.print(ems.get("confMail"));
- 		}
- 	}
- %>
-							</span><br></td>
-						</tr>
+									<div style="font-size: small;">※コピー&ペーストNG</div>
+								</th>
+								<td><input type="text" oncopy="return false"
+									onpaste="return false" oncontextmenu="return false"
+									name="confMail" size="60" maxlength="100" value="<%=confMail%>"
+									placeholder="yamada@mail.com"> <span class="error">
+										<%
+											if (ems != null && ems.size() > 0) {
+												if (ems.containsKey("confMail")) {
+													out.print(ems.get("confMail"));
+												}
+											}
+										%>
+								</span><br></td>
+							</tr>
 
-						<tr>
-							<th>電話番号（任意）</th>
-							<td><input type="text" name="tel" size="20" maxlength="20"
-								value="<%=tel%>" placeholder="09012345678"> <span
-								class="error"> <%
+							<tr>
+								<th>電話番号（任意）</th>
+								<td><input type="text" name="tel" size="20" maxlength="20"
+									value="<%=tel%>" placeholder="09012345678"> <span
+									class="error"> <%
  	if (ems != null && ems.size() > 0) {
  		if (ems.containsKey("tel")) {
  			out.print(ems.get("tel"));
  		}
  	}
  %>
-							</span><br></td>
-						</tr>
+								</span><br></td>
+							</tr>
 
-						<tr>
-							<th>備考（任意）</th>
-							<td><textarea name="memo" cols="40" maxlength="200"
-									placeholder="何でも書いてね♪"><%=memo%></textarea></td>
-						</tr>
-					</table>
-					<br> <br> <br>
-					<div id="btm">
-					<input type="submit" value="確認"
-						class="button" text-align="center">
-					</div>
+							<tr>
+								<th>備考（任意）</th>
+								<td><textarea name="memo" cols="40" maxlength="200"
+										placeholder="何でも書いてね♪"><%=memo%></textarea></td>
+							</tr>
+						</table>
+				<br> <br>
+				<div id="btm">
+					<input type="submit" value="確認" class="button" text-align="center">
+				</div>
 
 
 				</form>
