@@ -1,18 +1,13 @@
-package servlet;
+package test;
 
-import java.io.IOException;
 import java.util.Calendar;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import bo.LessonLogic;
+import model.Schedule;
 
-@WebServlet("/ShowCalendar")
-public class ShowCalendar extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class TShowCalendar {
+
+	public static void main(String[] args) {
 		Calendar MC=Calendar.getInstance();
 		int Y=MC.get(Calendar.YEAR);
 		int M=MC.get(Calendar.MONTH);
@@ -33,7 +28,14 @@ public class ShowCalendar extends HttpServlet {
 	          System.out.print("  ");
 	        //日数表示
 	        }else if(day<LDM) {
-	          System.out.print((day+1)+" ");
+	        	MC.set(Y,M,day+1);
+	        	LessonLogic LL=new LessonLogic();
+	        	Schedule LT=LL.showSchedule(MC);
+	        	String[] LTL=LT.getSchedule();
+	        	for(int i=0;i<LTL.length;i++){
+	        		System.out.println(LTL[i]);
+	        	}
+
 	          day++;
 	        }
 	      }
@@ -43,8 +45,6 @@ public class ShowCalendar extends HttpServlet {
 	      }
 	    }
 	  }
-
-
 	}
 
-}
+

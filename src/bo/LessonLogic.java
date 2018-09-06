@@ -28,9 +28,9 @@ public class LessonLogic {
 		if (N == false) {
 
 			le[3] = "締切";
-			le[4] = "";
-			le[5] = "";
-			le[6] = "";
+			le[4] = null;
+			le[5] = null;
+			le[6] = null;
 
 		} else {
 			String DATE = sLM + "/" + sLD;
@@ -66,8 +66,8 @@ public class LessonLogic {
 
 				}
 			} else if ((FDATE[0] == "無し") && (FDATE[1] != "無し")) {
-				le[3] = "";
-				le[4] = "";
+				le[3] = null;
+				le[4] = null;
 				le[5] = FDATE[1];
 				CustomerDAO CCDAO = new CustomerDAO();
 				int CC2 = CCDAO.countCustomer(DATE, le[5]);
@@ -101,9 +101,9 @@ public class LessonLogic {
 				}
 			} else {
 				le[3] = "休み";
-				le[4] = "";
-				le[5] = "";
-				le[6] = "";
+				le[4] = null;
+				le[5] = null;
+				le[6] = null;
 			}
 		}
 		Schedule sle = new Schedule(le);
