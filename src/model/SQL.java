@@ -6,8 +6,8 @@ public class SQL {
 	//山本のSQLに接続できます。
 	//SQLファイルの場所･･･授業用\アプリケーション\おにぎり\
 	final String JDBC_URL_y = "jdbc:mysql://localhost/pilates";
-	final String DB_USER = "root";
-	final String DB_PASS = "root";
+	final String DB_USER = "onigiri";
+	final String DB_PASS = "onigiri";
 
 	public String getDRIVER_NAME() {
 		return DRIVER_NAME;
