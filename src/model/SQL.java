@@ -2,7 +2,10 @@ package model;
 
 public class SQL {
 	final String DRIVER_NAME = "com.mysql.jdbc.Driver";
-	final String JDBC_URL_y = "jdbc:mysql://192.168.10.27/pilates";
+	//localhostの部分をSQLファイル記載のIPアドレスに変更すると
+	//山本のSQLに接続できます。
+	//SQLファイルの場所･･･授業用\アプリケーション\おにぎり\
+	final String JDBC_URL_y = "jdbc:mysql://localhost/pilates";
 	final String DB_USER = "root";
 	final String DB_PASS = "root";
 
