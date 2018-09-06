@@ -49,7 +49,7 @@
 			</h3>
 
 
-
+		<div id="hyouji">
 				<%
 					if (emsRsv != null && emsRsv.size() > 0) {
 						if (emsRsv.containsKey("reserved")) {
@@ -57,6 +57,7 @@
 						}
 					}
 				%>
+		</div>
 
 				<form action="/Pilates/Reserve" method="post" align="center">
 
