@@ -1,3 +1,5 @@
+//電話番号正規表現
+//メール正規表現
 package test;
 
 import java.util.regex.Matcher;

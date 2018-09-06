@@ -18,6 +18,7 @@
 	line-height: 0;
 	margin-left: 120px;
 	padding-top: 90px;
+
 }
 
 
@@ -32,7 +33,7 @@
 #contentsInner {
 	width: 960px;
 	margin: 0 auto;
-	padding-top: 90px;
+	padding-top: 100px;
 	position: relative;
 }
 
@@ -139,4 +140,8 @@
 .menuList li span {
 	color: #f08e8e;
 	display: block;
+}
+/*form.jsp内ボタンの中央配置用*/
+#btm {
+	text-align: center;
 }

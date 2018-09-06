@@ -1,12 +1,15 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.HashMap;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bo.DataCheck;
 import bo.DataInput;
@@ -21,9 +24,9 @@ public class Reserve extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//栗栖のとあわせるまでこの形でやる！
-		ReserveData rData=new ReserveData();
-		Lesson lesson=new Lesson();
+		HttpSession session = request.getSession();
+		ReserveData rData=(ReserveData) session.getAttribute("reserveData");
+		Lesson lesson=(Lesson) session.getAttribute("lesson");
 
 		DataCheck dc=new DataCheck();
 		boolean result=dc.check(lesson, rData);
@@ -33,9 +36,14 @@ public class Reserve extends HttpServlet {
 			di.InputData(lesson, rData);
 			response.sendRedirect("/Pilates/Mail");
 		}else{
-//			RequestDispatcher disp=request.getRequestDispatcher("formConfirm.jsp");
-//			disp.forward(request, response);
+			HashMap<String,String> emsRsv = new HashMap<String,String>();
+			emsRsv.put("reserved","                        既にご予約をいただいております。"
+					+ "<br>                        ご予約内容等お問い合わせは"
+					+ "<br>                        relax.pilates123@gmail.comでお願いいたします。");
+			request.setAttribute("emsRsv", emsRsv);
+			//From.javaで予約が重複しているエラーを出す。。
+			RequestDispatcher disp=request.getRequestDispatcher("/WEB-INF/jsp/formConfirm.jsp");
+			disp.forward(request, response);
 		}
 	}
-
 }

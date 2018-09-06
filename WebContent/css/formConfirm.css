@@ -1,23 +1,23 @@
 @CHARSET "UTF-8";
 body{
 				  width:100%; /*ページ全体の幅は100%と指定する*/
-				  /*ページ全体を中央揃えにする*/
+				  /*text-align:center;/*ページ全体を中央揃えにする*/
 				}
 
-		div{
+		/*div{
 			width:600px;
 
 			margin:0 auto;
 		}
 
-		#wrapper h2{
+		/*#wrapper h2{
 		font-size:200%;
 		text-align:center;
-		}
+		}*/
 
-		#wrapper{
+		/*#wrapper{
 			margin-top:120px;
-			margin-bottom:80px;
+			margin-bottom:80px;*/
 		}
 
 		h1{

@@ -13,7 +13,7 @@ li{
   list-style: none;
   background-color: green;
   color:white;
-  
+
 }
 a:active {
   color:white;
@@ -22,12 +22,12 @@ a:active {
 a:link {
   color:white;
   text-decoration: none;
-  
+
 }
 a:visited {
   color:white;
   text-decoration: none;
-  
+
 }
 
 </style>
@@ -38,7 +38,7 @@ a:visited {
 <li><a href="/Pilates/Admin?page=l1">レッスン予定日編集画面</a></li>
 <li><a href="/Pilates/Admin?page=l2">予約キャンセル</a></li>
 <li><a href="/Pilates/Admin?page=l3">予約履歴</a></li>
-<li><a href="/Pilates/Admin?page=l4">顧客一覧</a></li>
+<li><a href="/Pilates/Output">顧客一覧</a></li>
 </ul>
 </body>
 </html>

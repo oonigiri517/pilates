@@ -17,13 +17,14 @@ public class DataDAO {
 	final String DB_PASS = "root";
 	Connection conn = null;
 
+	//予約内容重複チェック
 	public boolean check(Lesson lesson, ReserveData rData) {
 
 		try {
 			Class.forName(DRIVER_NAME);
 			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 
-			// entrantテーブルにデータを挿入
+			// 同一時間に同一アドレスの予約有無を確認
 			String sql = "SELECT*FROM reservation where date=? and time=? and mail=?";
 			PreparedStatement pStmt1 = conn.prepareStatement(sql);
 			pStmt1.setString(1, lesson.getDate());
@@ -55,6 +56,7 @@ public class DataDAO {
 		}
 	}
 
+	//予約書き込み
 	public boolean insert(Lesson lesson, ReserveData rData) {
 		Connection conn = null;
 		int firstSQLResult = 0;// 帰ってきた件数チェック(0件なら入ってない)
