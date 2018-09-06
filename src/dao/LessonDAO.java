@@ -10,12 +10,14 @@ import java.util.Calendar;
 import model.Lesson;
 import model.MailData;
 import model.ReserveData;
+import model.SQL;
 
 public class LessonDAO {
-	final String DRIVER_NAME = "com.mysql.jdbc.Driver";
-	final String JDBC_URL = "jdbc:mysql://localhost/pilates";
-	final String DB_USER = "root";
-	final String DB_PASS = "root";
+	SQL sqlUrl=new SQL();
+	final String DRIVER_NAME = sqlUrl.getDRIVER_NAME();
+	final String JDBC_URL = sqlUrl.getJDBC_URL_y();
+	final String DB_USER = sqlUrl.getDB_USER();
+	final String DB_PASS = sqlUrl.getDB_PASS();
 	Connection conn = null;
 
 	public boolean check(Calendar day) {
