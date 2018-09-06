@@ -58,7 +58,7 @@
 					}
 				%>
 
-				<form action="/Pilates/Reserve" method="post">
+				<form action="/Pilates/Reserve" method="post" align="center">
 
 					<table>
 						<tr>
