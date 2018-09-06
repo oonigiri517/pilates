@@ -11,6 +11,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import model.Lesson;
+import model.SQL;
 
 public class DefaultLessonDAO {
 
@@ -21,10 +22,11 @@ public class DefaultLessonDAO {
 	}
 
 	public boolean defaultInsert(Lesson lesson) {
-		final String DRIVER_NAME = "com.mysql.jdbc.Driver";
-		final String JDBC_URL = "jdbc:mysql://localhost/pilates?useSSL=false";
-		final String DB_USER = "root";
-		final String DB_PASS = "root";
+		SQL sqlUrl=new SQL();
+		final String DRIVER_NAME = sqlUrl.getDRIVER_NAME();
+		final String JDBC_URL = sqlUrl.getJDBC_URL_y();
+		final String DB_USER = sqlUrl.getDB_USER();
+		final String DB_PASS = sqlUrl.getDB_PASS();
 		Connection conn = null;
 
 		boolean result = false;
