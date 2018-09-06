@@ -37,9 +37,9 @@ public class Reserve extends HttpServlet {
 			response.sendRedirect("/Pilates/Mail");
 		}else{
 			HashMap<String,String> emsRsv = new HashMap<String,String>();
-			emsRsv.put("reserved","既にご予約をいただいております。"
-					+ "<br>ご予約内容等お問い合わせは"
-					+ "<br>relax.pilates123@gmail.comでお願いいたします。");
+			emsRsv.put("reserved","                        既にご予約をいただいております。"
+					+ "<br>                        ご予約内容等お問い合わせは"
+					+ "<br>                        relax.pilates123@gmail.comでお願いいたします。");
 			request.setAttribute("emsRsv", emsRsv);
 			//From.javaで予約が重複しているエラーを出す。。
 			RequestDispatcher disp=request.getRequestDispatcher("/WEB-INF/jsp/formConfirm.jsp");
