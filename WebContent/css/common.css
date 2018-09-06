@@ -157,4 +157,9 @@ address {
 	width:80%;
 	margin-left:25%;
 }
+/*form.jsp内ボタンの中央配置用*/
+#btm {
+	text-align: center;
+}
+
 
