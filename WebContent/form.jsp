@@ -91,7 +91,7 @@ th {
 	box-shadow: none; /* カーソル時の影消去 */
 	color: rgba(102, 226, 226, 0.76); /* 背景色     */
 	background: #ffffff; /* 文字色     */
-}
+	}
 /*h2{
 		font-size:200%;
 		}*/
