@@ -46,7 +46,7 @@ public class LessonLogic {
 					le[4] = "残り2人";
 					break;
 				case 1:
-					le[4] = "残り１人";
+					le[4] = "残り1人";
 					break;
 				case 2:
 					le[4] = "満員";
@@ -58,7 +58,7 @@ public class LessonLogic {
 					le[6] = "残り2人";
 					break;
 				case 1:
-					le[6] = "残り１人";
+					le[6] = "残り1人";
 					break;
 				case 2:
 					le[6] = "満員";
@@ -66,7 +66,8 @@ public class LessonLogic {
 
 				}
 			} else if ((FDATE[0] == "無し") && (FDATE[1] != "無し")) {
-				le[3] = FDATE[0];
+				le[3] = "";
+				le[4] = "";
 				le[5] = FDATE[1];
 				CustomerDAO CCDAO = new CustomerDAO();
 				int CC2 = CCDAO.countCustomer(DATE, le[5]);
@@ -75,7 +76,7 @@ public class LessonLogic {
 					le[6] = "残り2人";
 					break;
 				case 1:
-					le[6] = "残り１人";
+					le[6] = "残り1人";
 					break;
 				case 2:
 					le[6] = "満員";
@@ -83,7 +84,8 @@ public class LessonLogic {
 				}
 			} else if ((FDATE[0] != "無し") && (FDATE[1] == "無し")) {
 				le[3] = FDATE[0];
-				le[5] = FDATE[1];
+				le[5] = "";
+				le[6] = "";
 				CustomerDAO CCDAO = new CustomerDAO();
 				int CC1 = CCDAO.countCustomer(DATE, le[3]);
 				switch (CC1) {
@@ -91,12 +93,17 @@ public class LessonLogic {
 					le[4] = "残り2人";
 					break;
 				case 1:
-					le[4] = "残り１人";
+					le[4] = "残り1人";
 					break;
 				case 2:
 					le[4] = "満員";
 					break;
 				}
+			} else {
+				le[3] = "休み";
+				le[4] = "";
+				le[5] = "";
+				le[6] = "";
 			}
 		}
 		Schedule sle = new Schedule(le);
