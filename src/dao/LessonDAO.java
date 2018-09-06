@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Calendar;
 
 import model.Lesson;
 import model.MailData;
@@ -20,7 +19,7 @@ public class LessonDAO {
 	final String DB_PASS = sqlUrl.getDB_PASS();
 	Connection conn = null;
 
-	public boolean check(Calendar day) {
+	/*public boolean check(Calendar day) {
 
 		try {
 			Class.forName(DRIVER_NAME);
@@ -55,7 +54,7 @@ public class LessonDAO {
 			}
 		}
 	}
-
+*/
 	public boolean insert(Lesson lesson, ReserveData rData) {
 		Connection conn = null;
 		int firstSQLResult = 0;// 帰ってきた件数チェック(0件なら入ってない)
@@ -157,6 +156,7 @@ public class LessonDAO {
 	}
 
 	public String[] findDay(String day) {
+
 		Connection conn = null;
 		int I = 0;
 		String[] FDL = new String[] { "無し", "無し" };
@@ -164,14 +164,14 @@ public class LessonDAO {
 			Class.forName(DRIVER_NAME);
 			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 
-			String sql = "SELECT l_date,l_time FROM lesson WHERE l_date=?";
+			String sql = "SELECT date,time FROM lesson WHERE date=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, day);
 			ResultSet rs = pStmt.executeQuery();
 			while (rs.next()) {
 
-				String l_time = rs.getString("l_time");
-				FDL[I] = l_time;
+				String time = rs.getString("time");
+				FDL[I] = time;
 				I = I + 1;
 			}
 			return FDL;
