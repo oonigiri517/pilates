@@ -15,7 +15,7 @@ import model.Lesson;
 public class DefaultLessonDAO {
 
 	public static void main(String[] args) {
-		Lesson lesson = new Lesson("2018/9/15", "14:00");
+		Lesson lesson = new Lesson("2018/9/14", "14:00");
 		DefaultLessonDAO dld = new DefaultLessonDAO();
 		dld.defaultInsert(lesson);
 	}
@@ -28,7 +28,8 @@ public class DefaultLessonDAO {
 		Connection conn = null;
 
 		boolean result = false;
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
 
 		// 現在時間
 		Calendar nowCal = Calendar.getInstance();
@@ -37,7 +38,7 @@ public class DefaultLessonDAO {
 		String str = lesson.getDate();
 		Calendar calEnd = new GregorianCalendar();
 
-		// strの日をcalEndにセット
+		// 期間入力フォームからとってきた日付カレンダー型に変換
 		try {
 			calEnd.setTime(DateFormat.getDateInstance().parse(str.replace("-", "/")));
 		} catch (ParseException e) {
@@ -54,13 +55,15 @@ public class DefaultLessonDAO {
 
 			// lessonテーブルにデータを挿入
 			String sql = "insert into lesson (date,time)value(?,?)";
-			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+//			System.out.println(sdf.format(calEnd.getTime()));
 
 //			while (nowCal.compareTo(calEnd) < 0) {
-		        String now=sdf.format(nowCal.getTime());
+//		        String now=sdf.format(nowCal.getTime());
 //				int D = nowCal.get(Calendar.DAY_OF_WEEK);
 //				if (D == 2 || D == 3 || D == 5 || D == 6) {
 //					for (String time : defaultLessonTimes) {
+				PreparedStatement pStmt = conn.prepareStatement(sql);
 						pStmt.setString(1, "2018年08月05日");
 						pStmt.setString(2, "10:00");
 //					}
