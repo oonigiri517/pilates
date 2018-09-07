@@ -19,50 +19,20 @@ public class MailData implements Serializable {
 		this.mail=mail;
 	}
 
-	public MailData() {
-	}
+	public MailData() {}
 
-	public String getNumber() {
-		return number;
-	}
-	public String getDate() {
-		return date;
-	}
-	public String getTime() {
-		return time;
-	}
-	public String getFamily_name() {
-		return family_name;
-	}
-	public String getFirst_name() {
-		return first_name;
-	}
-	public String getMail() {
-		return mail;
-	}
+	public String getNumber() {return number;}
+	public String getDate() {return date;}
+	public String getTime() {return time;}
+	public String getFamily_name() {return family_name;}
+	public String getFirst_name() {return first_name;}
+	public String getMail() {return mail;}
 
-	public void setNumber(String number) {
-		this.number = number;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
-	}
-
-	public void setTime(String time) {
-		this.time = time;
-	}
-
-	public void setFamily_name(String family_name) {
-		this.family_name = family_name;
-	}
-
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
-	}
-
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
+	public void setNumber(String number) {this.number = number;}
+	public void setDate(String date) {this.date = date;}
+	public void setTime(String time) {this.time = time;}
+	public void setFamily_name(String family_name) {this.family_name = family_name;}
+	public void setFirst_name(String first_name) {this.first_name = first_name;}
+	public void setMail(String mail) {this.mail = mail;}
 
 }

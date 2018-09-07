@@ -28,7 +28,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>予約フォーム</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>ピラティススタジオ | Relax Pilates 予約フォーム</title>
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<link href="css/reset.css" type="text/css" rel="stylesheet" />
+	<link href="css/common.css" type="text/css" rel="stylesheet" />
+	<link href="css/menu.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/function.js"></script>
+
+	<jsp:include page="/menu.jsp"/>
 <style>
 		.error{
 			color:#ff0000;
@@ -38,6 +49,11 @@
 		body{
 		  width:100%; /*ページ全体の幅は100%と指定する*/
 		  text-align:center; /*ページ全体を中央揃えにする*/
+		}
+
+		#wrapper{
+			margin-top:120px;
+			margin-bottom:80px;
 		}
 
 		table{
@@ -77,12 +93,17 @@
 		  color         : rgba(102, 226, 226, 0.76);     /* 背景色     */
 		  background    : #ffffff;     /* 文字色     */
 		}
+		h2{
+		font-size:200%;
+		}
+
 
 </style>
 </head>
 <body>
-<h1>予約フォーム</h1>
-<h2>お客様の情報をご入力ください</h2>
+<div id="wrapper">
+<h2>予約フォーム</h2>
+<h3>お客様の情報をご入力ください</h3>
 
 
 <form action="/Pilates/Form" method="post">
@@ -92,7 +113,7 @@
 <tr>
 <th>姓</th>
 <td><input type="text" name="family_name"  size="20" maxlength="20"
-value="<%= family_name %>" placeholder="増田">
+value="<%= family_name %>" placeholder="山田">
 <span class="error">
 <%
 if(ems != null && ems.size()>0){
@@ -109,7 +130,7 @@ if(ems != null && ems.size()>0){
 <th>名</th>
 <td>
 <input type="text" name="first_name"  size="20" maxlength="20"
-value="<%= first_name %>" placeholder="姫">
+value="<%= first_name %>" placeholder="花子">
 <span class="error">
 <%
 if(ems != null && ems.size()>0){
@@ -125,7 +146,7 @@ if(ems != null && ems.size()>0){
 <tr>
 <th>メールアドレス</th>
 <td>
-<input type="text" name="mail"  size="60" maxlength="100" value="<%= mail %>" placeholder="relax.pilates123@gmail.com">
+<input type="text" name="mail"  size="60" maxlength="100" value="<%= mail %>" placeholder="yamada@mail.com">
 <span class="error">
 <%
 if(ems != null && ems.size()>0){
@@ -145,7 +166,7 @@ if(ems != null && ems.size()>0){
 </th>
 <td>
 <input type="text"  oncopy="return false" onpaste="return false" oncontextmenu="return false" name="confMail"
-size="60" maxlength="100"  value="<%= confMail %>" placeholder="relax.pilates123@gmail.com">
+size="60" maxlength="100"  value="<%= confMail %>" placeholder="yamada@mail.com">
 <span class="error">
 <%
 if(ems != null && ems.size()>0){
@@ -163,6 +184,15 @@ if(ems != null && ems.size()>0){
 <td>
 <input type="text" name="tel"  size="20" maxlength="20"
 value="<%= tel %>" placeholder="09012345678">
+<span class="error">
+<%
+if(ems != null && ems.size()>0){
+	if(ems.containsKey("tel")){
+		out.print(ems.get("tel"));
+	}
+}
+%>
+</span><br>
 </td>
 </tr>
 
@@ -183,6 +213,10 @@ placeholder="何でも書いてね♪"><%= memo %></textarea>
 
 </form>
 
+</div>
 
+<footer>
+<jsp:include page="/footer.jsp"/>
+</footer>
 </body>
 </html>

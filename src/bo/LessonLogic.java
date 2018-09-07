@@ -4,6 +4,7 @@ import java.util.Calendar;
 import dao.LessonDAO;
 import model.Schedule;
 public class LessonLogic {
+<<<<<<< HEAD
 
 	public Schedule showSchedule(Calendar calendar){
 		calendar=Calendar.getInstance();
@@ -37,5 +38,12 @@ public class LessonLogic {
 		Schedule sle=new Schedule(le);
 return sle;
 	}
+=======
+	public Lesson showSchedule(Calendar calendar){
+while( ){
+		Lesson le= new Lesson();
+return le;
+	}}
+>>>>>>> test
 
 }

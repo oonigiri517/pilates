@@ -17,13 +17,14 @@ public class DataDAO {
 	final String DB_PASS = "root";
 	Connection conn = null;
 
+	//予約内容重複チェック
 	public boolean check(Lesson lesson, ReserveData rData) {
 
 		try {
 			Class.forName(DRIVER_NAME);
 			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 
-			// entrantテーブルにデータを挿入
+			// 同一時間に同一アドレスの予約有無を確認
 			String sql = "SELECT*FROM reservation where date=? and time=? and mail=?";
 			PreparedStatement pStmt1 = conn.prepareStatement(sql);
 			pStmt1.setString(1, lesson.getDate());
@@ -55,6 +56,7 @@ public class DataDAO {
 		}
 	}
 
+	//予約書き込み
 	public boolean insert(Lesson lesson, ReserveData rData) {
 		Connection conn = null;
 		int firstSQLResult = 0;// 帰ってきた件数チェック(0件なら入ってない)
@@ -108,7 +110,7 @@ public class DataDAO {
 			MailData mailData = new MailData();
 
 			//
-			String sql = "SELECT*FROM reservation where date=? and time=? and mail=? ORDER BY ID DESC";
+			String sql = "SELECT*FROM RESERVATION WHERE DATE=? AND TIME=? AND MAIL=? ORDER BY NUMBER DESC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, lesson.getDate());
@@ -117,8 +119,7 @@ public class DataDAO {
 
 			ResultSet rs = pStmt.executeQuery();
 
-			if (rs.next()) {// rs.next()⇒1行目があればtrueを返すメソッド
-
+			if (rs.next()) {// rs.next()⇒1行目があればnullを返すメソッド
 				String number = rs.getString("number");
 				String date = rs.getString("date");
 				String time = rs.getString("time");
@@ -133,34 +134,10 @@ public class DataDAO {
 				mailData.setFirst_name(first_name);
 				mailData.setMail(mail);
 				return mailData;
-			} else {// rs.next()⇒1行目がなければfalseを返すメソッド
+
+			} else {// rs.next()⇒1行目がなければnullを返すメソッド
 				return null;
 			}
-
-			// if(rs.next()){//rs.next()⇒1行目があればtrueを返すメソッド
-			// String number=rs.getString("number");
-			// String date=rs.getString("date");
-			// String time=rs.getString("time");
-			// String family_name=rs.getString("family_name");
-			// String first_name=rs.getString("first_name");
-			// String mail=rs.getString("mail");
-			// MailData mailData=new
-			// MailData(number,date,time,family_name,first_name,mail);
-			// return true;
-			// }else{//rs.next()⇒1行目がなければfalseを返すメソッド
-			// return false;
-			// }
-
-			// while(rs.next()){
-			// String number=rs.getString("number");
-			// String date=rs.getString("date");
-			// String time=rs.getString("time");
-			// String family_name=rs.getString("family_name");
-			// String first_name=rs.getString("first_name");
-			// String mail=rs.getString("mail");
-			// MailData mailData=new
-			// MailData(number,date,time,family_name,first_name,mail);
-			// }
 
 		} catch (SQLException e) {
 			e.printStackTrace();

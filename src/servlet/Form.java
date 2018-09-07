@@ -3,6 +3,8 @@ package servlet;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Lesson;
 import model.ReserveData;
 
 
@@ -58,10 +61,8 @@ public class Form extends HttpServlet {
 
 		//情報を設定
 		ReserveData reserveData=new ReserveData(family_name,first_name,mail,confMail,tel,memo);
-
-
 		//セッションスコープに保存
-		HttpSession se=request.getSession();
+		HttpSession session=request.getSession();
 
 		//入力チェック
 		if(family_name ==null || family_name.length() ==0){
@@ -72,19 +73,46 @@ public class Form extends HttpServlet {
 		}
 		if(mail ==null || mail.length() ==0){
 			ems.put("mail","<br>"+"メールが未入力です");
+		}else{
+			Pattern pat = Pattern.compile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
+			Matcher m = pat.matcher(mail);
+
+				if(!m.find()){
+					ems.put("mail","<br>"+"書式が正しくありません");
+			}
 		}
+
 		if(confMail ==null || confMail.length() ==0){
 			ems.put("confMail","<br>"+"確認メールが未入力です");
 		}else{
 			if(!mail.equals(confMail)){
 				ems.put("confMail","<br>"+"メールアドレスが一致しません");
+			}else{
+				Pattern pat = Pattern.compile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
+				Matcher m = pat.matcher(confMail);
+
+					if(!m.find()){
+						ems.put("confMail","<br>"+"書式が正しくありません");
+				}
+			}
+		}
+
+		if(tel !=null && tel.length()>1){
+			Pattern pat = Pattern.compile("^0[0-9]{1,4}-?[0-9]{1,4}-?[0-9]{4}$");
+			Matcher m = pat.matcher(tel);
+			if(!m.find()){
+				ems.put("tel","<br>"+"書式が正しくありません");
 			}
 		}
 
 
 		if(ems.size() == 0){
+			//カレンダーと連携するまでこの形で！
+			Lesson lesson=new Lesson("2018/08/30","10:00");
+			session.setAttribute("lesson",lesson);
+
 			//データをセッションスコープに保存
-			se.setAttribute("reserveData", reserveData);
+			session.setAttribute("reserveData", reserveData);
 			forwardPath = "/WEB-INF/jsp/formConfirm.jsp";
 		}else{
 			//ErrorBeans eb = new ErrorBeans();
@@ -95,11 +123,10 @@ public class Form extends HttpServlet {
 			forwardPath = "/form.jsp";
 		}
 
-
 		//フォワード
 		RequestDispatcher dis=request.getRequestDispatcher(forwardPath);
 		dis.forward(request, response);
-
+		}
 	}
 
-}
+
