@@ -5,13 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <link href="css/admin.css" type="text/css" rel="stylesheet" />
-<title>ピラティススタジオ | Relax Pilates 管理画面</title>
+<title>管理画面</title>
 
 
 </head>
 <body>
 	<div class="form-wrapper" align="center">
-		<h1>レッスン予定日編集</h1>
+		<h1>各種変更一覧</h1>
 		<br>
 		<p>希望の操作を選択してください</p>
 		<br>
