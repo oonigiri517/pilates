@@ -11,7 +11,6 @@
 
 </head>
 <body>
-<<<<<<< Updated upstream
 	<div class="form-wrapper" align="center">
 		<h1>各種変更一覧</h1>
 		<br>
@@ -29,15 +28,5 @@
 		</ul>
 		<br> <br>
 	</div>
-=======
-<h1>レッスン予定日編集</h1>
-<ul>
-<li><a href="/Pilates/Admin?page=l1">レッスン予定日編集画面</a></li>
-<li><a href="/Pilates/Admin?page=l2">予約キャンセル</a></li>
-<li><a href="/Pilates/Output?page=1" >予約履歴</a>
-</li>
-<li><a href="/Pilates/Output?page=2">顧客一覧</a></li>
-</ul>
->>>>>>> Stashed changes
 </body>
 </html>
