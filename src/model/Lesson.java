@@ -18,4 +18,5 @@ public class Lesson implements Serializable {
 	public String getDate() {return date;}
 	public String getTime() {return time;}
 
+
 }

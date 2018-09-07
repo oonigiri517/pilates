@@ -10,9 +10,9 @@ public class testDataDAO {
 		Lesson lesson=new Lesson("2018/08/28","10:00");
 		ReserveData rData=new ReserveData("山田","花子","yamada@mail.com","yamada@mail.com","090-0000-9999","test");
 
-		testFindNum(lesson, rData);
-		testcheckOK(lesson, rData);
 		testInsertOK(lesson, rData);
+		testFindNum(lesson, rData);
+//		testcheckOK(lesson, rData);
 
 	}
 
