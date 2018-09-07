@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="css/login.css" type="text/css" rel="stylesheet" />
+<link href="css/adminlogin.css" type="text/css" rel="stylesheet" />
 <title>ピラティススタジオ | Relax Pilates 管理画面</title>
 </head>
 <body>
