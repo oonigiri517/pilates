@@ -35,7 +35,7 @@
 <link href="css/reset.css" type="text/css" rel="stylesheet" />
 <link href="css/common.css" type="text/css" rel="stylesheet" />
 <link href="css/menu.css" type="text/css" rel="stylesheet" />
-
+<link href="css/form.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/function.js"></script>
 
@@ -43,61 +43,6 @@
 </head>
 <style>
 
-.error {
-	color: #ff0000;
-}
-
-body {
-	width: 100%; /*ページ全体の幅は100%と指定する*/
-	/*text-align: center; /*ページ全体を中央揃えにする*/
-}
-
-#wrapper {
-	margin-top: 5%;
-	margin-bottom: 80px;
-}
-
-table {
-	margin-left: auto;
-	margin-right: auto;
-}
-
-td {
-	background-color: #fff;
-	text-align: left;
-	padding: 10px 10px;
-}
-
-th {
-	background-color: <%=Color.getTableColor()%>;
-	text-align: left;
-	padding: 10px 10px;
-}
-
-.button {
-	display: inline-block;
-	border-radius: 48%; /* 角丸       */
-	font-size: 18pt; /* 文字サイズ */
-	text-align: center; /* 文字位置   */
-	cursor: pointer; /* カーソル   */
-	padding: 11px 32px; /* 余白       */
-	background: rgba(102, 226, 226, 0.76); /* 背景色     */
-	color: #ffffff; /* 文字色     */
-	line-height: 1em; /* 1行の高さ  */
-	transition: .3s; /* なめらか変化 */
-	box-shadow: 3px 3px 2px #666666; /* 影の設定 */
-	border: 2px solid rgba(102, 226, 226, 0.76); /* 枠の指定 */
-}
-
-.button:hover {
-	box-shadow: none; /* カーソル時の影消去 */
-	color: rgba(102, 226, 226, 0.76); /* 背景色     */
-	background: #ffffff; /* 文字色     */
-	}
-
-/*h2{
-		font-size:200%;
-		}*/
 </style>
 
 <body>
