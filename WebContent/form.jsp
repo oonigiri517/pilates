@@ -35,12 +35,14 @@
 <link href="css/reset.css" type="text/css" rel="stylesheet" />
 <link href="css/common.css" type="text/css" rel="stylesheet" />
 <link href="css/menu.css" type="text/css" rel="stylesheet" />
+
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/function.js"></script>
 
 <jsp:include page="/menu.jsp" />
 </head>
 <style>
+
 .error {
 	color: #ff0000;
 }
@@ -63,13 +65,13 @@ table {
 td {
 	background-color: #fff;
 	text-align: left;
-	padding: 10px 10px
+	padding: 10px 10px;
 }
 
 th {
 	background-color: <%=Color.getTableColor()%>;
 	text-align: left;
-	padding: 10px 10px
+	padding: 10px 10px;
 }
 
 .button {
@@ -92,6 +94,7 @@ th {
 	color: rgba(102, 226, 226, 0.76); /* 背景色     */
 	background: #ffffff; /* 文字色     */
 	}
+
 /*h2{
 		font-size:200%;
 		}*/

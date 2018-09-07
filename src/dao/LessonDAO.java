@@ -158,7 +158,7 @@ public class LessonDAO {
 	public String[] findDay(String day) {
 
 		Connection conn = null;
-		int I = 0;
+
 		String[] FDL = new String[] { "無し", "無し" };
 		try {
 			Class.forName(DRIVER_NAME);
@@ -169,6 +169,7 @@ public class LessonDAO {
 			pStmt.setString(1, day);
 			ResultSet rs = pStmt.executeQuery();
 			while (rs.next()) {
+				int I = 0;
 
 				String time = rs.getString("time");
 				FDL[I] = time;

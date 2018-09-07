@@ -95,3 +95,32 @@ form {
 .form-footer a:hover {
   border-bottom: 1px dotted #8c8c8c;
 }
+
+
+/*Ç±Ç±Ç©ÇÁâ∫Ç™Å@admin.jspâÊñ óp*/
+li{
+  border: none;
+  width: 250px;
+  margin-bottom: 8px;
+  list-style: none;
+  background-color: #f16272;
+  color:white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+
+}
+a:active {
+  color:white;
+  text-decoration: none;
+}
+a:link {
+  color:white;
+  text-decoration: none;
+
+}
+a:visited {
+  color:white;
+  text-decoration: none;
+
+}
