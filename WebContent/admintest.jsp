@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>test</title>
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 </head>
 <body>
 <script type='text/javascript'>

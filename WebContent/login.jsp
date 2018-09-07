@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <link href="css/admin.css" type="text/css" rel="stylesheet" />
 <title>Relax Pilates 管理画面</title>
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 </head>
 <body>
 	<div class="form-wrapper">

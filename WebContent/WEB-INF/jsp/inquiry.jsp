@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>レッスン履歴照会画面</title>
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 </head>
 <body>
 
