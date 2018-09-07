@@ -22,6 +22,10 @@
 			<li><a href="/Pilates/Output">顧客一覧</a></li>
 		</ul>
 		<br> <br>
+		<ul>
+			<li><a href="#">Topへ</a></li>
+		</ul>
+		<br> <br>
 	</div>
 </body>
 </html>
