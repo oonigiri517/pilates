@@ -7,7 +7,7 @@ import model.Schedule;
 
 public class tescal {
 
-	public static void showC/*main*/(/*String[] args*/) {
+	public static void showC()/*main(String[] args) */{
 		Calendar MC=Calendar.getInstance();
 		int Y=MC.get(Calendar.YEAR);
 		int M=MC.get(Calendar.MONTH);
@@ -31,14 +31,10 @@ public class tescal {
 	          System.out.print("  ");
 	        //日数表示
 	        }else if(day<LDM) {
-	        	Calendar MC2=Calendar.getInstance();
-	    		//int Y2=MC2.get(Calendar.YEAR);
-	    		//int M2=MC2.get(Calendar.MONTH);
-	    		//MC2.add(day,1);
-	    		//MC2.set(Calendar.DATE,day);
-	          //System.out.print((day+1)+" ");
+	        	//Calendar MC2=Calendar.getInstance();
+
 	        	Schedule S=LLogic.showSchedule(day+1);
-	        	//SL[day]=S;
+
 	        	for(String n:S.getSchedule()){
 	        		System.out.println(n);
 	        	}

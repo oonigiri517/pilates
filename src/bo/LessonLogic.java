@@ -13,6 +13,7 @@ public class LessonLogic {
 		int LY = MC2.get(Calendar.YEAR);
 		int LM = MC2.get(Calendar.MONTH);
 		MC2.set(Calendar.DATE, LD);
+		String sLY = String.valueOf(LY);
 		String sLM = String.valueOf(LM+1);
 		String sLD = String.valueOf(LD);
 		Calendar today = Calendar.getInstance();
@@ -35,7 +36,7 @@ public class LessonLogic {
 
 
 		} else {
-			String DATE = sLM + "/" + sLD;
+			String DATE = sLY+"-"+sLM + "/" + sLD;
 			LessonDAO LDAO = new LessonDAO();
 			String[] FDATE = LDAO.findDay(DATE);
 			if ((FDATE[0] != "無し") && (FDATE[1] != "無し")) {
