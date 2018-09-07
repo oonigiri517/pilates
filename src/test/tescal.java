@@ -7,7 +7,7 @@ import model.Schedule;
 
 public class tescal {
 
-	public static void showC()/*main(String[] args) */{
+	public /*static*/ void showC()/*main(String[] args) */{
 		Calendar MC=Calendar.getInstance();
 		int Y=MC.get(Calendar.YEAR);
 		int M=MC.get(Calendar.MONTH);

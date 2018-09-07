@@ -9,6 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%=tescal.showC()%>
+	<%
+	tescal TC=new tescal();
+	%>
+	<%=TC.showC()%>
 </body>
 </html>
