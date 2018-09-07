@@ -6,6 +6,4 @@ public class Color {
 	public static String getTableColor() {
 		return tableColor;
 	}
-
-
 }
