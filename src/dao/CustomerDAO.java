@@ -20,7 +20,7 @@ public class CustomerDAO {
 		try{Class.forName(DRIVER_NAME);
 		conn=DriverManager.getConnection(JDBC_URL,DB_USER,DB_PASS);
 
-		String sql="SELECT COUNT (date,time) AS CC FROM reservation WHERE date=?,time=?";
+		String sql="SELECT COUNT (date,time) AS CC FROM Reservation WHERE date=?,time=?";
 		PreparedStatement pStmt=conn.prepareStatement(sql);
 		pStmt.setString(1, day);
 		pStmt.setString(2, time);
