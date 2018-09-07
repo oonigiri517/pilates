@@ -28,12 +28,12 @@ public class DataDAO {
 
 			// 同一時間に同一アドレスの予約有無を確認
 			String sql = "SELECT*FROM reservation where date=? and time=? and mail=?";
-			PreparedStatement pStmt1 = conn.prepareStatement(sql);
-			pStmt1.setString(1, lesson.getDate());
-			pStmt1.setString(2, lesson.getTime());
-			pStmt1.setString(3, rData.getMail());
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, lesson.getDate());
+			pStmt.setString(2, lesson.getTime());
+			pStmt.setString(3, rData.getMail());
 
-			ResultSet rs = pStmt1.executeQuery();
+			ResultSet rs = pStmt.executeQuery();
 			if (rs.next()) {// rs.next()⇒1行目があればfalseを返すメソッド
 				return false;
 			} else {// rs.next()⇒1行目がなければtrueを返すメソッド
@@ -70,16 +70,16 @@ public class DataDAO {
 			// entrantテーブルにデータを挿入
 			String sql = "insert into reservation (date,time,family_name,first_name,mail,tel,memo)"
 					+ "value(?,?,?,?,?,?,?)";
-			PreparedStatement pStmt1 = conn.prepareStatement(sql);
-			pStmt1.setString(1, lesson.getDate());
-			pStmt1.setString(2, lesson.getTime());
-			pStmt1.setString(3, rData.getFamily_name());
-			pStmt1.setString(4, rData.getFirst_name());
-			pStmt1.setString(5, rData.getMail());
-			pStmt1.setString(6, rData.getTel());
-			pStmt1.setString(7, rData.getMemo());
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, lesson.getDate());
+			pStmt.setString(2, lesson.getTime());
+			pStmt.setString(3, rData.getFamily_name());
+			pStmt.setString(4, rData.getFirst_name());
+			pStmt.setString(5, rData.getMail());
+			pStmt.setString(6, rData.getTel());
+			pStmt.setString(7, rData.getMemo());
 
-			firstSQLResult = pStmt1.executeUpdate();// 成功時は必ず1、失敗時は0
+			firstSQLResult = pStmt.executeUpdate();// 成功時は必ず1、失敗時は0
 
 			// 1回目がfalse、2回目がtrueのときも通っちゃうからダメ
 			if (firstSQLResult > 0) {

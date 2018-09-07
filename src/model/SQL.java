@@ -5,6 +5,7 @@ public class SQL {
 	//localhostの部分をSQLファイル記載のIPアドレスに変更すると
 	//山本のSQLに接続できます。
 	//SQLファイルの場所･･･授業用\アプリケーション\おにぎり\
+	//?useSSL=false
 	final String JDBC_URL_y = "jdbc:mysql://192.168.10.27/pilates";
 	final String DB_USER = "onigiri";
 	final String DB_PASS = "onigiri";
