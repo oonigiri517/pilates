@@ -1,21 +1,13 @@
-package servlet;
+package test;
 
-import java.io.IOException;
 import java.util.Calendar;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import bo.LessonLogic;
 import model.Schedule;
 
-@WebServlet("/ShowCalendar")
-public class ShowCalendar extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class tescal {
+
+	public static void main(String[] args) {
 		Calendar MC=Calendar.getInstance();
 		int Y=MC.get(Calendar.YEAR);
 		int M=MC.get(Calendar.MONTH);
@@ -25,7 +17,7 @@ public class ShowCalendar extends HttpServlet {
 		MC.add(Calendar.DATE,-1);
 		int LDM = MC.get(Calendar.DATE);//月の最終日を取得
 		int day=0;
-		Schedule[] SL=new Schedule[LDM];
+		//Schedule[] SL=new Schedule[LDM];
 
 		LessonLogic LLogic=new LessonLogic();
 	    for (int rowweek=0; rowweek<6; rowweek++) {
@@ -40,13 +32,17 @@ public class ShowCalendar extends HttpServlet {
 	        //日数表示
 	        }else if(day<LDM) {
 	        	Calendar MC2=Calendar.getInstance();
-	    		int Y2=MC2.get(Calendar.YEAR);
-	    		int M2=MC2.get(Calendar.MONTH);
-	    		MC2.set(Y2,M2,day+1);
+	    		//int Y2=MC2.get(Calendar.YEAR);
+	    		//int M2=MC2.get(Calendar.MONTH);
+	    		//MC2.add(day,1);
+	    		//MC2.set(Calendar.DATE,day);
 	          //System.out.print((day+1)+" ");
-	        	Schedule S=LLogic.showSchedule(MC2);
-	        	SL[day]=S;
-	          day++;
+	        	Schedule S=LLogic.showSchedule(day+1);
+	        	//SL[day]=S;
+	        	for(String n:S.getSchedule()){
+	        		System.out.println(n);
+	        	}
+	        	day++;
 	        }
 	      }
 	      //改行をmaxdate以上は行わない
@@ -54,9 +50,8 @@ public class ShowCalendar extends HttpServlet {
 	      	System.out.print("\n");
 	      }
 	    }
-	  }
 
 
-
+	}
 
 }
