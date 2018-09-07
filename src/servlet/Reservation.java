@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Cancel;
 
@@ -21,10 +22,10 @@ public class Reservation extends HttpServlet {
 		String date = request.getParameter("date");
 		String mail = request.getParameter("mail");
 
-		//リクエストスコープに保存
+		//セッションスコープに保存
 		Cancel cancel = new Cancel(number,date,mail);
-		request.setAttribute("cancel", cancel);
-		Cancel c = (Cancel) request.getAttribute("cancel");
+		HttpSession session = request.getSession();
+		session.setAttribute("cancel", cancel);
 
 	}
 
