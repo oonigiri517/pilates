@@ -81,17 +81,22 @@ public class OutPutDAO {
 
 			//データを書き込む
 			while (rs.next()) {//
-				String d1=rs.getString("日付");//該当する項目名の値を書込む
-				String d2=rs.getString("費目ID");
-				String d3=rs.getString("メモ");
-				String d4=rs.getString("入金額");
-				String d5=rs.getString("出金額");
+				String d1=rs.getString("date");//該当する項目名の値を書込む
+				String d2=rs.getString("time");
+				String d3=rs.getString("family_name");
+				String d4=rs.getString("first_name");
+				String d5=rs.getString("mail");
+				String d6=rs.getString("tel");
+				String d7=rs.getString("memo");
+
 
 				bw.write("\""+d1+"\",");
 				bw.write("\""+d2+"\",");
 				bw.write("\""+d3+"\",");
 				bw.write("\""+d4+"\",");
 				bw.write("\""+d5+"\"");
+				bw.write("\""+d6+"\"");
+				bw.write("\""+d7+"\"");
 				bw.write("\n");
 
 				sb.append("\""+d1+"\",");
@@ -99,7 +104,8 @@ public class OutPutDAO {
 				sb.append("\""+d3+"\",");
 				sb.append("\""+d4+"\",");
 				sb.append("\""+d5+"\",");
-
+				sb.append("\""+d6+"\",");
+				sb.append("\""+d7+"\",");
 			}
 			//閉じる
 			bw.close();
