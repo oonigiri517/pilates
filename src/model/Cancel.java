@@ -22,9 +22,5 @@ public class Cancel implements Serializable {
 	public String getMail() {
 		return mail;
 	}
-	public String getTime() {
-		return time;
-	}
-
 
 }
