@@ -53,9 +53,6 @@ public class DefaultLessonDAO {
 			Class.forName(DRIVER_NAME);
 			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 
-
-//			conn.setAutoCommit(false);
-
 			// lessonテーブルにデータを挿入
 			String sql = "insert into lesson (date,time)value(?,?)";
 			while (nowCal.compareTo(calEnd) < 0) {
@@ -73,14 +70,13 @@ public class DefaultLessonDAO {
 				System.out.println(now);
 			}
 
-
+			//重複レコードを削除する
 			sql = "DELETE FROM lesson WHERE"
 					+ " id NOT IN (SELECT min_id from "
 					+ "(SELECT MIN(id) min_id FROM lesson GROUP BY date,time) tmp)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.executeUpdate();
 
-//			conn.commit();
 //			int firstSQLResult = 0;
 //			firstSQLResult = pStmt.executeUpdate();
 //			if (firstSQLResult > 0) {
