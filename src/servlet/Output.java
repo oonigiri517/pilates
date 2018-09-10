@@ -5,7 +5,6 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.OutPutDAO;
+import dao.OutputDAO2;
 import model.Lesson;
 
 @WebServlet("/Output")
@@ -41,11 +41,24 @@ public class Output extends HttpServlet {
 			request.setAttribute("lesson1", les1);
 			request.setAttribute("lesson2", les2);
 
+			OutputDAO2 out2 = new OutputDAO2() ;
+			String csvData = out2.OutputCSV(lesson1,lesson2) ;
 
+			//csvData = new String(csvData.getBytes("UTF-8"), "SHIFT-JIS");
+			//ファイル名生成
+			SimpleDateFormat simpleDataFormat = new SimpleDateFormat("yyyy-MM-dd");
+			String filename = simpleDataFormat.format(new Date()) + ".csv";
 
-
-			RequestDispatcher dis=request.getRequestDispatcher("/WEB-INF/jsp/inquiry.jsp");
-			dis.forward(request, response);
+			//application/octet-stream
+			response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+		    response.setHeader("Content-Disposition"
+		         , String.format("attachment; filename=\"%s\"", filename));
+		         response.setCharacterEncoding("UTF-8");
+		    //"attachment; filename=\"downloadFile.csv\""
+		    OutputStream out = response.getOutputStream();
+		    byte[] downloadData = csvData.getBytes("SHIFT-JIS");
+		    out.write(downloadData);
+		    out.close();
 
 
 		}else if(page.equals("2")) {
