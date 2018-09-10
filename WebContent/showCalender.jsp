@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.Calendar"
-import="model.CalSchedule"
-import="model.Schedule"%>
+<%@ page import="java.util.Calendar" import="model.CalSchedule"
+	import="model.Schedule"%>
 <%
 CalSchedule SLL=(CalSchedule) session.getAttribute("SLL");
 Schedule SL =
@@ -71,33 +70,40 @@ p.example {
 							switch(SL.length){
 							case 3:%>
 					<tr>
-						<td>
-							<form action="post">
-							SL[2]
-
-							</form>
-						</td>
+						<td>SL[2]</td>
 					</tr>
 					<%break;
 					case 4:%>
 					<tr>
 						<td>
-						<%if(SL[3]=="満員"){ %>
-						<%=SL[2] %><br>
-						<%=SL[3] %>
-						<%}else{ %>
-							<form action="post">
-							<input type="button"name="LT"valu="<%=SL[2] %>">
-							SL[3]
+							<%if(SL[3]=="満員"){ %> <%=SL[2] %><br> <%=SL[3] %> <%}else{ %>
+							<form action="/servlet/Form" method="get">
+								<input type="button" name="LT" value="<%=SL[2]%>"> SL[3]
+							</form> <%} %>
 
-							</form>
+
 						</td>
-					</tr>%>
+					</tr>
 				</table></td>
-				<% %>
-			<%} %>
+			<%break;
+					case 6:%>
+
+		<tr>
+			<td>
+				<%if(SL[3]=="満員"){ %> <%=SL[2] %><br> <%=SL[3] %> <%}else{ %>
+				<form action="/servlet/Form" method="get">
+					<input type="button" name="LT" value="<%=SL[2]%>"> SL[3]
+				</form> <%}
+						if(SL[5]=="満員"){ %> <%=SL[4] %><br> <%=SL[5] %> <%}else{ %>
+				<form action="/servlet/Form" method="get">
+					<input type="button" name="LT" value="<%=SL[4]%>"> SL[5]
+				</form> <% }%>
+
+
+			</td>
 		</tr>
 	</table>
+	<%break;} %>
 
 </body>
 </html>
