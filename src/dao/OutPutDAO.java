@@ -138,12 +138,12 @@ public class OutPutDAO {
 				bw.write("\""+d2+"\",");
 				bw.write("\""+d3+"\",");
 				bw.write("\""+d4+"\",");
-				bw.write("\""+d5+"\"");
-				bw.write("\""+d6+"\"");
-				bw.write("\""+d7+"\"");
-				bw.write("\""+d8+"\"");
-				bw.write("\""+d9+"\"");
-				bw.write("\""+d10+"\"");
+				bw.write("\""+d5+"\",");
+				bw.write("\""+d6+"\",");
+				bw.write("\""+d7+"\",");
+				bw.write("\""+d8+"\",");
+				bw.write("\""+d9+"\",");
+				bw.write("\""+d10+"\",");
 				bw.write("\n");
 
 				sb.append("\""+d1+"\",");
@@ -153,9 +153,9 @@ public class OutPutDAO {
 				sb.append("\""+d5+"\",");
 				sb.append("\""+d6+"\",");
 				sb.append("\""+d7+"\",");
-				sb.append("\""+d8+"\"");
-				sb.append("\""+d9+"\"");
-				sb.append("\""+d10+"\"");
+				sb.append("\""+d8+"\",");
+				sb.append("\""+d9+"\",");
+				sb.append("\""+d10+"\",");
 				sb.append("\n");
 			}
 			//閉じる
