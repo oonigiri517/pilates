@@ -8,10 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bo.ReservedLogic;
+import model.Cancel;
 
 public class CancelDAO {
-	public List<ReservedLogic> findAll(){
-
+	public boolean cancel(Cancel cancel){
+		boolean result = false;
 		Connection conn = null;
 		List<ReservedLogic> empList = new ArrayList<ReservedLogic>();
 
@@ -25,29 +26,27 @@ public class CancelDAO {
 		}
 
 		//データベースへ接続
-		conn = DriverManager.getConnection(
-				"JDBC_URL,DB_USER,DB_PASS");
+		conn = DriverManager.getConnection("JDBC_URL,DB_USER,DB_PASS");
 
 		//UPDATE文の準備
-		String sql = "UPDATE INTO Reservation(yes_or_no) VALUES(?)";
+		String sql = "UPDATE INTO Reservation(yes_or_no) VALUES(0)";
 		PreparedStatement pStmt =conn.prepareStatement(sql);
 
 		//UPDATE文の「?」に使用する値を設定しSQLを完成
 		pStmt.setInt(1, 0);
-
+		return result;
 	} catch (SQLException e) {
 		e.printStackTrace();
-		return null;
+		return result;
 	} finally {
 		if (conn != null) {
 			try {
 				conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
-				return null;
+				return result;
 			}
 		}
 	}
-	return empList;
 	}
 }

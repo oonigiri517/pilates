@@ -1,26 +1,22 @@
 package bo;
 
+import dao.CancelDAO;
+import model.Cancel;
+
 public class ReservedLogic {
-
-	private String number;
-	private String date;
-	private String mail;
-
-	public ReservedLogic(String number,String date,String mail) {
-		this.number = number;
-		this.date = date;
-		this.mail = mail;
+	public static void main(String[] args) {
+		Cancel cancel = new Cancel("2", "2018-8-28", "kanemoto@mail.com");
+		ReservedLogic rld = new ReservedLogic();
+		boolean result = rld.cancelLogic(cancel);
+		if (result) {
+			System.out.println("ok");
+		} else {
+			System.out.println("ng");
+		}
 	}
 
-	public String getNumber() {
-		return number;
-	}
-
-	public String getDate() {
-		return date;
-	}
-
-	public String getMail() {
-		return mail;
+	public boolean cancelLogic(Cancel cancel) {
+		CancelDAO cdao = new CancelDAO();
+		return cdao.cancel(cancel);
 	}
 }
