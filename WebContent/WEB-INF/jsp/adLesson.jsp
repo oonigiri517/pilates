@@ -14,7 +14,7 @@
 		<h1>レッスン予定日編集画面</h1>
 		<p>日付を選択してください</p>
 		<br>
-		<form action="#">
+		<form action="get">
 		<select name="date">
 			<option value="2018">2018年</option>
 			<option value="2019">2019年</option>
