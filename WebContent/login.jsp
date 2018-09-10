@@ -18,8 +18,8 @@
 					 placeholder="User name"></input>
 			</div>
 			<div class="form-item">
-				<label for="password"></label> <input type="password"
-					name="pass"  placeholder="Password"></input>
+				<label for="password"></label> <input type="pass"
+					name="pass" placeholder="Password"></input>
 			</div>
 			<div class="button-panel">
 				<input type="submit" class="button" title="Sign In" value="Sign In"></input>
