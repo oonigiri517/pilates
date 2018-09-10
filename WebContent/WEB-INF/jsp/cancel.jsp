@@ -13,7 +13,7 @@
 	<div class="form-wrapper" align="center">
 		<h1>予約キャンセル</h1>
 		<br></br>
-		<form action="/Pilates/Reservation.java" method="post">
+		<form action="/Pilates/Reservation" method="post">
 			<div class="form-item">
 				<label for="予約番号 ※半角小文字"></label> <input type="text" name="number"
 					required="required" placeholder="予約番号入力 ※半角小文字"></input>

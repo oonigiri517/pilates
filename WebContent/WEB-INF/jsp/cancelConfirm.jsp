@@ -1,9 +1,8 @@
-cancelConfirm.jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="model.Cancel"%>
 <%
-	Cancel cansel = (Cancel) session.getAttribute("cancel");
+	Cancel cancel = (Cancel) session.getAttribute("cancel");
 %>
 <!DOCTYPE html >
 <html>
@@ -17,7 +16,7 @@ cancelConfirm.jsp
 	<div class="form-wrapper">
 		<h1>以下の予約を取り消します</h1>
 		<p>よろしいですか？</p>
-		</p>
+		<p>
 		予約番号:<%=cancel.getNumber()%><br> 予約日時:<%=cancel.getDate()%><br>
 		メールアドレス:<%=cancel.getMail()%><br>
 		</p>
