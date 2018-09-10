@@ -11,13 +11,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import model.SQL;
+
 public class OutputDAO2 {
 	public String OutputCSV(String str1,String str2) {
-
+		SQL sqlUrl = new SQL();
+		final String DRIVER_NAME = sqlUrl.getDRIVER_NAME();
+		final String JDBC_URL = sqlUrl.getJDBC_URL_y();
+		final String DB_USER = sqlUrl.getDB_USER();
+		final String DB_PASS = sqlUrl.getDB_PASS();
 		Connection conn = null;
-		String url = "jdbc:mysql://localhost:3306/pilates";//使用するデータベース名を設定
-		String user = "root";
-		String password = "root";
+
+//		Connection conn = null;
+//		final String DRIVER_NAME = sqlUrl.getDRIVER_NAME();
+//		String JDBC_URL = "jdbc:mysql://localhost:3306/pilates";//使用するデータベース名を設定
+//		String DB_USER = "root";
+//		String DB_PASS = "root";
 
 		//期間入力フォームからとってきた日付
 //		Lesson les1=new Lesson();
@@ -29,8 +38,8 @@ public class OutputDAO2 {
 
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			conn = DriverManager.getConnection(url, user, password);
+			Class.forName(DRIVER_NAME).newInstance();
+			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 
 	        File file = new File("inquiry.csv");
 
@@ -71,7 +80,6 @@ public class OutputDAO2 {
 
 				sb.append("\""+c1+"\",");
 
-
 			}
 			bw.write("\n");
 			sb.append("\n");
@@ -105,6 +113,7 @@ public class OutputDAO2 {
 				sb.append("\""+d5+"\",");
 				sb.append("\""+d6+"\",");
 				sb.append("\""+d7+"\",");
+				sb.append("\n");
 
 			}
 			//閉じる

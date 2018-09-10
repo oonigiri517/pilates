@@ -20,7 +20,7 @@
 			<li><a href="/Pilates/Admin?page=l1">レッスン予定日編集画面</a></li>
 			<li><a href="/Pilates/Admin?page=l2">予約キャンセル</a></li>
 			<li><a href="/Pilates/Admin?page=l3">予約履歴</a></li>
-			<li><a href="/Pilates/Output">顧客一覧</a></li>
+			<li><a href="/Pilates/Output?page=2">顧客一覧</a></li>
 		</ul>
 		<br> <br>
 		<ul>
