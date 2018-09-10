@@ -75,9 +75,21 @@ public class OutPutDAO {
 			}
 			bw.write("\n");
 			sb.append("\n");
-			
+
 			//データを表示するSQL分
-			sql = "SELECT * FROM reservation";
+			sql = "select  *,work.mail,sum(予約回数) as 予約回数,sum(OK) as OK,sum(キャンセル) as キャンセル"
+				+	"from"
+				+	"(select *,1 as 予約回数,0 as OK,0 as キャンセル"
+				+  "from reservation"
+				+	"union all"
+				+	"select *,0 as 予約回数,1 as OK,0 as キャンセル"
+				+	"from reservation where Yes_or_no=1"
+				+	"union all"
+				+	"select *,0 as 予約回数,0 as OK,1 as キャンセル"
+				+	"from reservation where Yes_or_no=0"
+				+	") work"
+				+	"group by work.mail;";
+
 			rs = stmt.executeQuery(sql);
 
 			//データを書き込む
@@ -89,6 +101,9 @@ public class OutPutDAO {
 				String d5=rs.getString("mail");
 				String d6=rs.getString("tel");
 				String d7=rs.getString("memo");
+				String d8=rs.getString("予約回数");
+				String d9=rs.getString("OK");
+				String d10=rs.getString("キャンセル");
 
 
 				bw.write("\""+d1+"\",");
@@ -98,6 +113,9 @@ public class OutPutDAO {
 				bw.write("\""+d5+"\"");
 				bw.write("\""+d6+"\"");
 				bw.write("\""+d7+"\"");
+				bw.write("\""+d8+"\"");
+				bw.write("\""+d9+"\"");
+				bw.write("\""+d10+"\"");
 				bw.write("\n");
 
 				sb.append("\""+d1+"\",");
@@ -107,6 +125,9 @@ public class OutPutDAO {
 				sb.append("\""+d5+"\",");
 				sb.append("\""+d6+"\",");
 				sb.append("\""+d7+"\",");
+				sb.append("\""+d8+"\"");
+				sb.append("\""+d9+"\"");
+				sb.append("\""+d10+"\"");
 				sb.append("\n");
 			}
 			//閉じる
