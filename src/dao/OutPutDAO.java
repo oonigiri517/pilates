@@ -12,19 +12,29 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import model.SQL;
+
 public class OutPutDAO {
 
 	//public static void main(String[] args)throws Exception {
 	public String OutputCSV() {
 
+		SQL sqlUrl = new SQL();
+		final String DRIVER_NAME = sqlUrl.getDRIVER_NAME();
+		final String JDBC_URL = sqlUrl.getJDBC_URL_y();
+		final String DB_USER = sqlUrl.getDB_USER();
+		final String DB_PASS = sqlUrl.getDB_PASS();
 		Connection conn = null;
-		String url = "jdbc:mysql://localhost:3306/goods";//使用するデータベース名を設定
-		String user = "root";
-		String password = "root";
+
+//		Connection conn = null;
+//		final String DRIVER_NAME = sqlUrl.getDRIVER_NAME();
+//		String JDBC_URL = "jdbc:mysql://localhost:3306/pilates";//使用するデータベース名を設定
+//		String DB_USER = "root";
+//		String DB_PASS = "root";
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			conn = DriverManager.getConnection(url, user, password);
+			Class.forName(DRIVER_NAME).newInstance();
+			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 
 	        File file = new File("java.csv");
 
@@ -51,7 +61,7 @@ public class OutPutDAO {
 			Statement stmt = conn.createStatement();
 
 			//項目名を表示するSQL文
-			String sql = "show columns from kakeibp";
+			String sql = "show columns from reservation";
 			ResultSet rs = stmt.executeQuery(sql);
 
 			//項目名を書き込む
@@ -66,22 +76,27 @@ public class OutPutDAO {
 			bw.write("\n");
 			sb.append("\n");
 			//データを表示するSQL分
-			sql = "SELECT * FROM kakeibp";
+			sql = "SELECT * FROM reservation";
 			rs = stmt.executeQuery(sql);
 
 			//データを書き込む
 			while (rs.next()) {//
-				String d1=rs.getString("日付");//該当する項目名の値を書込む
-				String d2=rs.getString("費目ID");
-				String d3=rs.getString("メモ");
-				String d4=rs.getString("入金額");
-				String d5=rs.getString("出金額");
+				String d1=rs.getString("date");//該当する項目名の値を書込む
+				String d2=rs.getString("time");
+				String d3=rs.getString("family_name");
+				String d4=rs.getString("first_name");
+				String d5=rs.getString("mail");
+				String d6=rs.getString("tel");
+				String d7=rs.getString("memo");
+
 
 				bw.write("\""+d1+"\",");
 				bw.write("\""+d2+"\",");
 				bw.write("\""+d3+"\",");
 				bw.write("\""+d4+"\",");
 				bw.write("\""+d5+"\"");
+				bw.write("\""+d6+"\"");
+				bw.write("\""+d7+"\"");
 				bw.write("\n");
 
 				sb.append("\""+d1+"\",");
@@ -89,7 +104,8 @@ public class OutPutDAO {
 				sb.append("\""+d3+"\",");
 				sb.append("\""+d4+"\",");
 				sb.append("\""+d5+"\",");
-
+				sb.append("\""+d6+"\",");
+				sb.append("\""+d7+"\",");
 			}
 			//閉じる
 			bw.close();
