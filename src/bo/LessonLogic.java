@@ -1,5 +1,6 @@
 package bo;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import dao.CustomerDAO;
@@ -9,10 +10,14 @@ import model.Schedule;
 public class LessonLogic {
 
 	public Schedule showSchedule(int LD) {
-		Calendar MC2 = Calendar.getInstance();
-		int LY = MC2.get(Calendar.YEAR);
-		int LM = MC2.get(Calendar.MONTH);
-		MC2.set(Calendar.DATE, LD);
+		Calendar myC = Calendar.getInstance();
+		int LY = myC.get(Calendar.YEAR);
+		int LM = myC.get(Calendar.MONTH);
+		myC.set(Calendar.YEAR, LY);
+		myC.set(Calendar.MONTH, LM);
+		myC.set(Calendar.DATE, LD);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		System.out.println(sdf.format(myC.getTime()));
 		String sLY = String.valueOf(LY);
 		String sLM = String.valueOf(LM+1);
 		String sLD = String.valueOf(LD);
@@ -20,9 +25,12 @@ public class LessonLogic {
 		int Y = today.get(Calendar.YEAR);
 		int M = today.get(Calendar.MONTH);
 		int D = today.get(Calendar.DATE);
+		System.out.println(sdf.format(today.getTime()));
 		today.set(Y, M, D);
+		System.out.println(sdf.format(today.getTime()));
 		today.add(D, 1);
-		boolean N = MC2.after(today);
+		boolean N = myC.after(today);
+		System.out.println(sdf.format(today.getTime()));
 		String[] le6 = new String[6];
 		String[] le4 = new String[4];
 		String[] le3 = new String[3];
