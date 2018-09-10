@@ -22,7 +22,7 @@ public class Login extends HttpServlet {
 		String forwardPath = "" ;
 
 		//ログイン処理
-		if(name.equals("a")&& pass.equals("a")) {
+		if(name.equals("")&& pass.equals("")) {
 			forwardPath = "/WEB-INF/jsp/admin.jsp";
 		} else {
 			forwardPath = "/login.jsp";
