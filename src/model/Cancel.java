@@ -6,7 +6,6 @@ public class Cancel implements Serializable {
 	private String number;
 	private String date;
 	private String mail;
-	private String time;
 
 	public Cancel(){}
 	public Cancel(String number,String date,String mail) {
