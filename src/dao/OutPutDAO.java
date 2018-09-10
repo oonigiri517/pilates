@@ -61,23 +61,47 @@ public class OutPutDAO {
 			Statement stmt = conn.createStatement();
 
 			//項目名を表示するSQL文
-			String sql = "show columns from reservation";
-			ResultSet rs = stmt.executeQuery(sql);
+//			String sql = "show columns from reservation";
+//			ResultSet rs = stmt.executeQuery(sql);
+//
+//			//項目名を書き込む
+//			while (rs.next()) {
+//				String c1=rs.getString("Field");
+//				bw.write("\""+c1+"\",");
+//
+//				sb.append("\""+c1+"\",");
+//
+//
+//			}
+//			bw.write("\n");
+//			sb.append("\n");
 
-			//項目名を書き込む
-			while (rs.next()) {
-				String c1=rs.getString("Field");
-				bw.write("\""+c1+"\",");
-
-				sb.append("\""+c1+"\",");
-
-
-			}
+			bw.write("\""+"日付"+"\",");
+			bw.write("\""+"時間"+"\",");
+			bw.write("\""+"氏"+"\",");
+			bw.write("\""+"名"+"\",");
+			bw.write("\""+"mail"+"\"");
+			bw.write("\""+"tel"+"\"");
+			bw.write("\""+"memo"+"\"");
+			bw.write("\""+"予約回数"+"\"");
+			bw.write("\""+"OK"+"\"");
+			bw.write("\""+"キャンセル"+"\"");
 			bw.write("\n");
+
+			sb.append("\""+"日付"+"\",");
+			sb.append("\""+"時間"+"\",");
+			sb.append("\""+"氏"+"\",");
+			sb.append("\""+"名"+"\",");
+			sb.append("\""+"mail"+"\",");
+			sb.append("\""+"tel"+"\",");
+			sb.append("\""+"memo"+"\",");
+			sb.append("\""+"予約回数"+"\"");
+			sb.append("\""+"OK"+"\"");
+			sb.append("\""+"キャンセル"+"\"");
 			sb.append("\n");
 
 			//データを表示するSQL分
-			sql = "select  * , work.mail, sum(予約回数) as 予約回数, sum(OK) as OK, sum(キャンセル) as キャンセル"
+			String sql = "select  * , work.mail, sum(予約回数) as 予約回数, sum(OK) as OK, sum(キャンセル) as キャンセル"
 				+	" from "
 				+	"(select *, 1 as 予約回数, 0 as OK, 0 as キャンセル "
 				+  "from reservation "
@@ -90,10 +114,14 @@ public class OutPutDAO {
 				+	") work "
 				+	"group by work.mail;";
 
-			rs = stmt.executeQuery(sql);
+			ResultSet rs = stmt.executeQuery(sql);
 
 			//データを書き込む
 			while (rs.next()) {//
+
+
+
+
 				String d1=rs.getString("date");//該当する項目名の値を書込む
 				String d2=rs.getString("time");
 				String d3=rs.getString("family_name");
