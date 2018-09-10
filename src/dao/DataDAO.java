@@ -29,7 +29,7 @@ public class DataDAO {
 			// 同一時間に同一アドレスの予約有無を確認
 			String sql = "SELECT*FROM reservation where date=? and time=? and mail=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, lesson.getDate());
+			pStmt.setString(1, lesson.getDate().replace("/","-"));
 			pStmt.setString(2, lesson.getTime());
 			pStmt.setString(3, rData.getMail());
 
@@ -71,7 +71,7 @@ public class DataDAO {
 			String sql = "insert into reservation (date,time,family_name,first_name,mail,tel,memo)"
 					+ "value(?,?,?,?,?,?,?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, lesson.getDate());
+			pStmt.setString(1, lesson.getDate().replace("/","-"));
 			pStmt.setString(2, lesson.getTime());
 			pStmt.setString(3, rData.getFamily_name());
 			pStmt.setString(4, rData.getFirst_name());
@@ -115,7 +115,7 @@ public class DataDAO {
 			String sql = "SELECT*FROM RESERVATION WHERE DATE=? AND TIME=? AND MAIL=? ORDER BY NUMBER DESC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			pStmt.setString(1, lesson.getDate());
+			pStmt.setString(1, lesson.getDate().replace("/","-"));
 			pStmt.setString(2, lesson.getTime());
 			pStmt.setString(3, rData.getMail());
 

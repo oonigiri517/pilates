@@ -75,6 +75,7 @@ public class OutPutDAO {
 			}
 			bw.write("\n");
 			sb.append("\n");
+			
 			//データを表示するSQL分
 			sql = "SELECT * FROM reservation";
 			rs = stmt.executeQuery(sql);

@@ -22,14 +22,6 @@ public class Output extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-//		String page = request.getParameter("page");
-
-		String forwardPath = "";
-
-//		if(page.equals("1")) {
-
-
-//		}else if(page.equals("2")) {
 
 		OutPutDAO odao = new OutPutDAO() ;
 
@@ -38,7 +30,7 @@ public class Output extends HttpServlet {
 		//csvData = new String(csvData.getBytes("UTF-8"), "SHIFT-JIS");
 		//ファイル名生成
 		SimpleDateFormat simpleDataFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String filename = simpleDataFormat.format(new Date()) + ".csv";
+		String filename = simpleDataFormat.format(new Date()) + "顧客一覧.csv";
 
 		//application/octet-stream
 		response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
@@ -56,8 +48,6 @@ public class Output extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-//		String forwardPath = "";
-//		forwardPath="/WEB-INF/jsp/inquiry.jsp";
 
 		String lesson1=request.getParameter("lesson1");
 		String lesson2=request.getParameter("lesson2");
@@ -77,7 +67,7 @@ public class Output extends HttpServlet {
 		//csvData = new String(csvData.getBytes("UTF-8"), "SHIFT-JIS");
 		//ファイル名生成
 		SimpleDateFormat simpleDataFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String filename = simpleDataFormat.format(new Date()) + ".csv";
+		String filename = simpleDataFormat.format(new Date()) + "予約履歴.csv";
 
 		//application/octet-stream
 		response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
