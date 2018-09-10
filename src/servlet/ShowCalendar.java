@@ -37,7 +37,7 @@ public class ShowCalendar extends HttpServlet {
 	    CalSchedule SLL=new CalSchedule();
 	    HttpSession session=request.getSession();
 	    session.setAttribute("SLL", SLL);
-	    RequestDispatcher disp = request.getRequestDispatcher(/showCalender.jsp);
+	    RequestDispatcher disp = request.getRequestDispatcher("/showCalender.jsp");
 		disp.forward(request, response);
 
 

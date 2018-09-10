@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.Calendar"%>
+<%@ page import="java.util.Calendar"
+import="model.CalSchedule"
+import="model.Schedule"%>
+<%
+CalSchedule SLL=(CalSchedule) session.getAttribute("SLL");
+
+%>
 
 
 <!DOCTYPE html>
