@@ -56,8 +56,9 @@ p.example {
 			<% case 4:%> <%if(SL[3]=="満員"){ %><%=SL[2] %><br><%=SL[3]%>
 				<%}else{ %>
 					<form action="/servlet/Form" method="get">
-					<input type="button" name="LT" value="<%=SL[2]%>"> <%=SL[3]%>
-					</form> <%}break;case 6:if(SL[3]=="満員"){ %>
+					<input type="button" name="LT" value="<%=SL[2]%>">
+					<%=SL[3]%></form> <%}break;%>
+			<%case 6:if(SL[3]=="満員"){ %>
 											 <%=SL[2] %><br> <%=SL[3]%>
 											<%}else{ %>
 											<form action="/servlet/Form" method="get">
