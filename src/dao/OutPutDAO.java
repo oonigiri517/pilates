@@ -84,7 +84,7 @@ public class OutPutDAO {
 			bw.write("\""+"tel"+"\"");
 			bw.write("\""+"memo"+"\"");
 			bw.write("\""+"予約回数"+"\"");
-			bw.write("\""+"OK"+"\"");
+			bw.write("\""+"予約実績"+"\"");
 			bw.write("\""+"キャンセル"+"\"");
 			bw.write("\n");
 
@@ -96,7 +96,7 @@ public class OutPutDAO {
 			sb.append("\""+"tel"+"\",");
 			sb.append("\""+"memo"+"\",");
 			sb.append("\""+"予約回数"+"\"");
-			sb.append("\""+"OK"+"\"");
+			sb.append("\""+"予約実績"+"\"");
 			sb.append("\""+"キャンセル"+"\"");
 			sb.append("\n");
 
