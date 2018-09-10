@@ -66,7 +66,7 @@ public class OutputDAO2 {
 			Statement stmt = conn.createStatement();
 
 			//項目名を表示するSQL文
-			String sql = "slect * from reservation  between ? and ? order by date";
+			String sql = "select * from reservation where date between ? and ? order by date";
 			//ResultSet rs = stmt.executeQuery(sql);
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, str1);
@@ -83,19 +83,23 @@ public class OutputDAO2 {
 			}
 			bw.write("\n");
 			sb.append("\n");
+
+
+
 			//データを表示するSQL分
 			sql = "SELECT * FROM reservation ";
 			rs = stmt.executeQuery(sql);
 
 			//データを書き込む
 			while (rs.next()) {//
-				String d1=rs.getString("date");//該当する項目名の値を書込む
-				String d2=rs.getString("time");
-				String d3=rs.getString("family_name");
-				String d4=rs.getString("first_name");
-				String d5=rs.getString("mail");
-				String d6=rs.getString("tel");
-				String d7=rs.getString("memo");
+				String d1=rs.getString("number");//該当する項目名の値を書込む
+				String d2=rs.getString("date");
+				String d3=rs.getString("time");
+				String d4=rs.getString("family_name");
+				String d5=rs.getString("first_name");
+				String d6=rs.getString("mail");
+				String d7=rs.getString("tel");
+				String d8=rs.getString("memo");
 
 				bw.write("\""+d1+"\",");
 				bw.write("\""+d2+"\",");
@@ -104,6 +108,7 @@ public class OutputDAO2 {
 				bw.write("\""+d5+"\"");
 				bw.write("\""+d6+"\"");
 				bw.write("\""+d7+"\"");
+				bw.write("\""+d8+"\"");
 				bw.write("\n");
 
 				sb.append("\""+d1+"\",");
@@ -113,6 +118,7 @@ public class OutputDAO2 {
 				sb.append("\""+d5+"\",");
 				sb.append("\""+d6+"\",");
 				sb.append("\""+d7+"\",");
+				sb.append("\""+d8+"\",");
 				sb.append("\n");
 
 			}
