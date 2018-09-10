@@ -5,6 +5,7 @@ import="model.CalSchedule"
 import="model.Schedule"%>
 <%
 CalSchedule SLL=(CalSchedule) session.getAttribute("SLL");
+Schedule SL =
 
 %>
 
@@ -70,10 +71,7 @@ p.example {
 					<tr>
 						<td>
 							<form action="post">
-								<a
-									href="aaaaa.com?y=<%=year%>&m=<%=month + 1%>&d=<%=d%>&class=<%=i%>">
-									<img src="./image/fig.jpg" />
-								</a>
+								<input type="button"valu=""
 							</form>
 						</td>
 					</tr>
