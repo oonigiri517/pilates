@@ -70,6 +70,10 @@ public class SendMail {
 			msg.setRecipients(Message.RecipientType.TO,
 				InternetAddress.parse(toAddress, false));
 
+			// 送信先メールアドレスのセット
+			msg.setRecipients(Message.RecipientType.BCC,
+				InternetAddress.parse(fromAddress, false));
+
 			// メールタイトル
 			msg.setSubject(title);
 
