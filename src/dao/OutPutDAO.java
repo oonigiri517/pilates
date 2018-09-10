@@ -106,6 +106,7 @@ public class OutPutDAO {
 				sb.append("\""+d5+"\",");
 				sb.append("\""+d6+"\",");
 				sb.append("\""+d7+"\",");
+				sb.append("\n");
 			}
 			//閉じる
 			bw.close();

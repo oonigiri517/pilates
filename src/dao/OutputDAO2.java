@@ -80,7 +80,6 @@ public class OutputDAO2 {
 
 				sb.append("\""+c1+"\",");
 
-
 			}
 			bw.write("\n");
 			sb.append("\n");
@@ -114,6 +113,7 @@ public class OutputDAO2 {
 				sb.append("\""+d5+"\",");
 				sb.append("\""+d6+"\",");
 				sb.append("\""+d7+"\",");
+				sb.append("\n");
 
 			}
 			//閉じる
