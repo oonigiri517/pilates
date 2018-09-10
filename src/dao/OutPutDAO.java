@@ -80,12 +80,12 @@ public class OutPutDAO {
 			bw.write("\""+"時間"+"\",");
 			bw.write("\""+"氏"+"\",");
 			bw.write("\""+"名"+"\",");
-			bw.write("\""+"mail"+"\"");
-			bw.write("\""+"tel"+"\"");
-			bw.write("\""+"memo"+"\"");
-			bw.write("\""+"予約回数"+"\"");
-			bw.write("\""+"予約実績"+"\"");
-			bw.write("\""+"キャンセル"+"\"");
+			bw.write("\""+"mail"+"\",");
+			bw.write("\""+"tel"+"\",");
+			bw.write("\""+"memo"+"\",");
+			bw.write("\""+"予約回数"+"\",");
+			bw.write("\""+"予約実績"+"\",");
+			bw.write("\""+"キャンセル"+"\",");
 			bw.write("\n");
 
 			sb.append("\""+"日付"+"\",");
@@ -95,9 +95,9 @@ public class OutPutDAO {
 			sb.append("\""+"mail"+"\",");
 			sb.append("\""+"tel"+"\",");
 			sb.append("\""+"memo"+"\",");
-			sb.append("\""+"予約回数"+"\"");
-			sb.append("\""+"予約実績"+"\"");
-			sb.append("\""+"キャンセル"+"\"");
+			sb.append("\""+"予約回数"+"\",");
+			sb.append("\""+"予約実績"+"\",");
+			sb.append("\""+"キャンセル"+"\",");
 			sb.append("\n");
 
 			//データを表示するSQL分
