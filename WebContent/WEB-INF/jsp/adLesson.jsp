@@ -14,6 +14,7 @@
 		<h1>レッスン予定日編集画面</h1>
 		<p>日付を選択してください</p>
 		<br>
+		<form action="#">
 		<select name="date">
 			<option value="2018">2018年</option>
 			<option value="2019">2019年</option>
@@ -22,77 +23,22 @@
 			<option value="2022">2022年</option>
 			<option value="2023">2023年</option>
 		</select> <select name="month">
-			<option value="">-</option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-			<option value="6">6</option>
-			<option value="7">7</option>
-			<option value="8">8</option>
-			<option value="9">9</option>
-			<option value="10">10</option>
-			<option value="11">11</option>
-			<option value="12">12</option>
+<% for(int i = 1;i<=12;i++){ %>
+	<option value="i"><%=i %></option>
+<%} %>
 		</select> <select name="day">
-			<option value="">-</option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-			<option value="6">6</option>
-			<option value="7">7</option>
-			<option value="8">8</option>
-			<option value="9">9</option>
-			<option value="10">10</option>
-			<option value="11">11</option>
-			<option value="12">12</option>
-			<option value="13">13</option>
-			<option value="14">14</option>
-			<option value="15">15</option>
-			<option value="16">16</option>
-			<option value="17">17</option>
-			<option value="18">18</option>
-			<option value="19">19</option>
-			<option value="20">20</option>
-			<option value="21">21</option>
-			<option value="22">22</option>
-			<option value="23">23</option>
-			<option value="24">24</option>
-			<option value="25">25</option>
-			<option value="26">26</option>
-			<option value="27">27</option>
-			<option value="28">28</option>
-			<option value="29">29</option>
-			<option value="30">30</option>
-			<option value="31">31</option>
-		</select> <select name="time">
+<% for(int y = 1;y<=31;y++){ %>
+	<option value="y"><%=y %></option>
+<%} %>
 
-			<option value="">-</option>
-			<option value="6">6</option>
-			<option value="7">7</option>
-			<option value="8">8</option>
-			<option value="9">9</option>
-			<option value="10">10</option>
-			<option value="11">11</option>
-			<option value="12">12</option>
-			<option value="13">13</option>
-			<option value="14">14</option>
-			<option value="15">15</option>
-			<option value="16">16</option>
-			<option value="17">17</option>
-			<option value="18">18</option>
-			<option value="19">19</option>
-			<option value="20">20</option>
-			<option value="21">21</option>
-			<option value="22">22</option>
-			<option value="23">23</option>
-			<option value="24">24</option>
+		</select> <select name="time">
+<% for(int g = 1;g<=24;g++){ %>
+<option value="g"><%=g %></option>
+<%} %>
 		</select>
 		<br><br>
+		<input type ="submit" value = "送信">
+		</form>
 	</div>
-
 </body>
 </html>

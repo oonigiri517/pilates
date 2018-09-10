@@ -17,7 +17,12 @@ public class CancelDAO {
 
 	try {
 		//JDBCドライバ読込み
-		Class.forName("org.h2.Driver");
+		try {
+			Class.forName("org.h2.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 
 		//データベースへ接続
 		conn = DriverManager.getConnection(
@@ -43,5 +48,6 @@ public class CancelDAO {
 			}
 		}
 	}
+	return empList;
 	}
 }

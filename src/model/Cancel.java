@@ -13,7 +13,6 @@ public class Cancel implements Serializable {
 		this.number = number;
 		this.date = date;
 		this.mail = mail;
-		this.time = time;
 	}
 	public String getNumber() {
 		return number;
