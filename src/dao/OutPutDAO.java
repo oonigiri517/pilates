@@ -12,19 +12,29 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import model.SQL;
+
 public class OutPutDAO {
 
 	//public static void main(String[] args)throws Exception {
 	public String OutputCSV() {
 
+		SQL sqlUrl = new SQL();
+		final String DRIVER_NAME = sqlUrl.getDRIVER_NAME();
+		final String JDBC_URL = sqlUrl.getJDBC_URL_y();
+		final String DB_USER = sqlUrl.getDB_USER();
+		final String DB_PASS = sqlUrl.getDB_PASS();
 		Connection conn = null;
-		String url = "jdbc:mysql://localhost:3306/goods";//使用するデータベース名を設定
-		String user = "root";
-		String password = "root";
+
+//		Connection conn = null;
+//		final String DRIVER_NAME = sqlUrl.getDRIVER_NAME();
+//		String JDBC_URL = "jdbc:mysql://localhost:3306/pilates";//使用するデータベース名を設定
+//		String DB_USER = "root";
+//		String DB_PASS = "root";
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			conn = DriverManager.getConnection(url, user, password);
+			Class.forName(DRIVER_NAME).newInstance();
+			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 
 	        File file = new File("java.csv");
 
@@ -51,7 +61,7 @@ public class OutPutDAO {
 			Statement stmt = conn.createStatement();
 
 			//項目名を表示するSQL文
-			String sql = "show columns from kakeibp";
+			String sql = "show columns from reservation";
 			ResultSet rs = stmt.executeQuery(sql);
 
 			//項目名を書き込む
@@ -66,7 +76,7 @@ public class OutPutDAO {
 			bw.write("\n");
 			sb.append("\n");
 			//データを表示するSQL分
-			sql = "SELECT * FROM kakeibp";
+			sql = "SELECT * FROM reservation";
 			rs = stmt.executeQuery(sql);
 
 			//データを書き込む

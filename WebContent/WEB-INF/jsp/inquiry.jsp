@@ -13,7 +13,7 @@ Lesson les2=(Lesson)request.getAttribute("lesson2");
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 </head>
 <body>
-<form action="/Pilates/Output?page=1" method="get">
+<form action="/Pilates/Output?page=1" method="post">
 	<input type="date" name="lesson1"  >
 ～
 	<input type="date" name="lesson2" >

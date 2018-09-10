@@ -22,46 +22,14 @@ public class Output extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String page = request.getParameter("page");
+//		String page = request.getParameter("page");
 
 		String forwardPath = "";
 
-		if(page.equals("1")) {
-			forwardPath="/WEB-INF/jsp/inquiry.jsp";
-
-			String lesson1=request.getParameter("lesson1");
-			String lesson2=request.getParameter("lesson2");
-
-			Lesson les1=new Lesson();
-			les1.setDate(lesson1);
-
-			Lesson les2=new Lesson();
-			les2.setDate(lesson2);
-
-			request.setAttribute("lesson1", les1);
-			request.setAttribute("lesson2", les2);
-
-			OutputDAO2 out2 = new OutputDAO2() ;
-			String csvData = out2.OutputCSV(lesson1,lesson2) ;
-
-			//csvData = new String(csvData.getBytes("UTF-8"), "SHIFT-JIS");
-			//ファイル名生成
-			SimpleDateFormat simpleDataFormat = new SimpleDateFormat("yyyy-MM-dd");
-			String filename = simpleDataFormat.format(new Date()) + ".csv";
-
-			//application/octet-stream
-			response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-		    response.setHeader("Content-Disposition"
-		         , String.format("attachment; filename=\"%s\"", filename));
-		         response.setCharacterEncoding("UTF-8");
-		    //"attachment; filename=\"downloadFile.csv\""
-		    OutputStream out = response.getOutputStream();
-		    byte[] downloadData = csvData.getBytes("SHIFT-JIS");
-		    out.write(downloadData);
-		    out.close();
+//		if(page.equals("1")) {
 
 
-		}else if(page.equals("2")) {
+//		}else if(page.equals("2")) {
 
 		OutPutDAO odao = new OutPutDAO() ;
 
@@ -83,11 +51,44 @@ public class Output extends HttpServlet {
 	    out.write(downloadData);
 	    out.close();
 
-	}
+//	}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+//		String forwardPath = "";
+//		forwardPath="/WEB-INF/jsp/inquiry.jsp";
 
+		String lesson1=request.getParameter("lesson1");
+		String lesson2=request.getParameter("lesson2");
+
+		Lesson les1=new Lesson();
+		les1.setDate(lesson1);
+
+		Lesson les2=new Lesson();
+		les2.setDate(lesson2);
+
+		request.setAttribute("les1", les1);
+		request.setAttribute("les2", les2);
+
+		OutputDAO2 out2 = new OutputDAO2() ;
+		String csvData = out2.OutputCSV(lesson1,lesson2) ;
+
+		//csvData = new String(csvData.getBytes("UTF-8"), "SHIFT-JIS");
+		//ファイル名生成
+		SimpleDateFormat simpleDataFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String filename = simpleDataFormat.format(new Date()) + ".csv";
+
+		//application/octet-stream
+		response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+	    response.setHeader("Content-Disposition"
+	         , String.format("attachment; filename=\"%s\"", filename));
+	         response.setCharacterEncoding("UTF-8");
+	    //"attachment; filename=\"downloadFile.csv\""
+	    OutputStream out = response.getOutputStream();
+	    byte[] downloadData = csvData.getBytes("SHIFT-JIS");
+	    out.write(downloadData);
+	    out.close();
 
 	}
 
