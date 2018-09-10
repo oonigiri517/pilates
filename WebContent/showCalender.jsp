@@ -67,16 +67,34 @@ p.example {
 				<table>
 					<%
 						for (int i = 1; i <= 4; i++) {
-					%>
+							Schedule SL=SLL[d];
+							switch(SL.length){
+							case 3:%>
 					<tr>
 						<td>
 							<form action="post">
-								<input type="button"valu=""
+							SL[2]
+
 							</form>
 						</td>
 					</tr>
-					<%}%>
+					<%break;
+					case 4:%>
+					<tr>
+						<td>
+						<%if(SL[3]=="満員"){ %>
+						<%=SL[2] %><br>
+						<%=SL[3] %>
+						<%}else{ %>
+							<form action="post">
+							<input type="button"name="LT"valu="<%=SL[2] %>">
+							SL[3]
+
+							</form>
+						</td>
+					</tr>%>
 				</table></td>
+				<% %>
 			<%} %>
 		</tr>
 	</table>
