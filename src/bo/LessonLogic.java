@@ -28,7 +28,7 @@ public class LessonLogic {
 		System.out.println(sdf.format(today.getTime()));
 		today.set(Y, M, D);
 		System.out.println(sdf.format(today.getTime()));
-		today.add(D, 1);
+		today.add(Calendar.DAY_OF_MONTH, 1);
 		boolean N = myC.after(today);
 		System.out.println(sdf.format(today.getTime()));
 		String[] le6 = new String[6];

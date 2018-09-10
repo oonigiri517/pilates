@@ -6,11 +6,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import model.SQL;
+
 public class CustomerDAO {
-	final String DRIVER_NAME = "com.mysql.jdbc.Driver";
-	final String JDBC_URL = "jdbc:mysql://localhost/pilates";
-	final String DB_USER = "root";
-	final String DB_PASS = "root";
+	SQL sqlUrl = new SQL();
+	final String DRIVER_NAME = sqlUrl.getDRIVER_NAME();
+	final String JDBC_URL = sqlUrl.getJDBC_URL_y();
+	final String DB_USER = sqlUrl.getDB_USER();
+	final String DB_PASS = sqlUrl.getDB_PASS();
 	Connection conn = null;
 
 	public int countCustomer(String day,String time){
