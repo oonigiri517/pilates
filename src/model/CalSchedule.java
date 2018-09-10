@@ -3,23 +3,23 @@ package model;
 import java.io.Serializable;
 
 public class CalSchedule implements Serializable {
-	Schedule[] schedule;
+	Schedule[] SLM;
 
 	public CalSchedule() {
 		super();
 	}
 
-	public CalSchedule(Schedule[] schedule) {
+	public CalSchedule(Schedule[] sLM) {
 		super();
-		this.schedule = schedule;
+		SLM = sLM;
 	}
 
-	public Schedule[] getSchedule() {
-		return schedule;
+	public Schedule[] getSLM() {
+		return SLM;
 	}
 
-	public void setSchedule(Schedule[] schedule) {
-		this.schedule = schedule;
+	public void setSLM(Schedule[] sLM) {
+		SLM = sLM;
 	}
 
 }

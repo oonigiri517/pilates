@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.Calendar" import="model.CalSchedule"
-	import="model.Schedule"%>
+<%@ page import="java.util.Calendar"
+		 import="model.CalSchedule"
+		 import="model.Schedule"
+%>
 <%
 CalSchedule SLL=(CalSchedule) session.getAttribute("SLL");
-Schedule SL =
-
+Schedule[] SLM=getSLM(SLL);
 %>
 
 
@@ -23,8 +24,8 @@ p.example {
 <body>
 	<%
 		Calendar cal = Calendar.getInstance();
-		int year = today.get(Calendar.YEAR);
-		int month = today.get(Calendar.MONTH);
+		int year = cal.get(Calendar.YEAR);
+		int month = cal.get(Calendar.MONTH);
 		int day = 1;
 		cal.set(year,month,day);
 		int weekday = cal.get(Calendar.DAY_OF_WEEK) - 1;
@@ -50,27 +51,43 @@ p.example {
 	<td align="center"><%=d%><br /><table>
 	<%for(int i=1;i<=4;i++){%>
 		<tr><td>
-		<%Schedule SL=SLL[d];%>
-		<% switch(SL.length){ %>
-			<% case 3:%> <%=SL[2] %><%break;%>
+		<%Schedule SSL=SLM[d];%>
+		<%String[] SL=SSL;%>
+		<%switch(SL.length){%>
+			<% case 3:%>
+				<%=SL[2] %>
+				<%break;%>
 			<% case 4:%>
-				<%if(SL[3]=="満員"){ %><%=SL[2] %><br><%=SL[3]%>
-				 <%}else{ %>
+				<%if(SL[3]=="満員"){ %>
+					<%=SL[2] %><br>
+					<%=SL[3]%>
+				<%}else{ %>
 					<form action="/servlet/Form" method="get">
 					<input type="button" name="LT" value="<%=SL[2]%>">
-				<%=SL[3]%></form>
-					<%}break;%>
-			<% case 6:if(SL[3]=="満員"){ %><%=SL[2] %><br><%=SL[3]%><%break;%>
-					<%}else{ %>
-						<form action="/servlet/Form" method="get">
-						<input type="button" name="LT" value="<%=SL[2]%>">
-						<%=SL[3]%></form> <%}
-					 if(SL[5]=="満員"){ %> <%=SL[4] %><br> <%=SL[5] %>
-					 	<%break;}else{ %>
-						<form action="/servlet/Form" method="get">
-						<input type="button" name="LT" value="<%=SL[4]%>"> <%=SL[5]%>
-						</form>
-					<% }break;} %>
+					<%=SL[3]%></form>
+				<%}break;%>
+			<% case 6:%>
+				<%if(SL[3]=="満員"){ %>
+				 	<%=SL[2] %><br>
+				 	<%=SL[3]%>
+				 	<%break;%>
+				<%}else{ %>
+					<form action="/servlet/Form" method="get">
+					<input type="button" name="LT" value="<%=SL[2]%>">
+					<%=SL[3]%></form>
+				<%}%>
+				<%if(SL[5]=="満員"){ %>
+					<%=SL[4] %><br>
+					<%=SL[5] %>
+					<%break;%>
+				<%}else{ %>
+					<form action="/servlet/Form" method="get">
+					<input type="button" name="LT" value="<%=SL[4]%>">
+					<%=SL[5]%></form>
+				<%}break;%>
+			<%default:%>
+				<%break;%>
+		<%} %>
 			</td></tr><%}%>
 	</table></td><% }%>
 </tr></table>
