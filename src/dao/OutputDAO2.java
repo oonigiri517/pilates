@@ -80,7 +80,6 @@ public class OutputDAO2 {
 
 				sb.append("\""+c1+"\",");
 
-
 			}
 			bw.write("\n");
 			sb.append("\n");
