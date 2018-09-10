@@ -51,31 +51,28 @@ p.example {
 	<%for(int i=1;i<=4;i++){%>
 		<tr><td>
 		<%Schedule SL=SLL[d];%>
-		<% switch(SL.length){%>
+		<% switch(SL.length){ %>
 			<% case 3:%> <%=SL[2] %><%break;%>
-			<% case 4:%> <%if(SL[3]=="満員"){ %><%=SL[2] %><br><%=SL[3]%>
-				<%}else{ %>
+			<% case 4:%>
+				<%if(SL[3]=="満員"){ %><%=SL[2] %><br><%=SL[3]%>
+				 <%}else{ %>
 					<form action="/servlet/Form" method="get">
 					<input type="button" name="LT" value="<%=SL[2]%>">
-					<%=SL[3]%></form> <%}break;%>
-			<%case 6:if(SL[3]=="満員"){ %>
-											 <%=SL[2] %><br> <%=SL[3]%>
-											<%}else{ %>
-											<form action="/servlet/Form" method="get">
-											<input type="button" name="LT" value="<%=SL[2]%>"> <%=SL[3]%>
-											</form> <%}
-										   if(SL[5]=="満員"){ %> <%=SL[4] %><br> <%=SL[5] %> <%}else{ %>
-											<form action="/servlet/Form" method="get">
-											<input type="button" name="LT" value="<%=SL[4]%>"> <%=SL[5]%>
-											</form> <% }break;} %>
-
-						</td>
-					</tr>
-					<%}%>
-				</table></td>
-			<% }%>
-		</tr>
-	</table>
-
+				<%=SL[3]%></form>
+					<%}break;%>
+			<% case 6:if(SL[3]=="満員"){ %><%=SL[2] %><br><%=SL[3]%><%break;%>
+					<%}else{ %>
+						<form action="/servlet/Form" method="get">
+						<input type="button" name="LT" value="<%=SL[2]%>">
+						<%=SL[3]%></form> <%}
+					 if(SL[5]=="満員"){ %> <%=SL[4] %><br> <%=SL[5] %>
+					 	<%break;}else{ %>
+						<form action="/servlet/Form" method="get">
+						<input type="button" name="LT" value="<%=SL[4]%>"> <%=SL[5]%>
+						</form>
+					<% }break;} %>
+			</td></tr><%}%>
+	</table></td><% }%>
+</tr></table>
 </body>
 </html>
