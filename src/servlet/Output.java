@@ -30,7 +30,7 @@ public class Output extends HttpServlet {
 		//csvData = new String(csvData.getBytes("UTF-8"), "SHIFT-JIS");
 		//ファイル名生成
 		SimpleDateFormat simpleDataFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String filename = simpleDataFormat.format(new Date()) + "顧客一覧.csv";
+		String filename = simpleDataFormat.format(new Date()) + "customer.csv";
 
 		//application/octet-stream
 		response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
@@ -67,7 +67,7 @@ public class Output extends HttpServlet {
 		//csvData = new String(csvData.getBytes("UTF-8"), "SHIFT-JIS");
 		//ファイル名生成
 		SimpleDateFormat simpleDataFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String filename = simpleDataFormat.format(new Date()) + "予約履歴.csv";
+		String filename = simpleDataFormat.format(new Date()) + "reservation.csv";
 
 		//application/octet-stream
 		response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
