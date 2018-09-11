@@ -1,6 +1,5 @@
 package bo;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import dao.CustomerDAO;
@@ -10,17 +9,16 @@ import model.Schedule;
 
 public class LessonLogic {
 
-	//public Schedule showSchedule(int LD) {
-	public static void main(String[] args) {
+	public Schedule showSchedule(int LD) {
+	//public static void main(String[] args) {
 		Lesson lesson=new Lesson();
-		int LD=18;
+		//int LD=18;
 		Calendar myC = Calendar.getInstance();
 		int LY = myC.get(Calendar.YEAR);
 		int LM = myC.get(Calendar.MONTH);
 		myC.set(Calendar.YEAR, LY);
 		myC.set(Calendar.MONTH, LM);
 		myC.set(Calendar.DATE, LD);
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		//System.out.println(sdf.format(myC.getTime()));
 		String sLY = String.valueOf(LY);
 		String sLM = String.valueOf(LM+1);
@@ -45,13 +43,14 @@ public class LessonLogic {
 			le3[2] = "締切";
 			Schedule sle = new Schedule(le3);
 
-				System.out.println(1);
+				//System.out.println(1);
 
-			//return sle;
+			return sle;
 
 
 		} else {
-			String DATE = sLY+"-"+sLM + "/" + sLD;
+			//String DATE = sLY+"-"+sLM + "-" + sLD;
+			String DATE = String.format("%04d-%02d-%02d",LY,LM,LD );
 			lesson.setDate(DATE);
 			LessonDAO LDAO = new LessonDAO();
 			String[] FDATE = LDAO.findDay(DATE);
@@ -87,14 +86,14 @@ public class LessonLogic {
 
 				}
 
-					System.out.println(2);
+					//System.out.println(2);
 
 
 				Schedule sle = new Schedule(le6);
-				//return sle;
+				return sle;
 
 			} else if ((FDATE[0] == "無し") && (FDATE[1] != "無し")) {
-				System.out.println("ok");
+				//System.out.println("ok");
 				le4[2] = FDATE[1];
 				lesson.setTime(FDATE[1]);
 				CustomerDAO CCDAO = new CustomerDAO();
@@ -110,12 +109,9 @@ public class LessonLogic {
 					le4[3] = "満員";
 					break;
 				}
-				for(String G:le4){
-					System.out.println(G);
-				}
 
 				Schedule sle = new Schedule(le4);
-				//return sle;
+				return sle;
 
 			} else if ((FDATE[0] != "無し") && (FDATE[1] == "無し")) {
 				le4[2] = FDATE[0];
@@ -135,19 +131,19 @@ public class LessonLogic {
 				}
 				Schedule sle = new Schedule(le4);
 
-					System.out.println(3);
+					//System.out.println(3);
 
 
-				//return sle;
+				return sle;
 
-			} else {
+			} else if((FDATE[0] == "無し") && (FDATE[1] == "無し")) {
 				le3[2] = "休み";
 				Schedule sle = new Schedule(le3);
 
-					System.out.println(4);
+					//System.out.println(4);
 
 
-				//return sle;
+				return sle;
 
 			}
 		}
