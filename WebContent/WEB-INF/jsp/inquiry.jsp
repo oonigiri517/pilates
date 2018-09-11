@@ -20,7 +20,7 @@
 			<input type="date" name="lesson1"> ～ <input type="date" name="lesson2">
 			<div class="button-panel">
 				<input type="hidden" value="1" name="page">
-				<input type="submit" class="button" title="送信" value="送信">
+				<input type="submit" class="button" title="送信" value="出力">
 			</div>
 		</form>
 		<%
