@@ -74,6 +74,13 @@ public class LessonDAO {
 
 			firstSQLResult = pStmt1.executeUpdate();// 成功時は必ず1、失敗時は0
 
+			//重複レコードを削除する
+			sql = "DELETE FROM lesson WHERE"
+					+ " id NOT IN (SELECT min_id from "
+					+ "(SELECT MIN(id) min_id FROM lesson GROUP BY date,time) tmp)";
+			PreparedStatement pStmt2 = conn.prepareStatement(sql);
+			pStmt2.executeUpdate();
+
 			// 1回目がfalse、2回目がtrueのときも通っちゃうからダメ
 			if (firstSQLResult > 0) {
 				result = true;

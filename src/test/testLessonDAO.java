@@ -5,7 +5,7 @@ import model.Lesson;
 
 public class testLessonDAO {
 	public static void main(String[] args) {
-		Lesson lesson=new Lesson("2018/08/28","10:00");
+		Lesson lesson=new Lesson("2019/01/14","10:00");
 		testLessonDAO tdao = new testLessonDAO();
 
 		boolean result = tdao.lessonLogic(lesson);
@@ -15,12 +15,12 @@ public class testLessonDAO {
 			System.out.println("ng");
 		}
 
-		result = tdao.deleteLogic(lesson);
-		if(result) {
-			System.out.println("ok");
-		}else {
-			System.out.println("ng");
-		}
+	//	result = tdao.deleteLogic(lesson);
+		//if(result) {
+	//		System.out.println("ok");
+	//	}else {
+	//		System.out.println("ng");
+	//	}
 	}
 
 	public boolean lessonLogic(Lesson lesson){

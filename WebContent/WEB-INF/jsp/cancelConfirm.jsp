@@ -20,6 +20,8 @@
 		予約番号:<%=cancel.getNumber()%><br> 予約日時:<%=cancel.getDate()%><br>
 		メールアドレス:<%=cancel.getMail()%><br>
 		</p>
+		<input type="submit" class="button" title="実行" value="キャンセル確定"></input>
+		<input type="submit" class="button" title="back" value="戻る"></input>
 	</div>
 </body>
 </html>
