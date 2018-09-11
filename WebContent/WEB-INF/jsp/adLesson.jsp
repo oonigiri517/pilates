@@ -14,10 +14,10 @@ String msg=(String)request.getAttribute("msg");
 <title>レッスン予定日編集画面</title>
 </head>
 <body>
-<c:if test="${not empty msg}">
-	<p><font color=red>${msg}</font></p>
-</c:if>
 	<div class="form-wrapper" align="center">
+		<c:if test="${not empty msg}">
+			<p><font color=red>${msg}</font></p>
+		</c:if>
 		<h1>レッスン予定日編集画面</h1>
 		<p>レッスン予定日変更（追加・削除）</p>
 		<br>

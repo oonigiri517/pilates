@@ -30,31 +30,34 @@ public class EditLesson extends HttpServlet {
 
 					String strStart=request.getParameter("start");
 					String strEnd=request.getParameter("end");
-//					System.out.println(strStart);
-//					System.out.println(strEnd);
 
-					Lesson start=new Lesson();
-					Lesson end=new Lesson();
-
-//					start.setDate(strStart);
-//					end.setDate(strEnd);
-
-					request.setAttribute("start", start);
-					request.setAttribute("end", end);
-
-//					System.out.println(start);
-//					System.out.println(end);
-
-					DefaultLessonLogic dll=new DefaultLessonLogic();
-					boolean result=dll.defaultLesson(strStart, strEnd);
-
-					if(result){
-						String msg=strStart+"～"+strEnd+"の基本レッスン枠を追加しました。";
+					if(strStart.isEmpty()||strEnd.isEmpty()){
+						String msg="日付を選択してください";
 						request.setAttribute("msg", msg);
 						forwardPath="/WEB-INF/jsp/adLesson.jsp";
+
 					}else{
-						forwardPath="/WEB-INF/jsp/adLesson.jsp";
+
+						Lesson start=new Lesson(strStart);
+						Lesson end=new Lesson(strEnd);
+
+						request.setAttribute("start", start);
+						request.setAttribute("end", end);
+
+						DefaultLessonLogic dll=new DefaultLessonLogic();
+						boolean result=dll.defaultLesson(strStart, strEnd);
+
+						if(result){
+							String msg=strStart+"～"+strEnd+"の<br>基本レッスン枠を追加しました。";
+							request.setAttribute("msg", msg);
+							forwardPath="/WEB-INF/jsp/adLesson.jsp";
+						}else{
+							String msg="入力期間を確認してください";
+							request.setAttribute("msg", msg);
+							forwardPath="/WEB-INF/jsp/adLesson.jsp";
+						}
 					}
+
 				}
 
 				RequestDispatcher dispatcher =

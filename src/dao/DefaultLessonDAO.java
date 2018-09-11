@@ -23,10 +23,6 @@ public class DefaultLessonDAO {
 	public boolean defaultInsert(String strStart,String strEnd) {
 		boolean result = false;
 
-//		// 期間入力フォームからとってきた日付
-//		String strStart = startLesson.getDate();
-//		String strEnd = endLesson.getDate();
-
 		Calendar start = new GregorianCalendar();
 		Calendar end = new GregorianCalendar();
 
