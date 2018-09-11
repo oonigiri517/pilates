@@ -14,10 +14,22 @@ public class testLessonDAO {
 		} else {
 			System.out.println("ng");
 		}
+
+		result = tdao.deleteLogic(lesson);
+		if(result) {
+			System.out.println("ok");
+		}else {
+			System.out.println("ng");
+		}
 	}
 
 	public boolean lessonLogic(Lesson lesson){
 		LessonDAO lso=new LessonDAO();
 		return lso.insert(lesson);
+	}
+
+	public boolean deleteLogic(Lesson lesson) {
+		LessonDAO lso =new LessonDAO();
+		return lso.delete(lesson);
 	}
 }

@@ -71,6 +71,7 @@ public class LessonDAO {
 			pStmt1.setString(1, lesson.getDate());
 			pStmt1.setString(2, lesson.getTime());
 
+
 			firstSQLResult = pStmt1.executeUpdate();// 成功時は必ず1、失敗時は0
 
 			// 1回目がfalse、2回目がtrueのときも通っちゃうからダメ
@@ -96,7 +97,45 @@ public class LessonDAO {
 			}
 		}
 	}
+	public boolean delete(Lesson lesson) {
+		boolean result = false;
+		int firstSQLResult = 0;// 帰ってきた件数チェック(0件なら入ってない)
+		//JDBCドライバ読込み
+		try {
+			Class.forName(DRIVER_NAME);
+			//データベースへ接続
+			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 
+			// DELETE文の準備
+			String sql = "delete from lesson where date = ? and time=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, lesson.getDate());
+			pStmt.setString(2, lesson.getTime());
+		firstSQLResult = pStmt.executeUpdate();// 成功時は必ず1、失敗時は0
+
+		// 1回目がfalse、2回目がtrueのときも通っちゃうからダメ
+		if (firstSQLResult > 0) {
+			result = true;
+		}
+		return result;
+
+	} catch (SQLException e) {
+		e.printStackTrace();
+		return false;
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		return false;
+	} finally {
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
+		}
+	}
+}
 	public MailData findNum(Lesson lesson, ReserveData rData) {
 		try {
 			Class.forName(DRIVER_NAME);
