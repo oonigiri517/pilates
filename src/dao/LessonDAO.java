@@ -10,7 +10,7 @@ import model.Lesson;
 import model.SQL;
 
 public class LessonDAO {
-	SQL sqlUrl=new SQL();
+	SQL sqlUrl = new SQL();
 	final String DRIVER_NAME = sqlUrl.getDRIVER_NAME();
 	final String JDBC_URL = sqlUrl.getJDBC_URL_y();
 	final String DB_USER = sqlUrl.getDB_USER();
@@ -20,24 +20,22 @@ public class LessonDAO {
 	public boolean insert(Lesson lesson) {
 		boolean result = false;
 		int firstSQLResult = 0;// 帰ってきた件数チェック(0件なら入ってない)
-		//JDBCドライバ読込み
+		// JDBCドライバ読込み
 		try {
 			Class.forName(DRIVER_NAME);
-			//データベースへ接続
+			// データベースへ接続
 			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 
 			// INSERT文の準備
-			String sql = "insert into lesson (date,time)"
-					+ "value(?,?)";
+			String sql = "insert into lesson (date,time)" + "value(?,?)";
 			PreparedStatement pStmt1 = conn.prepareStatement(sql);
 			pStmt1.setString(1, lesson.getDate());
 			pStmt1.setString(2, lesson.getTime());
 
 			firstSQLResult = pStmt1.executeUpdate();// 成功時は必ず1、失敗時は0
 
-			//重複レコードを削除する
-			sql = "DELETE FROM lesson WHERE"
-					+ " id NOT IN (SELECT min_id from "
+			// 重複レコードを削除する
+			sql = "DELETE FROM lesson WHERE" + " id NOT IN (SELECT min_id from "
 					+ "(SELECT MIN(id) min_id FROM lesson GROUP BY date,time) tmp)";
 			PreparedStatement pStmt2 = conn.prepareStatement(sql);
 			pStmt2.executeUpdate();
@@ -69,10 +67,10 @@ public class LessonDAO {
 	public boolean delete(Lesson lesson) {
 		boolean result = false;
 		int firstSQLResult = 0;// 帰ってきた件数チェック(0件なら入ってない)
-		//JDBCドライバ読込み
+		// JDBCドライバ読込み
 		try {
 			Class.forName(DRIVER_NAME);
-			//データベースへ接続
+			// データベースへ接続
 			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 
 			// DELETE文の準備
@@ -80,31 +78,31 @@ public class LessonDAO {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, lesson.getDate());
 			pStmt.setString(2, lesson.getTime());
-		firstSQLResult = pStmt.executeUpdate();// 成功時は必ず1、失敗時は0
+			firstSQLResult = pStmt.executeUpdate();// 成功時は必ず1、失敗時は0
 
-		// 1回目がfalse、2回目がtrueのときも通っちゃうからダメ
-		if (firstSQLResult > 0) {
-			result = true;
-		}
-		return result;
+			// 1回目がfalse、2回目がtrueのときも通っちゃうからダメ
+			if (firstSQLResult > 0) {
+				result = true;
+			}
+			return result;
 
-	} catch (SQLException e) {
-		e.printStackTrace();
-		return false;
-	} catch (ClassNotFoundException e) {
-		e.printStackTrace();
-		return false;
-	} finally {
-		if (conn != null) {
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-				return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return false;
+				}
 			}
 		}
 	}
-}
 
 	public String[] findDay(String day) {
 
