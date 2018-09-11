@@ -5,6 +5,8 @@ import java.io.Serializable;
 public class Lesson implements Serializable {
 	String date;
 	String time;
+	public Lesson() {
+	}
 	public Lesson(String date, String time) {
 		this.date = date;
 		this.time = time;

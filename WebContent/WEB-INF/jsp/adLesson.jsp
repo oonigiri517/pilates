@@ -23,9 +23,9 @@ String msg=(String)request.getAttribute("msg");
 		<br>
 		<form action="/Pilates/EditLesson" method="post">
 			<input type="date" name="lesson"> <br> <br>
-			<select id="time">
+			<select id="time" name="time">
 				<%for (int i = 1; i <= 24; i++) {%>
-					<option value="i"><%=i%>時</option>
+					<option value="<%=i%>:00"><%=i%>:00</option>
 				<%}	%>
 			</select> <br>
 			<div class="button-panel">
