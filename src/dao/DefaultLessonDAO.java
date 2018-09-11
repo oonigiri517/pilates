@@ -21,12 +21,6 @@ public class DefaultLessonDAO {
 	final String DB_PASS = sqlUrl.getDB_PASS();
 	Connection conn = null;
 
-	public static void main(String[] args) {
-		Lesson lesson = new Lesson("2018/9/15", "14:00");
-		DefaultLessonDAO dld = new DefaultLessonDAO();
-		dld.defaultInsert(lesson);
-	}
-
 	public boolean defaultInsert(Lesson lesson) {
 		boolean result = false;
 

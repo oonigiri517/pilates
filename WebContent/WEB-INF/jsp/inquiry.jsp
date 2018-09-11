@@ -17,11 +17,10 @@
 	<div class="form-wrapper">
 		<h1>履歴照会</h1>
 		<form action="/Pilates/Output" method="post">
-			<input type="date" name="lesson1"> ～ <input type="date"
-				name="lesson2">
+			<input type="date" name="lesson1"> ～ <input type="date" name="lesson2">
 			<div class="button-panel">
-				<input type="submit" class="button" title="送信" value="送信"> <input type="hidden"
-					value="1" name="page">
+				<input type="hidden" value="1" name="page">
+				<input type="submit" class="button" title="送信" value="送信">
 			</div>
 		</form>
 		<%

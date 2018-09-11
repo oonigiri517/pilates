@@ -15,36 +15,29 @@
 		<h1>レッスン予定日編集画面</h1>
 		<p>レッスン予定日変更（追加・削除）</p>
 		<br>
-		<form action="/servlet/EditLesson" method="post">
-			<input type="date" name="lesson"> <br> <br> <select
-				id="time">
-				<%
-					for (int i = 1; i <= 24; i++) {
-				%>
-				<option value="i"><%=i%>時
-				</option>
-				<%
-					}
-				%>
+		<form action="/Pilates/EditLesson" method="post">
+			<input type="date" name="lesson"> <br> <br>
+			<select id="time">
+				<%for (int i = 1; i <= 24; i++) {%>
+					<option value="i"><%=i%>時</option>
+				<%}	%>
 			</select> <br>
 			<div class="button-panel">
-				<input type="submit" class="button" title="追加" value="追加"> <br>
-				<br> <input type="submit" class="button" title="送信" value="削除">
+				<input type="submit" name="submit" class="button" title="追加" value="追加"><br><br>
+				<input type="submit" name="submit" class="button" title="送信" value="削除">
 			</div>
 		</form>
 		<br> <br>
 
-
 		<p>レッスン枠追加 日付選択</p>
 		<br>
-		<form action="/servlet/EditLesson" method="post">
-			<input type="date" name="lesson"> <input type="date"
-				name="name2"> <br> <br>
+		<form action="/Pilates/EditLesson" method="post">
+			<input type="date" name="lesson1"> <input type="date" name="lesson2"> <br>
 			<div class="button-panel">
-				<input type="submit" class="button" title="送信" value="追加">
+				<!-- valueで条件分岐しているため、”基本枠追加”の表記は変更しないでください -->
+				<input type="submit" name="submit" class="button" title="送信" value="基本枠追加">
 			</div>
 			<br> <br>
-
 		</form>
 	</div>
 </body>
