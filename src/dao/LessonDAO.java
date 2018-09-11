@@ -151,12 +151,12 @@ public class LessonDAO {
 			Class.forName(DRIVER_NAME);
 			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 
-			String sql = "SELECT date,time FROM lesson WHERE date=?";
+			String sql = "SELECT * FROM lesson WHERE date= ? ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, day);
 			ResultSet rs = pStmt.executeQuery();
+			int I = 0;
 			while (rs.next()) {
-				int I = 0;
 
 				String time = rs.getString("time");
 				FDL[I] = time;
