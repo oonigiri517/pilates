@@ -19,8 +19,8 @@
 					required="required" placeholder="予約番号入力 ※半角小文字"></input>
 			</div>
 			<div class="form-item">
-				<label for="予約済日時入力 ※半角小文字"></label> <input type="text" name="date"
-					required="required" placeholder="予約済日時入力 ※半角小文字"></input>
+				<label for="日付選択してください"></label> <input type="date" name="date"
+					required="required" placeholder="日付選択してください"></input>
 			</div>
 			<div class="form-item">
 				<label for="メールアドレス"></label> <input type="text" name="addres"
