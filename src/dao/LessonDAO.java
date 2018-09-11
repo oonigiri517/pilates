@@ -18,24 +18,28 @@ public class LessonDAO {
 	Connection conn = null;
 
 	public boolean check(Lesson lesson) {
-
 		try {
 			Class.forName(DRIVER_NAME);
-			conn = DriverManager.getConnection(
-					JDBC_URL, DB_USER, DB_PASS);
+			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
+			int CC = 0;
+			boolean result = false;
 
 			// 同一時間に同一アドレスの予約有無を確認
-			String sql = "SELECT *,count(date) FROM lesson where date=? group by date";
+			String sql = "SELECT count(date) as CC FROM lesson where date=? group by date";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, lesson.getDate().replace("/","-"));
-			pStmt.setString(2, lesson.getTime());
+			pStmt.setString(1, lesson.getDate().replace("/", "-"));
+
+//			System.out.println(pStmt.toString());
 
 			ResultSet rs = pStmt.executeQuery();
-			if (rs.next()) {// rs.next()⇒1行目があればfalseを返すメソッド
-				return false;
-			} else {// rs.next()⇒1行目がなければtrueを返すメソッド
-				return true;
+			while (rs.next()) {
+				CC = rs.getInt("CC");
 			}
+			System.out.println(CC);
+			if (CC < 2) {// rs.next()⇒1行目があればfalseを返すメソッド
+				result = true;
+			}
+			return result;
 
 		} catch (SQLException e) {
 			e.printStackTrace();

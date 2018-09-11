@@ -31,23 +31,30 @@ public class EditLesson extends HttpServlet {
 			request.setAttribute("lesson", lesson);
 
 			EditLogic ed = new EditLogic();
+			// 日付が未選択だったら
 			if (strLesson.isEmpty() || strTime.isEmpty()) {
 				String msg = "日時を選択してください";
 				request.setAttribute("msg", msg);
+
 			} else {
+
 				if (submit.equals("追加")) {
-					result = ed.insertLogic(lesson);
+					result = ed.checkLogic(lesson);
 					if (result) {
-						String msg = strLesson + " " + strTime + "の<br>レッスン枠を追加しました。";
-						request.setAttribute("msg", msg);
+						result = ed.insertLogic(lesson);
+						if (result) {
+							String msg = strLesson + " " + strTime + "の<br>レッスン枠を追加しました。";
+							request.setAttribute("msg", msg);
+						}
 					} else {
-						String msg = "日付を選択してください";
+						String msg = "既に2件のレッスン枠が登録済みです。<br>" + "レッスン枠を削除してから追加してください。";
 						request.setAttribute("msg", msg);
 					}
+
 				} else if (submit.equals("削除")) {
 					result = ed.deleteLogic(lesson);
 					if (result) {
-						String msg =strLesson + " " + strTime + "の<br>レッスン枠を削除しました。";
+						String msg = strLesson + " " + strTime + "の<br>レッスン枠を削除しました。";
 						request.setAttribute("msg", msg);
 					} else {
 						String msg = "該当レッスン枠がありません";
