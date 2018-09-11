@@ -5,12 +5,14 @@ import java.util.Calendar;
 
 import dao.CustomerDAO;
 import dao.LessonDAO;
+import model.Lesson;
 import model.Schedule;
 
 public class LessonLogic {
 
 	//public Schedule showSchedule(int LD) {
 	public static void main(String[] args) {
+		Lesson lesson=new Lesson();
 		int LD=18;
 		Calendar myC = Calendar.getInstance();
 		int LY = myC.get(Calendar.YEAR);
@@ -50,13 +52,15 @@ public class LessonLogic {
 
 		} else {
 			String DATE = sLY+"-"+sLM + "/" + sLD;
+			lesson.setDate(DATE);
 			LessonDAO LDAO = new LessonDAO();
 			String[] FDATE = LDAO.findDay(DATE);
 			if ((FDATE[0] != "無し") && (FDATE[1] != "無し")) {
 				le6[2] = FDATE[0];
 				le6[4] = FDATE[1];
+				lesson.setTime(FDATE[0]);
 				CustomerDAO CCDAO = new CustomerDAO();
-				int CC1 = CCDAO.countCustomer(DATE, le6[2]);
+				int CC1 = CCDAO.countCustomer(lesson);
 				switch (CC1) {
 				case 0:
 					le6[3] = "残り2人";
@@ -68,7 +72,8 @@ public class LessonLogic {
 					le6[3] = "満員";
 					break;
 				}
-				int CC2 = CCDAO.countCustomer(DATE, le6[5]);
+				lesson.setTime(FDATE[1]);
+				int CC2 = CCDAO.countCustomer(lesson);
 				switch (CC2) {
 				case 0:
 					le6[5] = "残り2人";
@@ -91,8 +96,9 @@ public class LessonLogic {
 			} else if ((FDATE[0] == "無し") && (FDATE[1] != "無し")) {
 				System.out.println("ok");
 				le4[2] = FDATE[1];
+				lesson.setTime(FDATE[1]);
 				CustomerDAO CCDAO = new CustomerDAO();
-				int CC2 = CCDAO.countCustomer(DATE, le4[2]);
+				int CC2 = CCDAO.countCustomer(lesson);
 				switch (CC2) {
 				case 0:
 					le4[3] = "残り2人";
@@ -113,9 +119,9 @@ public class LessonLogic {
 
 			} else if ((FDATE[0] != "無し") && (FDATE[1] == "無し")) {
 				le4[2] = FDATE[0];
-
+				lesson.setTime(FDATE[0]);
 				CustomerDAO CCDAO = new CustomerDAO();
-				int CC1 = CCDAO.countCustomer(DATE, le4[3]);
+				int CC1 = CCDAO.countCustomer(lesson);
 				switch (CC1) {
 				case 0:
 					le4[3] = "残り2人";

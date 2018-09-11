@@ -6,9 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import model.Lesson;
 import model.SQL;
 
 public class CustomerDAO {
+	//public static void /*showC()*/main(String[] args) {
 	SQL sqlUrl = new SQL();
 	final String DRIVER_NAME = sqlUrl.getDRIVER_NAME();
 	final String JDBC_URL = sqlUrl.getJDBC_URL_y();
@@ -16,23 +18,26 @@ public class CustomerDAO {
 	final String DB_PASS = sqlUrl.getDB_PASS();
 	Connection conn = null;
 
-	public int countCustomer(String day,String time){
-		Connection conn =null;
+	public int countCustomer(Lesson lesson){
+		//String day="2018-9-18";
+		//String time="10:00";
+		//Connection conn =null;
 		int CC=0;
 
 		try{Class.forName(DRIVER_NAME);
 		conn=DriverManager.getConnection(JDBC_URL,DB_USER,DB_PASS);
 
-		String sql="SELECT COUNT (*) AS CC FROM reservation WHERE date=?,time=?";
+		String sql="SELECT COUNT (*) AS CC FROM reservation WHERE date=? AND time=?";
 		PreparedStatement pStmt=conn.prepareStatement(sql);
-		pStmt.setString(1, day);
-		pStmt.setString(2, time);
-		ResultSet rs=pStmt.executeQuery();
-		while (rs.next()) {
+		pStmt.setString(1, lesson.getDate());
+		pStmt.setString(2, lesson.getTime());
+		ResultSet rs=pStmt.executeUpdate();
+		while (rs.next()){
 
      	CC =rs.getInt("CC");
 
 		}
+		System.out.println(CC);
 		return CC;
 
 
