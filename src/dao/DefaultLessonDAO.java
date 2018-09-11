@@ -10,7 +10,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import model.Lesson;
 import model.SQL;
 
 public class DefaultLessonDAO {
@@ -21,27 +20,29 @@ public class DefaultLessonDAO {
 	final String DB_PASS = sqlUrl.getDB_PASS();
 	Connection conn = null;
 
-	public boolean defaultInsert(Lesson lesson) {
+	public boolean defaultInsert(String strStart,String strEnd) {
 		boolean result = false;
 
-		// 現在時間
-		Calendar nowCal = Calendar.getInstance();
+//		// 期間入力フォームからとってきた日付
+//		String strStart = startLesson.getDate();
+//		String strEnd = endLesson.getDate();
 
-		// 期間入力フォームからとってきた日付
-		String str = lesson.getDate();
-		Calendar calEnd = new GregorianCalendar();
+		Calendar start = new GregorianCalendar();
+		Calendar end = new GregorianCalendar();
 
 		// 期間入力フォームからとってきた日付カレンダー型に変換
 		try {
-			calEnd.setTime(DateFormat.getDateInstance().parse(str));
+			start.setTime(DateFormat.getDateInstance().parse(strStart.replace("-","/")));
+			end.setTime(DateFormat.getDateInstance().parse(strEnd.replace("-","/")));
 		} catch (ParseException e) {
-			calEnd = null;
+			start=null;end = null;
 		}
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		// モジュール化する？
 		String[] defaultLessonTimes = { "10:00", "14:00" };
-		System.out.println(sdf.format(calEnd.getTime()));
+		System.out.println(sdf.format(start.getTime()));
+		System.out.println(sdf.format(end.getTime()));
 
 		try {
 			Class.forName(DRIVER_NAME);
@@ -49,18 +50,19 @@ public class DefaultLessonDAO {
 
 			// lessonテーブルにデータを挿入
 			String sql = "insert into lesson (date,time)value(?,?)";
-			while (nowCal.compareTo(calEnd) < 0) {
-				String now = sdf.format(nowCal.getTime());
-				int D = nowCal.get(Calendar.DAY_OF_WEEK);
+			int sqlResult=0;
+			while (start.compareTo(end) < 0) {
+				String now = sdf.format(start.getTime());
+				int D = start.get(Calendar.DAY_OF_WEEK);
 				if (D == 2 || D == 3 || D == 5 || D == 6) {
 					for (String time : defaultLessonTimes) {
-						PreparedStatement pStmt = conn.prepareStatement(sql);
-						pStmt.setString(1, now);
-						pStmt.setString(2, time);
-						pStmt.executeUpdate();
+						PreparedStatement pStmt1 = conn.prepareStatement(sql);
+						pStmt1.setString(1, now);
+						pStmt1.setString(2, time);
+						sqlResult=pStmt1.executeUpdate();
 					}
 				}
-				nowCal.add(Calendar.DATE, 1);// 1日追加
+				start.add(Calendar.DATE, 1);// 1日追加
 				System.out.println(now);
 			}
 
@@ -68,14 +70,12 @@ public class DefaultLessonDAO {
 			sql = "DELETE FROM lesson WHERE"
 					+ " id NOT IN (SELECT min_id from "
 					+ "(SELECT MIN(id) min_id FROM lesson GROUP BY date,time) tmp)";
-			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.executeUpdate();
+			PreparedStatement pStmt2 = conn.prepareStatement(sql);
+			pStmt2.executeUpdate();
 
-//			int firstSQLResult = 0;
-//			firstSQLResult = pStmt.executeUpdate();
-//			if (firstSQLResult > 0) {
-//				result = true;
-//			}
+			if (sqlResult > 0) {
+				result = true;
+			}
 			return result;
 
 		} catch (SQLException e) {
