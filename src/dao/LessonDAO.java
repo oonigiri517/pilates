@@ -55,25 +55,21 @@ public class LessonDAO {
 		}
 	}
 */
-	public boolean insert(Lesson lesson, ReserveData rData) {
-		Connection conn = null;
-		int firstSQLResult = 0;// 帰ってきた件数チェック(0件なら入ってない)
+	public boolean insert(Lesson lesson) {
 		boolean result = false;
+		int firstSQLResult = 0;// 帰ってきた件数チェック(0件なら入ってない)
+		//JDBCドライバ読込み
 		try {
 			Class.forName(DRIVER_NAME);
+			//データベースへ接続
 			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 
-			// entrantテーブルにデータを挿入
-			String sql = "insert into reservation (date,time,family_name,first_name,mail,tel,memo)"
-					+ "value(?,?,?,?,?,?,?)";
+			// INSERT文の準備
+			String sql = "insert into lesson (date,time)"
+					+ "value(?,?)";
 			PreparedStatement pStmt1 = conn.prepareStatement(sql);
 			pStmt1.setString(1, lesson.getDate());
 			pStmt1.setString(2, lesson.getTime());
-			pStmt1.setString(3, rData.getFamily_name());
-			pStmt1.setString(4, rData.getFirst_name());
-			pStmt1.setString(5, rData.getMail());
-			pStmt1.setString(6, rData.getTel());
-			pStmt1.setString(7, rData.getMemo());
 
 			firstSQLResult = pStmt1.executeUpdate();// 成功時は必ず1、失敗時は0
 
