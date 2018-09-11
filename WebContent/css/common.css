@@ -147,14 +147,16 @@ address {
 	transform: translateY(-50%) translateX(-50%);
 	-webkit- transform: translateY(-50%) translateX(-50%);
 }
-/*accessandowner内、道案内文章*/
+/*accessandowner内、道案内文章と、question01Q＆Aページでも使用*/
 #box2{
-	width:80%;
 	margin-left:25%;
 }
-/*accessandowner内、オーナー紹介文章*/
+/*accessandowner内、オーナー紹介文章と、question01Q＆Aページでも使用*/
 #box3{
-	width:80%;
+	margin-left:25%;
+}
+/*question01 Q＆Aページでも使用*/
+#box4{
 	margin-left:25%;
 }
 

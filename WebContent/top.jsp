@@ -67,10 +67,10 @@
 							alt="サロンからのお知らせ" />
 					</h3>
 					<ul>
-						<li><span>2018.09.01</span><a href="" class="mouseHvr">食欲の秋！食べ過ぎ対策キャンペーンを開始</a></li>
-						<li><span>2018.08.25</span><a href="" class="mouseHvr">9月の定休日についてのご案内</a></li>
-						<li><span>2018.08.01</span><a href="" class="mouseHvr">猛暑対策！夏バテ防止キャンペーンを開始</a></li>
-						<li><span>2018.07.01</span><a href="" class="mouseHvr">サイトオープン</a></li>
+						<li><span>2018.09.01</span><a href="#" class="mouseHvr">食欲の秋！食べ過ぎ対策キャンペーンを開始</a></li>
+						<li><span>2018.08.25</span><a href="#" class="mouseHvr">9月の定休日についてのご案内</a></li>
+						<li><span>2018.08.01</span><a href="#" class="mouseHvr">猛暑対策！夏バテ防止キャンペーンを開始</a></li>
+						<li><span>2018.07.01</span><a href="#" class="mouseHvr">サイトオープン</a></li>
 					</ul>
 					<!-- #news -->
 				</div>
@@ -80,9 +80,9 @@
 							alt="Q&A" />
 					</h3>
 					<ul>
-						<li><span>予約キャンセルについて</span><a href="#" class="mouseHvr">メールにて予約日時、予約番号、メールアドレスをお伝えください</a></li>
-						<li><span>レッスン持ち物</span><a href="#" class="mouseHvr">動きやすい服装、タオル、500ml以上の水分をご持参ください</a></li>
-						<li><span>初めてなのですが・・</span><a href="#" class="mouseHvr">個人レッスンなのでご安心ください</a></li>
+						<li><span>予約キャンセルについて</span><a href="question01.jsp" class="mouseHvr">メールにて予約日時、予約番号、メールアドレスをお伝えください</a></li>
+						<li><span>レッスン持ち物</span><a href="question01.jsp" class="mouseHvr">動きやすい服装、タオル、500ml以上の水分をご持参ください</a></li>
+						<li><span>初めてなのですが・・</span><a href="whatispilates.jsp" class="mouseHvr">個人レッスンなのでご安心ください</a></li>
 						<li><span>ピラティスって何？</span><a href="whatispilates.jsp" class="mouseHvr">ピラティスについてご紹介しています</a></li>
 					</ul>
 					<!-- #blog -->
