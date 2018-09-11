@@ -27,11 +27,14 @@ public class CustomerDAO {
 		try{Class.forName(DRIVER_NAME);
 		conn=DriverManager.getConnection(JDBC_URL,DB_USER,DB_PASS);
 
-		String sql="SELECT COUNT (*) AS CC FROM reservation WHERE date=? AND time=?";
+		String sql="select sum( yes_or_no) as CC from reservation WHERE date= ? AND time= ?";
 		PreparedStatement pStmt=conn.prepareStatement(sql);
 		pStmt.setString(1, lesson.getDate());
 		pStmt.setString(2, lesson.getTime());
-		ResultSet rs=pStmt.executeUpdate();
+
+		System.out.println(pStmt.toString());
+
+		ResultSet rs=pStmt.executeQuery();
 		while (rs.next()){
 
      	CC =rs.getInt("CC");

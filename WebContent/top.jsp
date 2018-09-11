@@ -67,10 +67,10 @@
 							alt="サロンからのお知らせ" />
 					</h3>
 					<ul>
-						<li><span>2018.09.01</span><a href="#" class="mouseHvr">食欲の秋！食べ過ぎ対策キャンペーンを開始</a></li>
-						<li><span>2018.08.25</span><a href="#" class="mouseHvr">9月の定休日についてのご案内</a></li>
-						<li><span>2018.08.01</span><a href="#" class="mouseHvr">猛暑対策！夏バテ防止キャンペーンを開始</a></li>
-						<li><span>2018.07.01</span><a href="#" class="mouseHvr">サイトオープン</a></li>
+						<li><span>2018.09.01</span><a href="news04.jsp" class="mouseHvr">食欲の秋！食べ過ぎ対策キャンペーンを開始</a></li>
+						<li><span>2018.08.25</span><a href="news03.jsp" class="mouseHvr">9月の定休日についてのご案内</a></li>
+						<li><span>2018.08.01</span><a href="news02.jsp" class="mouseHvr">猛暑対策！夏バテ防止キャンペーンを開始</a></li>
+						<li><span>2018.07.01</span><a href="news01.jsp" class="mouseHvr">サイトオープン</a></li>
 					</ul>
 					<!-- #news -->
 				</div>
