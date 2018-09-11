@@ -28,17 +28,15 @@ public class LessonDAO {
 			String sql = "SELECT count(date) as CC FROM lesson where date=? group by date";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, lesson.getDate().replace("/", "-"));
-			pStmt.setString(2, lesson.getTime());
 
-			System.out.println(pStmt.toString());
+//			System.out.println(pStmt.toString());
 
 			ResultSet rs = pStmt.executeQuery();
 			while (rs.next()) {
 				CC = rs.getInt("CC");
 			}
 			System.out.println(CC);
-
-			if (CC < 3) {// rs.next()⇒1行目があればfalseを返すメソッド
+			if (CC < 2) {// rs.next()⇒1行目があればfalseを返すメソッド
 				result = true;
 			}
 			return result;
