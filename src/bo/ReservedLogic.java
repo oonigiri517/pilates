@@ -5,7 +5,7 @@ import model.Cancel;
 
 public class ReservedLogic {
 	public static void main(String[] args) {
-		Cancel cancel = new Cancel("2", "2018-8-28", "kanemoto@mail.com");
+		Cancel cancel = new Cancel("3", "2018-08-28", "kanemoto@mail.com");
 		ReservedLogic rld = new ReservedLogic();
 		boolean result = rld.cancelLogic(cancel);
 		if (result) {

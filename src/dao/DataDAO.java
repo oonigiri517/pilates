@@ -24,7 +24,8 @@ public class DataDAO {
 
 		try {
 			Class.forName(DRIVER_NAME);
-			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
+			conn = DriverManager.getConnection(
+					JDBC_URL, DB_USER, DB_PASS);
 
 			// 同一時間に同一アドレスの予約有無を確認
 			String sql = "SELECT*FROM reservation where date=? and time=? and mail=?";
