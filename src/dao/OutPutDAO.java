@@ -101,18 +101,7 @@ public class OutPutDAO {
 			sb.append("\n");
 
 			//データを表示するSQL分
-			String sql = "select  * , work.mail, sum(予約回数) as 予約回数, sum(OK) as OK, sum(キャンセル) as キャンセル"
-				+	" from "
-				+	"(select *, 1 as 予約回数, 0 as OK, 0 as キャンセル "
-				+  "from reservation "
-				+	"union all "
-				+	"select *, 0 as 予約回数, 1 as OK, 0 as キャンセル "
-				+	"from reservation where Yes_or_no=1 "
-				+	"union all "
-				+	"select *, 0 as 予約回数, 0 as OK, 1 as キャンセル "
-				+	"from reservation where Yes_or_no=0 "
-				+	") work "
-				+	"group by work.mail;";
+			String sql = "select number, date, time, family_name, first_name, work.mail, tel, memo, sum(予約回数) as 予約回数, sum(OK) as OK, sum(キャンセル) as キャンセル from (select *, 1 as 予約回数, 0 as OK, 0 as キャンセル from reservation union all select *, 0 as 予約回数, 1 as OK, 0 as キャンセル from reservation where Yes_or_no=1 union all select *, 0 as 予約回数, 0 as OK, 1 as キャンセル from reservation where Yes_or_no=0 ) work group by work.mail;";
 
 			ResultSet rs = stmt.executeQuery(sql);
 
