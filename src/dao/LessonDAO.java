@@ -17,6 +17,44 @@ public class LessonDAO {
 	final String DB_PASS = sqlUrl.getDB_PASS();
 	Connection conn = null;
 
+	public boolean check(Lesson lesson) {
+
+		try {
+			Class.forName(DRIVER_NAME);
+			conn = DriverManager.getConnection(
+					JDBC_URL, DB_USER, DB_PASS);
+
+			// 同一時間に同一アドレスの予約有無を確認
+			String sql = "SELECT *,count(date) FROM lesson where date=? group by date";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, lesson.getDate().replace("/","-"));
+			pStmt.setString(2, lesson.getTime());
+
+			ResultSet rs = pStmt.executeQuery();
+			if (rs.next()) {// rs.next()⇒1行目があればfalseを返すメソッド
+				return false;
+			} else {// rs.next()⇒1行目がなければtrueを返すメソッド
+				return true;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return false;
+				}
+			}
+		}
+	}
+
 	public boolean insert(Lesson lesson) {
 		boolean result = false;
 		int firstSQLResult = 0;// 帰ってきた件数チェック(0件なら入ってない)

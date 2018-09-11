@@ -38,7 +38,7 @@ public class EditLesson extends HttpServlet {
 				if (submit.equals("追加")) {
 					result = ed.insertLogic(lesson);
 					if (result) {
-						String msg = "ok";
+						String msg = strLesson + " " + strTime + "の<br>レッスン枠を追加しました。";
 						request.setAttribute("msg", msg);
 					} else {
 						String msg = "日付を選択してください";
@@ -47,10 +47,10 @@ public class EditLesson extends HttpServlet {
 				} else if (submit.equals("削除")) {
 					result = ed.deleteLogic(lesson);
 					if (result) {
-						String msg = "ok";
+						String msg =strLesson + " " + strTime + "の<br>レッスン枠を削除しました。";
 						request.setAttribute("msg", msg);
 					} else {
-						String msg = "日付を選択してください";
+						String msg = "該当レッスン枠がありません";
 						request.setAttribute("msg", msg);
 					}
 				}
