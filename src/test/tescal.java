@@ -23,21 +23,11 @@ public class tescal {
 	    for (int rowweek=0; rowweek<6; rowweek++) {
 	      for (int colweek=0; colweek<7; colweek++) {
 	        //9日以下はスペースを追加
-	        if (day<9) {
-	          System.out.print(" ");
-	        }
-	        //1日の開始位置を決める(スペース表示)
-	        if (colweek<WD-1 && rowweek==0) {
-	          System.out.print("  ");
-	        //日数表示
-	        }else if(day<LDM) {
-	        	//Calendar MC2=Calendar.getInstance();
 
 	        	Schedule S=LLogic.showSchedule(day+1);
 
 	        	for(String n:S.getSchedule()){
 	        		System.out.println(n);
-	        	}
 	        	day++;
 	        }
 	      }

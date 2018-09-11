@@ -2,11 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.Calendar"
 		 import="model.CalSchedule"
-		 import="model.Schedule"
+		 import="model.LessonLogic"
 %>
 <%
 CalSchedule SLL=(CalSchedule) session.getAttribute("SLL");
-Schedule[] SLM=getSLM(SLL);
+Schedule[] SLM=getSLM();
 %>
 
 
@@ -51,22 +51,53 @@ p.example {
 	<td align="center"><%=d%><br /><table>
 	<%for(int i=1;i<=4;i++){%>
 		<tr><td>
-		<%Schedule SSL=SLM[d];%>
+<%
+Schedule SSL=SLM[d-1];
+String[] SL=getSchedule();
+int sll = SL.length;
+switch(sll){
+
+case 3:
+	System.out.print(SL[2]);
+	break ;
+case 4:if(SL[3]=="満員"){ System.out.print( SL[2]+"<br>"+ SL[3]);}else{
+	System.out.print("<form action="/servlet/Form" method="get">");
+	System.out.print("<input type="button" name="LT" value="<%=SL[2]%>"> SL[3]");
+	System.out.print("</form> ");}
+	break;
+	case 6:
+	if(SL[3]=="満員"){System.out.print("SL[2]<br>SL[3]")}else{
+	System.out.print('<form action="/servlet/Form" method="get">');
+	System.out.print("<input type="button" name="LT" value="<%=SL[2]%>"> SL[3]");
+	System.out.print("</form> ")}
+	if(SL[5]=="満員"){System.out.print(SL[4]+"<br>"+SL[5]);}else{
+	System.out.print('<form action="/servlet/Form" method="get">');
+	System.out.print('<input type="button" name="LT" value="<%=SL[4]%>"> SL[5]')
+	System.out.print('</form> ');}
+	break;}
+	default : break ;
+
+
+}
+%>
+		<%--<%Schedule SSL=SLM[d-1];
 		<%String[] SL=SSL;%>
-		<%switch(SL.length){%>
-			<% case 3:%>
+		<% int sll = SL.length; %>
+		<% switch(sll){%>
+
+			<% case 3 : %>
 				<%=SL[2] %>
 				<%break;%>
-			<% case 4:%>
+			<% case 4 : %>
 				<%if(SL[3]=="満員"){ %>
 					<%=SL[2] %><br>
 					<%=SL[3]%>
-				<%}else{ %>
+				<%break; }else{ %>
 					<form action="/servlet/Form" method="get">
 					<input type="button" name="LT" value="<%=SL[2]%>">
 					<%=SL[3]%></form>
-				<%}break;%>
-			<% case 6:%>
+				<%break;}%>
+			<% case 6 : %>
 				<%if(SL[3]=="満員"){ %>
 				 	<%=SL[2] %><br>
 				 	<%=SL[3]%>
@@ -85,9 +116,9 @@ p.example {
 					<input type="button" name="LT" value="<%=SL[4]%>">
 					<%=SL[5]%></form>
 				<%}break;%>
-			<%default:%>
-				<%break;%>
-		<%} %>
+			<%default : %>
+				<%break ; %>
+		<%} %>--%>
 			</td></tr><%}%>
 	</table></td><% }%>
 </tr></table>

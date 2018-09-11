@@ -1,17 +1,49 @@
 package test;
 
+import bo.LessonLogic;
 import dao.DataDAO;
 import model.Lesson;
 import model.MailData;
 import model.ReserveData;
+import model.Schedule;
 
 public class testDataDAO {
 	public static void main(String[] args) {
-		Lesson lesson=new Lesson("2018/08/28","10:00");
-		ReserveData rData=new ReserveData("山田","花子","yamada@mail.com","yamada@mail.com","090-0000-9999","test");
+		LessonLogic SLC=new LessonLogic();
+		Schedule SLL=SLC.showSchedule(5);
+		String[] SL=SLL.getSchedule();
+		int sll=SL.length;
+		System.out.println(sll);
 
-		testInsertOK(lesson, rData);
-		testFindNum(lesson, rData);
+		switch(sll){
+
+		case 3:
+			System.out.print(SL[2]);
+			break ;
+		case 4:
+			if(SL[3]=="満員"){
+				System.out.print(SL[3]);
+			}else{
+			}
+			break;
+		case 6:
+			if(SL[3]=="満員"){
+				System.out.print(SL[5]);
+				}else{
+			}
+
+			if(SL[5]=="満員"){
+			}else{
+			break;}
+		default :
+			break ;
+		}
+
+//		Lesson lesson=new Lesson("2018/08/28","10:00");
+//		ReserveData rData=new ReserveData("山田","花子","yamada@mail.com","yamada@mail.com","090-0000-9999","test");
+//
+//		testInsertOK(lesson, rData);
+//		testFindNum(lesson, rData);
 //		testcheckOK(lesson, rData);
 
 	}

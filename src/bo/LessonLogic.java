@@ -9,7 +9,9 @@ import model.Schedule;
 
 public class LessonLogic {
 
-	public Schedule showSchedule(int LD) {
+	//public Schedule showSchedule(int LD) {
+	public static void main(String[] args) {
+		int LD=18;
 		Calendar myC = Calendar.getInstance();
 		int LY = myC.get(Calendar.YEAR);
 		int LM = myC.get(Calendar.MONTH);
@@ -17,7 +19,7 @@ public class LessonLogic {
 		myC.set(Calendar.MONTH, LM);
 		myC.set(Calendar.DATE, LD);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		System.out.println(sdf.format(myC.getTime()));
+		//System.out.println(sdf.format(myC.getTime()));
 		String sLY = String.valueOf(LY);
 		String sLM = String.valueOf(LM+1);
 		String sLD = String.valueOf(LD);
@@ -25,12 +27,12 @@ public class LessonLogic {
 		int Y = today.get(Calendar.YEAR);
 		int M = today.get(Calendar.MONTH);
 		int D = today.get(Calendar.DATE);
-		System.out.println(sdf.format(today.getTime()));
+		//System.out.println(sdf.format(today.getTime()));
 		today.set(Y, M, D);
-		System.out.println(sdf.format(today.getTime()));
+		//System.out.println(sdf.format(today.getTime()));
 		today.add(Calendar.DAY_OF_MONTH, 1);
 		boolean N = myC.after(today);
-		System.out.println(sdf.format(today.getTime()));
+		//System.out.println(sdf.format(today.getTime()));
 		String[] le6 = new String[6];
 		String[] le4 = new String[4];
 		String[] le3 = new String[3];
@@ -40,7 +42,10 @@ public class LessonLogic {
 
 			le3[2] = "締切";
 			Schedule sle = new Schedule(le3);
-			return sle;
+
+				System.out.println(1);
+
+			//return sle;
 
 
 		} else {
@@ -76,10 +81,15 @@ public class LessonLogic {
 					break;
 
 				}
+
+					System.out.println(2);
+
+
 				Schedule sle = new Schedule(le6);
-				return sle;
+				//return sle;
 
 			} else if ((FDATE[0] == "無し") && (FDATE[1] != "無し")) {
+				System.out.println("ok");
 				le4[2] = FDATE[1];
 				CustomerDAO CCDAO = new CustomerDAO();
 				int CC2 = CCDAO.countCustomer(DATE, le4[2]);
@@ -94,8 +104,12 @@ public class LessonLogic {
 					le4[3] = "満員";
 					break;
 				}
+				for(String G:le4){
+					System.out.println(G);
+				}
+
 				Schedule sle = new Schedule(le4);
-				return sle;
+				//return sle;
 
 			} else if ((FDATE[0] != "無し") && (FDATE[1] == "無し")) {
 				le4[2] = FDATE[0];
@@ -114,12 +128,20 @@ public class LessonLogic {
 					break;
 				}
 				Schedule sle = new Schedule(le4);
-				return sle;
+
+					System.out.println(3);
+
+
+				//return sle;
 
 			} else {
 				le3[2] = "休み";
 				Schedule sle = new Schedule(le3);
-				return sle;
+
+					System.out.println(4);
+
+
+				//return sle;
 
 			}
 		}
