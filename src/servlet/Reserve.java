@@ -20,9 +20,6 @@ import model.ReserveData;
 public class Reserve extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		ReserveData rData=(ReserveData) session.getAttribute("reserveData");
@@ -37,9 +34,9 @@ public class Reserve extends HttpServlet {
 			response.sendRedirect("/Pilates/Mail");
 		}else{
 			HashMap<String,String> emsRsv = new HashMap<String,String>();
-			emsRsv.put("reserved","                        既にご予約をいただいております。"
-					+ "<br>                        ご予約内容等お問い合わせは"
-					+ "<br>                        relax.pilates123@gmail.comでお願いいたします。");
+			emsRsv.put("reserved","既にご予約をいただいております。"
+					+ "<br>ご予約内容等お問い合わせは"
+					+ "<br>relax.pilates123@gmail.comでお願いいたします。");
 			request.setAttribute("emsRsv", emsRsv);
 			//From.javaで予約が重複しているエラーを出す。。
 			RequestDispatcher disp=request.getRequestDispatcher("/WEB-INF/jsp/formConfirm.jsp");

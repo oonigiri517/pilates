@@ -22,7 +22,7 @@ public class SendMail {
 		String time = mailData.getTime();
 		String family_name = mailData.getFamily_name();
 		String first_name = mailData.getFirst_name();
-		String mail = mailData.getMail();
+		String toAddress = mailData.getMail();
 
 		String title="【"+date+"レッスン予約受付】Relax Pilates予約番号"+number;
 		String text=family_name+"　"+first_name+"さま\n"
@@ -40,12 +40,10 @@ public class SendMail {
 				+ "お会いできる日を楽しみにしています。\n"
 				+ "\n";
 
-		String toAddress=mail;//送信先アドレス
-
 		String fromAddress="relax.pilates123@gmail.com";//送信元
-		String password="relax321";//送信元のパスわード
+		String password="relax321";//送信元のパスワード
 
-		mailSend(title,text,toAddress,fromAddress,password);//パスワード
+		mailSend(title,text,toAddress,fromAddress,password);
 		return true;//時間があれば送信できてないか確認追加する
 	}
 

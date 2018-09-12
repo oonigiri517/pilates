@@ -32,10 +32,11 @@ public class Mail extends HttpServlet {
 		if(result){
 			RequestDispatcher disp = request.getRequestDispatcher("/WEB-INF/jsp/reserved.jsp");
 			disp.forward(request, response);
-		}else{
-			RequestDispatcher disp = request.getRequestDispatcher("form.jsp");
-			disp.forward(request, response);
 		}
+//		else{
+//			RequestDispatcher disp = request.getRequestDispatcher("form.jsp");
+//			disp.forward(request, response);
+//		}
 
 	}
 

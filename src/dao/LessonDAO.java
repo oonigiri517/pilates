@@ -82,7 +82,6 @@ public class LessonDAO {
 			PreparedStatement pStmt2 = conn.prepareStatement(sql);
 			pStmt2.executeUpdate();
 
-			// 1回目がfalse、2回目がtrueのときも通っちゃうからダメ
 			if (firstSQLResult > 0) {
 				result = true;
 			}
@@ -122,7 +121,6 @@ public class LessonDAO {
 			pStmt.setString(2, lesson.getTime());
 			firstSQLResult = pStmt.executeUpdate();// 成功時は必ず1、失敗時は0
 
-			// 1回目がfalse、2回目がtrueのときも通っちゃうからダメ
 			if (firstSQLResult > 0) {
 				result = true;
 			}
