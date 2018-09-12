@@ -25,14 +25,7 @@ public class Reservation extends HttpServlet {
 
 		//フォワード
 		String forwardPath = "";
-		if(abc.equals("キャンセル確定")) {
-			Cancel cancel=(Cancel) session.getAttribute("cancel");
-			ReservedLogic reservedLogic = new ReservedLogic();
-			reservedLogic.cancelLogic(cancel);
-		    forwardPath = "/WEB-INF/jsp/cancelConfirm.jsp";
-		}else if(abc.equals("戻る")) {
-			forwardPath ="/WEB-INF/jsp/cancel.jsp";
-		}else if(abc.equals("確認")){
+		if(abc.equals("確認")) {
 			String number = request.getParameter("number");
 			String date = request.getParameter("date");
 			String mail = request.getParameter("mail");
@@ -42,6 +35,22 @@ public class Reservation extends HttpServlet {
 
 			session.setAttribute("cancel", cancel);
 			forwardPath ="/WEB-INF/jsp/cancelConfirm.jsp";
+
+		}else if(abc.equals("キャンセル確定")) {
+			Cancel cancel=(Cancel) session.getAttribute("cancel");
+			ReservedLogic reservedLogic = new ReservedLogic();
+			boolean result = reservedLogic.cancelLogic(cancel);
+		    if(result) {
+		    	String msg = "取り消し完了しました。";
+				request.setAttribute("msg", msg);
+		    }else {
+		    	String msg = "該当する予約がありません。";
+				request.setAttribute("msg", msg);
+		    }
+			forwardPath = "/WEB-INF/jsp/cancelConfirm.jsp";
+
+		}else if(abc.equals("戻る")){
+			forwardPath ="/WEB-INF/jsp/cancel.jsp";
 		}
 		RequestDispatcher dispatcher =
 				request.getRequestDispatcher(forwardPath);

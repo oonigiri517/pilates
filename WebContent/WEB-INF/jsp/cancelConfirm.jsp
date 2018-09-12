@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="model.Cancel"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	Cancel cancel = (Cancel) session.getAttribute("cancel");
 %>
@@ -15,6 +16,9 @@
 <body>
 <form action="/Pilates/Reservation" method="post">
 	<div class="form-wrapper">
+	<c:if test="${not empty msg}">
+			<p><font color=red>${msg}</font></p>
+		</c:if>
 		<h1>以下の予約を取り消します</h1>
 		<p>よろしいですか？</p>
 		<p>

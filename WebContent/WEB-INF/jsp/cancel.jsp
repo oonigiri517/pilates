@@ -15,7 +15,7 @@
 		<br></br>
 		<form action="/Pilates/Reservation" method="post">
 			<div class="form-item">
-				<label for="予約番号 ※半角小文字"></label> <input type="text" name="number"
+				<label for="予約番号 ※半角小文字"></label> <input type="text" name="number" maxlength="5"
 					required="required" placeholder="予約番号入力 ※半角小文字"></input>
 			</div>
 			<div class="form-item">
