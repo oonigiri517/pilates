@@ -27,7 +27,7 @@
 					required="required" placeholder="メールアドレス入力"></input>
 			</div>
 			<div class="button-panel">
-				<input type="submit" class="button" title="実行" value="確認"></input>
+				<input type="submit" name="abc" class="button" title="実行" value="確認"></input>
 			</div>
 			<br>
 		</form>

@@ -22,6 +22,7 @@ public class Reservation extends HttpServlet {
 		String number = request.getParameter("number");
 		String date = request.getParameter("date");
 		String mail = request.getParameter("mail");
+		String abc = request.getParameter("abc");
 
 		//セッションスコープに保存
 		Cancel cancel = new Cancel(number,date,mail);
@@ -29,8 +30,16 @@ public class Reservation extends HttpServlet {
 		session.setAttribute("cancel", cancel);
 
 		//フォワード
+		String forwardPath = "";
+		if(abc.equals("キャンセル確定")) {
+			forwardPath ="/WEB-INF/jsp/adLesson.jsp";
+		}else if(abc.equals("戻る")) {
+			forwardPath ="/WEB-INF/jsp/cancel.jsp";
+		}else if(abc.equals("確認")){
+			forwardPath ="/WEB-INF/jsp/cancelConfirm.jsp";
+		}
 		RequestDispatcher dispatcher =
-				request.getRequestDispatcher("/WEB-INF/jsp/cancelConfirm.jsp");
+				request.getRequestDispatcher(forwardPath);
 				dispatcher.forward(request, response);
 
 	}

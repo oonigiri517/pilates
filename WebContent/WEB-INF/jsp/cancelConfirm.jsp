@@ -13,6 +13,7 @@
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 </head>
 <body>
+<form action="/Pilates/Reservation" method="post">
 	<div class="form-wrapper">
 		<h1>以下の予約を取り消します</h1>
 		<p>よろしいですか？</p>
@@ -20,8 +21,9 @@
 		予約番号:<%=cancel.getNumber()%><br> 予約日時:<%=cancel.getDate()%><br>
 		メールアドレス:<%=cancel.getMail()%><br>
 		</p>
-		<input type="submit" class="button" title="実行" value="キャンセル確定"></input>
-		<input type="submit" class="button" title="back" value="戻る"></input>
+		<input type="submit" name="abc" class="button" title="実行" value="キャンセル確定"></input>
+		<input type="submit" name="abc" class="button" title="back" value="戻る"></input>
 	</div>
+</form>
 </body>
 </html>
