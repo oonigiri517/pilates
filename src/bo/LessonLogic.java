@@ -149,20 +149,22 @@ public class LessonLogic {
 		}return null;
 	}
 	public Schedule showSchedule2(int LD) {
-		// public static void main(String[] args) {
+		//public static void main(String[] args) {
 		Lesson lesson = new Lesson();
-		// int LD=18;
+		 //int LD=18;
+		// SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar myC = Calendar.getInstance();
 		int LY = myC.get(Calendar.YEAR);
-		int LM = myC.get(Calendar.MONTH);
-		myC.add(LM,1);
+		myC.add(Calendar.MONTH,1);
+		int LM=myC.get(Calendar.MONTH);
 		myC.set(Calendar.YEAR, LY);
 		myC.set(Calendar.MONTH, LM);
 		myC.set(Calendar.DATE, LD);
-		// System.out.println(sdf.format(myC.getTime()));
+		//System.out.println(sdf.format(myC.getTime()));
 		String sLY = String.valueOf(LY);
 		String sLM = String.valueOf(LM + 1);
 		String sLD = String.valueOf(LD);
+		//System.out.println(sLM);
 		Calendar today = Calendar.getInstance();
 		int Y = today.get(Calendar.YEAR);
 		int M = today.get(Calendar.MONTH);

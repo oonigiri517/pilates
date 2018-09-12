@@ -72,45 +72,39 @@ p.example {
  	if (sll == 3) {
  %> <%=SL[2]%> <%
  	} else if (sll == 4) {
- %>
-							<%
+ %> <%
 								if (SL[3] == "満員") {
 							%> <%=SL[2]%><br> <%=SL[3]%> <%
  	} else {
- %>
- <% String DAYS=String.format("%04d-%02d-%02d", year, month, d);%>
+ %> <% String DAYS=String.format("%04d-%02d-%02d", year, month, d);%>
 							<form action="/Pilates/Form" method="get">
-							<input type="hidden" name="YMD" value="<%=DAYS%>">
-							<input type="hidden" name="TIME" value="<%=SL[2]%>">
-								<input type="submit" name="LT" value="<%=SL[2]%>">
+								<input type="hidden" name="YMD" value="<%=DAYS%>"> <input
+									type="hidden" name="TIME" value="<%=SL[2]%>"> <input
+									type="submit" name="LT" value="<%=SL[2]%>">
 								<%=SL[3]%></form> <%
  	}
  %> <%
  	} else if (sll == 6) {
  %> <%
  	if (SL[3] == "満員") {
- %> <%=SL[2]%><br>
-							<%=SL[3]%> <%
+ %> <%=SL[2]%><br> <%=SL[3]%> <%
  	} else {
- %>
-							<% String DAYS=String.format("%04d-%02d-%02d", year, month, d);%>
-                            							<form action="/Pilates/Form" method="get">
-                            							<input type="hidden" name="YMD" value="<%=DAYS%>">
-                            							<input type="hidden" name="TIME" value="<%=SL[2]%>">
-                            								<input type="submit" name="LT" value="<%=SL[2]%>">
+ %> <% String DAYS=String.format("%04d-%02d-%02d", year, month, d);%>
+							<form action="/Pilates/Form" method="get">
+								<input type="hidden" name="YMD" value="<%=DAYS%>"> <input
+									type="hidden" name="TIME" value="<%=SL[2]%>"> <input
+									type="submit" name="LT" value="<%=SL[2]%>">
 								<%=SL[3]%></form> <%
  	}
  %> <%
  	if (SL[5] == "満員") {
- %> <%=SL[4]%><br> <%=SL[5]%>
-							<%
+ %> <%=SL[4]%><br> <%=SL[5]%> <%
 								} else {
-							%>
-<% String DAYS=String.format("%04d-%02d-%02d", year, month, d);%>
+							%> <% String DAYS=String.format("%04d-%02d-%02d", year, month, d);%>
 							<form action="/Pilates/Form" method="get">
-							<input type="hidden" name="YMD" value="<%=DAYS%>">
-							<input type="hidden" name="TIME" value="<%=SL[4]%>">
-								<input type="submit" name="LT" value="<%=SL[4]%>">							<input type="submit" name="LT" value="<%=SL[4]%>">
+								<input type="hidden" name="YMD" value="<%=DAYS%>"> <input
+									type="hidden" name="TIME" value="<%=SL[4]%>"> <input
+									type="submit" name="LT" value="<%=SL[4]%>">
 								<%=SL[5]%></form> <%
  	}
  %> <%
@@ -128,8 +122,8 @@ p.example {
 	<%
 		Calendar cal2 = Calendar.getInstance();
 		int year2 = cal2.get(Calendar.YEAR);
-		int month2 = cal2.get(Calendar.MONTH);
 		cal2.add(Calendar.MONTH, 1);
+		int month2 = cal2.get(Calendar.MONTH);
 		int day2 = 1;
 		cal2.set(year2, month2, day2);
 		int weekday2 = cal2.get(Calendar.DAY_OF_WEEK) - 1;
@@ -181,45 +175,39 @@ p.example {
  	if (sll == 3) {
  %> <%=SL[2]%> <%
  	} else if (sll == 4) {
- %>
-							<%
+ %> <%
 								if (SL[3] == "満員") {
 							%> <%=SL[2]%><br> <%=SL[3]%> <%
  	} else {
- %>
-<% String DAYS=String.format("%04d-%02d-%02d", year2, month2, d);%>
+ %> <% String DAYS=String.format("%04d-%02d-%02d", year2, month2, d);%>
 							<form action="/Pilates/Form" method="get">
-							<input type="hidden" name="YMD" value="<%=DAYS%>">
-							<input type="hidden" name="TIME" value="<%=SL[2]%>">
-								<input type="submit" name="LT" value="<%=SL[2]%>">
-															<%=SL[3]%></form> <%
+								<input type="hidden" name="YMD" value="<%=DAYS%>"> <input
+									type="hidden" name="TIME" value="<%=SL[2]%>"> <input
+									type="submit" name="LT" value="<%=SL[2]%>">
+								<%=SL[3]%></form> <%
  	}
  %> <%
  	} else if (sll == 6) {
  %> <%
  	if (SL[3] == "満員") {
- %> <%=SL[2]%><br>
-							<%=SL[3]%> <%
+ %> <%=SL[2]%><br> <%=SL[3]%> <%
  	} else {
- %>
-<% String DAYS=String.format("%04d-%02d-%02d", year2, month2, d);%>
+ %> <% String DAYS=String.format("%04d-%02d-%02d", year2, month2, d);%>
 							<form action="/Pilates/Form" method="get">
-							<input type="hidden" name="YMD" value="<%=DAYS%>">
-							<input type="hidden" name="TIME" value="<%=SL[2]%>">
-								<input type="submit" name="LT" value="<%=SL[2]%>">
-							<%=SL[3]%></form> <%
+								<input type="hidden" name="YMD" value="<%=DAYS%>"> <input
+									type="hidden" name="TIME" value="<%=SL[2]%>"> <input
+									type="submit" name="LT" value="<%=SL[2]%>">
+								<%=SL[3]%></form> <%
  	}
  %> <%
  	if (SL[5] == "満員") {
- %> <%=SL[4]%><br> <%=SL[5]%>
-							<%
+ %> <%=SL[4]%><br> <%=SL[5]%> <%
 								} else {
-							%>
-<% String DAYS=String.format("%04d-%02d-%02d", year2, month2, d);%>
+							%> <% String DAYS=String.format("%04d-%02d-%02d", year2, month2, d);%>
 							<form action="/Pilates/Form" method="get">
-							<input type="hidden" name="YMD" value="<%=DAYS%>">
-							<input type="hidden" name="TIME" value="<%=SL[4]%>">
-								<input type="submit" name="LT" value="<%=SL[4]%>">
+								<input type="hidden" name="YMD" value="<%=DAYS%>"> <input
+									type="hidden" name="TIME" value="<%=SL[4]%>"> <input
+									type="submit" name="LT" value="<%=SL[4]%>">
 								<%=SL[5]%></form> <%}%> <%} %>
 						</td>
 					</tr>
