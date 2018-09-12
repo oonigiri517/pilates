@@ -24,22 +24,33 @@ public class Form extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		request.setCharacterEncoding("UTF-8");
+
+		String YMD=request.getParameter("YMD");
+		String TIME=request.getParameter("TIME");
+
+		Lesson lesson=new Lesson(YMD,TIME);
+		HttpSession session=request.getSession();
+		session.setAttribute("lesson",lesson);
+
+		System.out.println(lesson.getDate());
+		System.out.println(lesson.getTime());
 		//フォワード先
+
 		String forwardPath=null;
 
 		String action=request.getParameter("action");
 
-		if(action.equals("cancel")){
-			//セッションスコープに保存
-			HttpSession se=request.getSession();
-			ReserveData reserveData=(ReserveData)se.getAttribute("reserveData");
+		if(action==null){
+			forwardPath="/form.jsp";
+		}else if(action.equals("cancel")){
+//			セッションスコープに保存
+			ReserveData reserveData=(ReserveData)session.getAttribute("reserveData");
 			request.setAttribute("reserveData",reserveData);
 		}
-		forwardPath="/form.jsp";
 		RequestDispatcher dis=request.getRequestDispatcher(forwardPath);
 		dis.forward(request, response);
+
 
 	}
 
@@ -57,7 +68,6 @@ public class Form extends HttpServlet {
 
 		String forwardPath=null;
 		HashMap<String,String> ems = new HashMap<String,String>();
-
 
 		//情報を設定
 		ReserveData reserveData=new ReserveData(family_name,first_name,mail,confMail,tel,memo);
@@ -106,10 +116,6 @@ public class Form extends HttpServlet {
 		}
 
 		if(ems.size() == 0){
-			//カレンダーと連携するまでこの形で！
-			Lesson lesson=new Lesson("2018/09/10","10:00");
-			session.setAttribute("lesson",lesson);
-
 			//データをセッションスコープに保存
 			session.setAttribute("reserveData", reserveData);
 			forwardPath = "/WEB-INF/jsp/formConfirm.jsp";

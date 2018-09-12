@@ -1,7 +1,8 @@
 <!-- 予約フォームの画面 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="model.ReserveData,java.util.HashMap,model.Color"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="model.ReserveData,model.Lesson,java.util.HashMap,model.Color"%>
 <%
 	//初期化
 	String family_name = "";
@@ -11,6 +12,7 @@
 	String tel = "";
 	String memo = "";
 	//スコープを取得
+	Lesson lesson = (Lesson) request.getAttribute("lesson");
 	ReserveData reserveData = (ReserveData) request.getAttribute("reserveData");
 	if (reserveData != null) {
 		family_name = reserveData.getFamily_name();
@@ -68,10 +70,11 @@
 			<div id="wrapper">
 
 
+
 					<form action="/Pilates/Form" method="post">
 
 						<table align="center">
-
+<p>${lesson.date} ${lesson.time}の予約</p>
 							<tr>
 								<th>姓</th>
 								<td><input type="text" name="family_name" size="20"
