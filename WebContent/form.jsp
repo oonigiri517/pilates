@@ -74,8 +74,9 @@
 					<form action="/Pilates/Form" method="post">
 
 						<table align="center">
-<p>${lesson.date} ${lesson.time}の予約</p>
+
 							<tr>
+							<p>${lesson.date} ${lesson.time}の予約</p>
 								<th>姓</th>
 								<td><input type="text" name="family_name" size="20"
 									maxlength="20" value="<%=family_name%>" placeholder="山田">

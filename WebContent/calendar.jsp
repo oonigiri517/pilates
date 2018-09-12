@@ -6,16 +6,37 @@
 
 <!DOCTYPE html>
 <html>
-<style type="text/css">
-p {
-	width: 100%;
-}
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>ピラティススタジオ | Relax Pilates</title>
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<link href="css/reset.css" type="text/css" rel="stylesheet" />
+	<link href="css/common.css" type="text/css" rel="stylesheet" />
+	<link href="css/menu.css" type="text/css" rel="stylesheet" />
+	<link href="css/calendar.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/function.js"></script>
 
-p.example {
-	line-height: 50%;
-}
+	<jsp:include page="/menu.jsp"/>
+</head>
+<style type="text/css">
+p {	width: 100%;}
+
+p.example {	line-height: 50%;}
 </style>
 <body>
+	<div id="main">
+		<div id="mainInner">
+			<h2><img src="images/menuTtl4.png" width="210" height="60" alt="Menu メニュー" /></h2>
+		</div>
+	<!-- #main -->
+	</div>
+
+	<div id="contentsArea" class="clearfix">
+			<div id="contentsInner">
+			<div id="wrapper">
 
 	<!-- 当月分カレンダー作成情報の生成 -->
 	<%
@@ -211,6 +232,9 @@ p.example {
 		</td></tr></table></td>
 	<%}%></tr></table>
 	<!-- 翌月分日付表示部分のループ終了 -->
-
+	</div></div></div>
+<footer>
+<jsp:include page="/footer.jsp"/>
+</footer>
 </body>
 </html>
