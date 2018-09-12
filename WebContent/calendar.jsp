@@ -32,13 +32,14 @@ p.example {
 	<%=year%>年<%=month + 1%>月
 
 	<table border='1'>
-		<tr>
-			<%String[] week = { "Sun", "mon", "Tue", "Wed", "Thu", "Fri", "Sta" };%>
-			<!-- 当月分曜日表示欄 -->
-			<%for (int i = 0; i < 7; i++) {%>
-			<td bgcolor="blue" align="center"><font color="white"><%=week[i]%></font></td>
-			<%}%>
-		<tr>
+	<tr>
+	<%String[] week = { "Sun", "mon", "Tue", "Wed", "Thu", "Fri", "Sta" };%>
+
+	<!-- 当月分曜日表示欄 -->
+	<%for (int i = 0; i < 7; i++) {%>
+		<td bgcolor="blue" align="center"><font color="white"><%=week[i]%></font></td>
+	<%}%>
+	<tr>
 
 		<!-- 当月分日付表示部分のテーブル作成 -->
 		<%for (int i = 0; i < weekday; i++) {%>
@@ -130,12 +131,14 @@ p.example {
 	<%=year2%>年<%=month2 + 1%>月
 
 	<table border='1'>
-		<tr>
-			<%String[] week2 = { "Sun", "mon", "Tue", "Wed", "Thu", "Fri", "Sta" };%>
-			<%for (int i = 0; i < 7; i++) {%>
-			<td bgcolor="blue" align="center"><font color="white"><%=week2[i]%></font></td>
-			<%}%>
-		<tr>
+	<tr>
+	<%String[] week2 = { "Sun", "mon", "Tue", "Wed", "Thu", "Fri", "Sta" };%>
+
+	<!-- 翌月分曜日表示欄 -->
+	<%for (int i = 0; i < 7; i++) {%>
+		<td bgcolor="blue" align="center"><font color="white"><%=week2[i]%></font></td>
+	<%}%>
+	<tr>
 
 		<!-- 翌月分日付表示部分のテーブル作成 -->
 		<%for (int i = 0; i < weekday2; i++) {%>
