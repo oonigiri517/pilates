@@ -16,12 +16,17 @@
 		<br>
 		<p>希望の操作を選択してください</p>
 		<br>
-		<ul>
-			<li><a href="/Pilates/Admin?page=l1">レッスン予定日編集画面</a></li>
-			<li><a href="/Pilates/Admin?page=l2">予約キャンセル</a></li>
-			<li><a href="/Pilates/Admin?page=l3">予約履歴</a></li>
-			<li><a href="/Pilates/Output">顧客一覧</a></li>
-		</ul>
+		<div class="button-panel">
+		<form action="/Pilates/Admin" method="post">
+		<input type="submit" name="submit" class="button" value="レッスン日編集"><br><br>
+		<input type="submit" name="submit" class="button" value="予約キャンセル"><br><br>
+		<input type="submit" name="submit" class="button" value="予約履歴"><br><br>
+		</form>
+
+		<form action="/Pilates/Output" method="post">
+		<input type="submit" class="button" value="顧客一覧"><br><br>
+		</form>
+		</div>
 		<br> <br>
 
 	</div>

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bo.DefaultLessonLogic;
 import bo.EditLogic;
@@ -22,6 +23,7 @@ public class EditLesson extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String submit = request.getParameter("submit");
 		boolean result = false;
+		HttpSession session = request.getSession();
 
 		//レッスン枠の追加or削除の時
 		if (submit.equals("追加") || submit.equals("削除")) {
@@ -51,6 +53,7 @@ public class EditLesson extends HttpServlet {
 							String msg = strLesson + " " + strTime + "の<br>"
 									+ "レッスン枠を追加しました。";
 							request.setAttribute("msg", msg);
+							session.removeAttribute("lesson");
 						}
 					} else {
 						String msg = "既に2件のレッスン枠が登録済みです。<br>"

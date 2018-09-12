@@ -32,6 +32,9 @@ public class Mail extends HttpServlet {
 		if(result){
 			RequestDispatcher disp = request.getRequestDispatcher("/WEB-INF/jsp/reserved.jsp");
 			disp.forward(request, response);
+
+			session.removeAttribute("reserveData");
+			session.removeAttribute("lesson");
 		}
 //		else{
 //			RequestDispatcher disp = request.getRequestDispatcher("form.jsp");
