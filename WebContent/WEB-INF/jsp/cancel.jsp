@@ -23,7 +23,7 @@
 					required="required" placeholder="日付選択してください"></input>
 			</div>
 			<div class="form-item">
-				<label for="メールアドレス"></label> <input type="text" name="addres"
+				<label for="メールアドレス"></label> <input type="text" name="mail"
 					required="required" placeholder="メールアドレス入力"></input>
 			</div>
 			<div class="button-panel">
