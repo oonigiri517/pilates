@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bo.ReservedLogic;
 import model.Cancel;
 
 @WebServlet("/Reservation")
@@ -32,7 +33,11 @@ public class Reservation extends HttpServlet {
 		//フォワード
 		String forwardPath = "";
 		if(abc.equals("キャンセル確定")) {
-			forwardPath ="/WEB-INF/jsp/adLesson.jsp";
+			ReservedLogic reservedLogic = new ReservedLogic();
+			boolean result = reservedLogic.cancelLogic(cancel);
+			if(result) {
+				forwardPath = "/WEB-INF/jsp/cancel.jsp";
+			}forwardPath = "/WEB-INF/jsp/cancelConfirm.jsp";
 		}else if(abc.equals("戻る")) {
 			forwardPath ="/WEB-INF/jsp/cancel.jsp";
 		}else if(abc.equals("確認")){
