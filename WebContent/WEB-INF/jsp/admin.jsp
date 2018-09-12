@@ -24,7 +24,7 @@
 		</form>
 
 		<form action="/Pilates/Output" method="post">
-		<input type="submit" class="button" value="顧客一覧"><br><br>
+		<input type="submit" name="submit" class="button" value="顧客一覧"><br><br>
 		</form>
 		</div>
 		<br> <br>
