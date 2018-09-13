@@ -63,7 +63,7 @@ p.hiduke{font-weight: bold;font-size: 110%;}
 
 	<!-- 当月分曜日表示欄 -->
 	<%for (int i = 0; i < 7; i++) {%>
-		<td bgcolor="blue" align="center"><font color="white"><%=week[i]%></font></td>
+		<td bgcolor="#A7F1FF" align="center"><font color="#fff"><%=week[i]%></font></td>
 	<%}%>
 	<tr>
 
@@ -165,7 +165,7 @@ p.hiduke{font-weight: bold;font-size: 110%;}
 
 	<!-- 翌月分曜日表示欄 -->
 	<%for (int i = 0; i < 7; i++) {%>
-		<td bgcolor="blue" align="center"><font color="white"><%=week2[i]%></font></td>
+		<td bgcolor="#A7F1FF" align="center"><font color="white"><%=week2[i]%></font></td>
 	<%}%>
 	<tr>
 
