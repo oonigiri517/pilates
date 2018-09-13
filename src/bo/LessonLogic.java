@@ -40,7 +40,7 @@ public class LessonLogic {
 		le6[1] = le4[1] = le3[1] = sLD;
 		if (N == false) {
 
-			le3[2] = "締切";
+			le3[2] = " 締切 ";
 			Schedule sle = new Schedule(le3);
 
 			// System.out.println(1);
@@ -71,7 +71,7 @@ public class LessonLogic {
 					le6[3] = "残り1人";
 					break;
 				case 2:
-					le6[3] = "満員";
+					le6[3] = " 満員 ";
 					break;
 				}
 				lesson.setTime(FDATE[1]);
@@ -84,7 +84,7 @@ public class LessonLogic {
 					le6[5] = "残り1人";
 					break;
 				case 2:
-					le6[5] = "満員";
+					le6[5] = " 満員 ";
 					break;
 
 				}
@@ -108,7 +108,7 @@ public class LessonLogic {
 					le4[3] = "残り1人";
 					break;
 				case 2:
-					le4[3] = "満員";
+					le4[3] = " 満員 ";
 					break;
 				}
 
@@ -128,7 +128,7 @@ public class LessonLogic {
 					le4[3] = "残り1人";
 					break;
 				case 2:
-					le4[3] = "満員";
+					le4[3] = " 満員 ";
 					break;
 				}
 				Schedule sle = new Schedule(le4);
@@ -138,7 +138,7 @@ public class LessonLogic {
 				return sle;
 
 			} else if ((FDATE[0] == "無し") && (FDATE[1] == "無し")) {
-				le3[2] = "休み";
+				le3[2] = " 休み ";
 				Schedule sle = new Schedule(le3);
 
 				// System.out.println(4);
@@ -182,7 +182,7 @@ public class LessonLogic {
 		le6[1] = le4[1] = le3[1] = sLD;
 		if (N == false) {
 
-			le3[2] = "締切";
+			le3[2] = " 締切 ";
 			Schedule sle = new Schedule(le3);
 
 			// System.out.println(1);
@@ -213,7 +213,7 @@ public class LessonLogic {
 					le6[3] = "残り1人";
 					break;
 				case 2:
-					le6[3] = "満員";
+					le6[3] = " 満員 ";
 					break;
 				}
 				lesson.setTime(FDATE[1]);
@@ -226,7 +226,7 @@ public class LessonLogic {
 					le6[5] = "残り1人";
 					break;
 				case 2:
-					le6[5] = "満員";
+					le6[5] = " 満員 ";
 					break;
 
 				}
@@ -250,7 +250,7 @@ public class LessonLogic {
 					le4[3] = "残り1人";
 					break;
 				case 2:
-					le4[3] = "満員";
+					le4[3] = " 満員 ";
 					break;
 				}
 
@@ -270,7 +270,7 @@ public class LessonLogic {
 					le4[3] = "残り1人";
 					break;
 				case 2:
-					le4[3] = "満員";
+					le4[3] = " 満員 ";
 					break;
 				}
 				Schedule sle = new Schedule(le4);
@@ -280,7 +280,7 @@ public class LessonLogic {
 				return sle;
 
 			} else if ((FDATE[0] == "無し") && (FDATE[1] == "無し")) {
-				le3[2] = "休み";
+				le3[2] = " 休み ";
 				Schedule sle = new Schedule(le3);
 
 				// System.out.println(4);

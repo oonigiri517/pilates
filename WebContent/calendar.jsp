@@ -24,6 +24,10 @@
 p {	width: 100%;}
 
 p.example {	line-height: 50%;}
+table {width:45%;
+	  margin:2%
+	  }
+td.nakami{height:5em;}
 </style>
 <body>
 	<div id="main">
@@ -47,11 +51,12 @@ p.example {	line-height: 50%;}
 		int weekday = cal.get(Calendar.DAY_OF_WEEK) - 1;
 		int maxDate = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
 	%>
+    <div style="display:flex;">
 
-	<!-- 当月分年月日表示部分 -->
-	<%=year%>年<%=month + 1%>月
 
 	<table border='1'>
+	<!-- 当月分年月日表示部分 -->
+	<caption><%=year%>年<%=month + 1%>月</caption>
 	<tr>
 	<%String[] week = { "Sun", "mon", "Tue", "Wed", "Thu", "Fri", "Sta" };%>
 
@@ -72,7 +77,7 @@ p.example {	line-height: 50%;}
 				</tr><tr>
 			<%}%>
 			<td align="center"><%=d%><br/>
-			<table><tr><td>
+			<table><tr><td class="nakami">
 			<%	LessonLogic SLC = new LessonLogic();
 				Schedule SLL = SLC.showSchedule(d);
 				String[] SL = SLL.getSchedule();
@@ -82,20 +87,20 @@ p.example {	line-height: 50%;}
 
 			<!-- 休みor締切のとき -->
 			<%if (sll == 3) {%>
-				<%=SL[2]%>
+				<pre><%=SL[2]%></pre>
 
 			<!-- レッスンが1回の時 -->
 			<%} else if (sll == 4) {%>
 				<%if (SL[3] == "満員") {%>
-					<%=SL[2]%><br>
-					<%=SL[3]%>
+					<pre><%=SL[2]%><br>
+					<%=SL[3]%></pre>
 				<%} else {%>
 					<% String DAYS=String.format("%04d-%02d-%02d", year, month+1, d);%>
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[2]%>">
-						<input type="submit" name="LT" value="<%=SL[2]%>">
-						<%=SL[3]%>
+						<input type="submit" name="LT" value="<%=SL[2]%>"><br>
+						<pre><%=SL[3]%></pre>
 					</form>
 				<%} %>
 
@@ -104,29 +109,29 @@ p.example {	line-height: 50%;}
 
  				<!-- 1回目 -->
  				<%if (SL[3] == "満員") {%>
- 					<%=SL[2]%><br>
- 					<%=SL[3]%>
+ 					<pre><%=SL[2]%><br>
+ 					<%=SL[3]%></pre>
  				<%}else {%>
  					<% String DAYS=String.format("%04d-%02d-%02d", year, month+1, d);%>
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[2]%>">
-						<input type="submit" name="LT" value="<%=SL[2]%>">
-						<%=SL[3]%>
+						<input type="submit" name="LT" value="<%=SL[2]%>"><br>
+						<pre><%=SL[3]%></pre>
 					</form>
 				<%}%>
 
 				<!-- 2回目 -->
 				<%if (SL[5] == "満員") {%>
-					<%=SL[4]%><br>
-					<%=SL[5]%>
+					<pre><%=SL[4]%><br>
+					<%=SL[5]%></pre>
 				<%} else {%>
 					<% String DAYS=String.format("%04d-%02d-%02d", year, month+1, d);%>
 					<form action="/Pilates/Form" method="get">
 					<input type="hidden" name="YMD" value="<%=DAYS%>">
 					<input type="hidden" name="TIME" value="<%=SL[4]%>">
-					<input type="submit" name="LT" value="<%=SL[4]%>">
-					<%=SL[5]%>
+					<input type="submit" name="LT" value="<%=SL[4]%>"><br>
+					<pre><%=SL[5]%></pre>
 					</form>
 				<%}%>
 			<%}%>
@@ -147,10 +152,12 @@ p.example {	line-height: 50%;}
 		int maxDate2 = cal2.getActualMaximum(Calendar.DAY_OF_MONTH);
 	%>
 
-	<!-- 翌月分年月日表示部分 -->
-	<%=year2%>年<%=month2 + 1%>月
+
+
 
 	<table border='1'>
+	<!-- 翌月分年月日表示部分 -->
+	<caption><%=year%>年<%=month + 1%>月</caption>
 	<tr>
 	<%String[] week2 = { "Sun", "mon", "Tue", "Wed", "Thu", "Fri", "Sta" };%>
 
@@ -171,7 +178,7 @@ p.example {	line-height: 50%;}
 				</tr><tr>
 			<%}%>
 			<td align="center"><%=d%><br/>
-			<table><tr><td>
+			<table><tr><td class="nakami">
 			<%	LessonLogic SLC = new LessonLogic();
 				Schedule SLL = SLC.showSchedule2(d);
 				String[] SL = SLL.getSchedule();
@@ -181,19 +188,19 @@ p.example {	line-height: 50%;}
 
 			<!-- 休みor締切のとき -->
 			<%if (sll == 3) {%>
-				<%=SL[2]%>
+				<pre><%=SL[2]%></pre>
 			<!-- レッスンが1回の時 -->
 			<%} else if (sll == 4) {%>
 				<%if (SL[3] == "満員") {%>
-					<%=SL[2]%><br>
-					<%=SL[3]%>
+					<pre><%=SL[2]%><br>
+					<%=SL[3]%></pre>
 				<%} else { %>
 					<% String DAYS=String.format("%04d-%02d-%02d", year2, month2+1, d);%>
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[2]%>">
-						<input type="submit" name="LT" value="<%=SL[2]%>">
-						<%=SL[3]%>
+						<input type="submit" name="LT" value="<%=SL[2]%>"><br>
+						<pre><%=SL[3]%></pre>
 					</form>
 				<%}%>
 
@@ -202,15 +209,15 @@ p.example {	line-height: 50%;}
 
 				<!-- 1回目 -->
 				<%if (SL[3] == "満員") {%>
-					<%=SL[2]%><br>
-					<%=SL[3]%>
+					<pre><%=SL[2]%><br>
+					<%=SL[3]%></pre>
 				<%} else {%>
 					<% String DAYS=String.format("%04d-%02d-%02d", year2, month2+1, d);%>
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[2]%>">
-						<input type="submit" name="LT" value="<%=SL[2]%>">
-						<%=SL[3]%>
+						<input type="submit" name="LT" value="<%=SL[2]%>"><br>
+						<pre><%=SL[3]%></pre>
 					</form>
 				<%}%>
 
@@ -223,13 +230,14 @@ p.example {	line-height: 50%;}
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[4]%>">
-						<input type="submit" name="LT" value="<%=SL[4]%>">
-						<%=SL[5]%>
+						<input type="submit" name="LT" value="<%=SL[4]%>"><br>
+						<pre><%=SL[5]%></pre>
 					</form>
 				<%}%>
 			<%}%>
 		</td></tr></table></td>
 	<%}%></tr></table>
+	</div>
 	<!-- 翌月分日付表示部分のループ終了 -->
 	</div></div></div>
 <footer>
