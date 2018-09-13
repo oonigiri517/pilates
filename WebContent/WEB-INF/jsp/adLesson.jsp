@@ -42,7 +42,7 @@ String msg=(String)request.getAttribute("msg");
 			<div class="button-panel">
 				<!-- valueで条件分岐しているため、”基本枠追加”の表記は変更しないでください -->
 				<input type="submit" name="submit" class="button" title="送信" value="基本枠追加"><br><br>
-				<input value="戻る" onclick="history.back();" class="button" type="button">
+				<input value="戻る" onclick="history.back();" class="button" type="button"><br><br>
 			</div>
 		</form>
 	</div>
