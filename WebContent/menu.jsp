@@ -10,7 +10,7 @@
 <body>
 		<div id="header">
 			<div id="headerInner" class="clearfix">
-				<h1 class="mouseHvr"><a href="top.jsp"><img src="images/logo.png" width="210" height="160" alt="Relax Pilates" /></a></h1>
+				<h1 class="mouseHvr"><a href="index.jsp"><img src="images/logo.png" width="210" height="160" alt="Relax Pilates" /></a></h1>
 				<ul id="gloNav" class="clearfix">
 					<li id="nav01"><a href="whatispilates.jsp"><img src="images/nav01-off.png" width="80" height="80" alt="ピラティスについて What is pilates" /></a></li>
 					<li id="nav02"><a href="lessonandprice.jsp"><img src="images/nav02-off.png" width="80" height="80" alt="レッスン＆価格 lesson and price" /></a></li>
