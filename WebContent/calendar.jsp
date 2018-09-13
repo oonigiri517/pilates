@@ -157,7 +157,7 @@ td.nakami{height:5em;}
 
 	<table border='1'>
 	<!-- 翌月分年月日表示部分 -->
-	<caption><%=year%>年<%=month + 1%>月</caption>
+	<caption><%=year%>年<%=month2 + 1%>月</caption>
 	<tr>
 	<%String[] week2 = { "Sun", "mon", "Tue", "Wed", "Thu", "Fri", "Sta" };%>
 
