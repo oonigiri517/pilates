@@ -153,7 +153,7 @@ public class LessonDAO {
 			Class.forName(DRIVER_NAME);
 			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 
-			String sql = "SELECT * FROM lesson WHERE date= ? ";
+			String sql = "SELECT * FROM lesson WHERE date= ?  ORDER BY time ASC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, day);
 			ResultSet rs = pStmt.executeQuery();
