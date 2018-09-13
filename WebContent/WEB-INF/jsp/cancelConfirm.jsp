@@ -26,8 +26,8 @@
 		メールアドレス:<%=cancel.getMail()%><br>
 		</p>
 		<div class="button-panel">
-		<input type="submit" name="abc" class="button" title="実行" value="キャンセル確定"></input><br><br>
-		<input type="submit" name="abc" class="button" title="back" value="戻る"></input><br><br>
+		<input type="submit" name="submit" class="button" title="実行" value="キャンセル確定"></input><br><br>
+		<input value="戻る" onclick="history.back();" class="button" type="button"><br><br>
 		<div>
 	</div>
 </form>
