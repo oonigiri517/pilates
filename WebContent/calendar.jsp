@@ -15,21 +15,22 @@
 	<link href="css/reset.css" type="text/css" rel="stylesheet" />
 	<link href="css/common.css" type="text/css" rel="stylesheet" />
 	<link href="css/menu.css" type="text/css" rel="stylesheet" />
+	<link href="css/calendar.css" type="text/css" rel="stylesheet" />
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="js/function.js"></script>
 
-	<jsp:include page="/menu.jsp"/>
-</head>
-<style type="text/css">
+<!-- <style type="text/css">
 p {	width: 100%;}
 
 p.example {	line-height: 50%;}
-table {width:46%;
-	  margin:2%
+table {width:48%;
+	  margin:5px
 	  }
-td.nakami{height:80%;}
+td.nakami{height:3em;}
 p.hiduke{font-weight: bold;font-size: 110%;}
-</style>
+</style> -->
+	<jsp:include page="/menu.jsp"/>
+</head>
 <body>
 	<div id="main">
 		<div id="mainInner">
@@ -55,7 +56,7 @@ p.hiduke{font-weight: bold;font-size: 110%;}
     <div style="display:flex;">
 
 
-	<table border='1'>
+	<table class="calendar" border='1'>
 	<!-- 当月分年月日表示部分 -->
 	<caption><%=year%>年<%=month + 1%>月</caption>
 	<tr>
@@ -77,7 +78,7 @@ p.hiduke{font-weight: bold;font-size: 110%;}
 			if ((d + weekday - 1) % 7 == 0) {%>
 				</tr><tr>
 			<%}%>
-			<td align="center"<%if((d + weekday - 1) % 7 == 0){%>bgcolor="#ff9999"<%} %>>
+			<td align="center"valign="top"<%if((d + weekday - 1) % 7 == 0){%>bgcolor="#ff9999"<%} %>>
 			<p class="hiduke"><%=d%></p><br/>
 			<table><tr><td class="nakami">
 			<%	LessonLogic SLC = new LessonLogic();
@@ -89,20 +90,20 @@ p.hiduke{font-weight: bold;font-size: 110%;}
 
 			<!-- 休みor締切のとき -->
 			<%if (sll == 3) {%>
-				<pre><%=SL[2]%></pre>
+				<%=SL[2]%>
 
 			<!-- レッスンが1回の時 -->
 			<%} else if (sll == 4) {%>
-				<%if (SL[3] == "満員") {%>
-					<pre><%=SL[2]%><br>
-					<%=SL[3]%></pre>
+				<%if (SL[3] == "FULL") {%>
+
+					<%=SL[3]%>
 				<%} else {%>
 					<% String DAYS=String.format("%04d-%02d-%02d", year, month+1, d);%>
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[2]%>">
-						<input type="submit" name="LT" value="<%=SL[2]%>"><br>
-						<pre><%=SL[3]%></pre>
+						<input type="submit" name="LT" value="<%=SL[2]%>">
+						<%=SL[3]%>
 					</form>
 				<%} %>
 
@@ -110,30 +111,30 @@ p.hiduke{font-weight: bold;font-size: 110%;}
  			<%} else if (sll == 6) {%>
 
  				<!-- 1回目 -->
- 				<%if (SL[3] == "満員") {%>
- 					<pre><%=SL[2]%><br>
- 					<%=SL[3]%></pre>
+ 				<%if (SL[3] == "FULL") {%>
+
+ 					<%=SL[3]%>
  				<%}else {%>
  					<% String DAYS=String.format("%04d-%02d-%02d", year, month+1, d);%>
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[2]%>">
-						<input type="submit" name="LT" value="<%=SL[2]%>"><br>
-						<pre><%=SL[3]%></pre>
+						<input type="submit" name="LT" value="<%=SL[2]%>">
+						<%=SL[3]%>
 					</form>
 				<%}%>
 
 				<!-- 2回目 -->
-				<%if (SL[5] == "満員") {%>
-					<pre><%=SL[4]%><br>
-					<%=SL[5]%></pre>
+				<%if (SL[5] == "FULL") {%>
+
+					<%=SL[5]%>
 				<%} else {%>
 					<% String DAYS=String.format("%04d-%02d-%02d", year, month+1, d);%>
 					<form action="/Pilates/Form" method="get">
 					<input type="hidden" name="YMD" value="<%=DAYS%>">
 					<input type="hidden" name="TIME" value="<%=SL[4]%>">
-					<input type="submit" name="LT" value="<%=SL[4]%>"><br>
-					<pre><%=SL[5]%></pre>
+					<input type="submit" name="LT" value="<%=SL[4]%>">
+					<%=SL[5]%>
 					</form>
 				<%}%>
 			<%}%>
@@ -157,7 +158,7 @@ p.hiduke{font-weight: bold;font-size: 110%;}
 
 
 
-	<table border='1'>
+	<table class="calendar" border='1'>
 	<!-- 翌月分年月日表示部分 -->
 	<caption><%=year%>年<%=month2 + 1%>月</caption>
 	<tr>
@@ -179,7 +180,7 @@ p.hiduke{font-weight: bold;font-size: 110%;}
 			if ((d + weekday2 - 1) % 7 == 0) {%>
 				</tr><tr>
 			<%}%>
-			<td align="center"<%if((d + weekday2 - 1) % 7 == 0){%>bgcolor="#ff9999"<%} %>>
+			<td align="center"valign="top"<%if((d + weekday2 - 1) % 7 == 0){%>bgcolor="#ff9999"<%} %>>
 			<p class="hiduke"><%=d%></p><br/>
 			<table><tr><td class="nakami">
 			<%	LessonLogic SLC = new LessonLogic();
@@ -191,19 +192,19 @@ p.hiduke{font-weight: bold;font-size: 110%;}
 
 			<!-- 休みor締切のとき -->
 			<%if (sll == 3) {%>
-				<pre><%=SL[2]%></pre>
+				<%=SL[2]%>
 			<!-- レッスンが1回の時 -->
 			<%} else if (sll == 4) {%>
-				<%if (SL[3] == "満員") {%>
-					<pre><%=SL[2]%><br>
-					<%=SL[3]%></pre>
+				<%if (SL[3] == "FULL") {%>
+
+					<%=SL[3]%>
 				<%} else { %>
 					<% String DAYS=String.format("%04d-%02d-%02d", year2, month2+1, d);%>
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[2]%>">
-						<input type="submit" name="LT" value="<%=SL[2]%>"><br>
-						<pre><%=SL[3]%></pre>
+						<input type="submit" name="LT" value="<%=SL[2]%>">
+						<%=SL[3]%>
 					</form>
 				<%}%>
 
@@ -211,21 +212,21 @@ p.hiduke{font-weight: bold;font-size: 110%;}
 			<%} else if (sll == 6) {%>
 
 				<!-- 1回目 -->
-				<%if (SL[3] == "満員") {%>
-					<pre><%=SL[2]%><br>
-					<%=SL[3]%></pre>
+				<%if (SL[3] == "FULL") {%>
+
+					<%=SL[3]%>
 				<%} else {%>
 					<% String DAYS=String.format("%04d-%02d-%02d", year2, month2+1, d);%>
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[2]%>">
-						<input type="submit" name="LT" value="<%=SL[2]%>"><br>
-						<pre><%=SL[3]%></pre>
+						<input type="submit" name="LT" value="<%=SL[2]%>">
+						<%=SL[3]%>
 					</form>
 				<%}%>
 
 				<!-- 2回目 -->
-				<%if (SL[5] == "満員") {%>
+				<%if (SL[5] == "FULL") {%>
 					<%=SL[4]%><br>
 					<%=SL[5]%>
 				<%} else {%>
@@ -233,8 +234,8 @@ p.hiduke{font-weight: bold;font-size: 110%;}
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[4]%>">
-						<input type="submit" name="LT" value="<%=SL[4]%>"><br>
-						<pre><%=SL[5]%></pre>
+						<input type="submit" name="LT" value="<%=SL[4]%>">
+						<%=SL[5]%>
 					</form>
 				<%}%>
 			<%}%>
