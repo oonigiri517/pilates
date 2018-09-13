@@ -240,6 +240,10 @@ td.nakami{height:5em;}
 	</div>
 	<!-- 翌月分日付表示部分のループ終了 -->
 	</div></div></div>
+	<br>
+	<br>
+	<br>
+	<br>
 <footer>
 <jsp:include page="/footer.jsp"/>
 </footer>
