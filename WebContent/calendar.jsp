@@ -76,7 +76,7 @@ td.nakami{height:5em;}
 			if ((d + weekday - 1) % 7 == 0) {%>
 				</tr><tr>
 			<%}%>
-			<td align="center"><%=d%><br/>
+			<td align="center"<%if((d + weekday - 1) % 7 == 0){%>bgcolor="#ff9999"<%} %>><%=d%><br/>
 			<table><tr><td class="nakami">
 			<%	LessonLogic SLC = new LessonLogic();
 				Schedule SLL = SLC.showSchedule(d);
@@ -177,7 +177,7 @@ td.nakami{height:5em;}
 			if ((d + weekday2 - 1) % 7 == 0) {%>
 				</tr><tr>
 			<%}%>
-			<td align="center"><%=d%><br/>
+			<td align="center"<%if((d + weekday2 - 1) % 7 == 0){%>bgcolor="#ff9999"<%} %>><%=d%><br/>
 			<table><tr><td class="nakami">
 			<%	LessonLogic SLC = new LessonLogic();
 				Schedule SLL = SLC.showSchedule2(d);
