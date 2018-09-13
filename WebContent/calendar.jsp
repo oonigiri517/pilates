@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.Calendar" import="model.CalSchedule"
+<%@ page import="java.util.Calendar"
 	import="model.Schedule" import="bo.LessonLogic"%>
 
 
@@ -24,10 +24,11 @@
 p {	width: 100%;}
 
 p.example {	line-height: 50%;}
-table {width:45%;
+table {width:46%;
 	  margin:2%
 	  }
-td.nakami{height:5em;}
+td.nakami{height:80%;}
+p.hiduke{font-weight: bold;font-size: 110%;}
 </style>
 <body>
 	<div id="main">
@@ -76,7 +77,8 @@ td.nakami{height:5em;}
 			if ((d + weekday - 1) % 7 == 0) {%>
 				</tr><tr>
 			<%}%>
-			<td align="center"<%if((d + weekday - 1) % 7 == 0){%>bgcolor="#ff9999"<%} %>><%=d%><br/>
+			<td align="center"<%if((d + weekday - 1) % 7 == 0){%>bgcolor="#ff9999"<%} %>>
+			<p class="hiduke"><%=d%></p><br/>
 			<table><tr><td class="nakami">
 			<%	LessonLogic SLC = new LessonLogic();
 				Schedule SLL = SLC.showSchedule(d);
@@ -177,7 +179,8 @@ td.nakami{height:5em;}
 			if ((d + weekday2 - 1) % 7 == 0) {%>
 				</tr><tr>
 			<%}%>
-			<td align="center"<%if((d + weekday2 - 1) % 7 == 0){%>bgcolor="#ff9999"<%} %>><%=d%><br/>
+			<td align="center"<%if((d + weekday2 - 1) % 7 == 0){%>bgcolor="#ff9999"<%} %>>
+			<p class="hiduke"><%=d%></p><br/>
 			<table><tr><td class="nakami">
 			<%	LessonLogic SLC = new LessonLogic();
 				Schedule SLL = SLC.showSchedule2(d);
