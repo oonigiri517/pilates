@@ -40,7 +40,7 @@ p.hiduke{font-weight: bold;font-size: 110%;}
 	</div>
 
 	<div id="contentsArea" class="clearfix">
-			<div id="contentsInner">
+			<div class="contentsInner">
 			<div id="wrapper">
 
 	<!-- 当月分カレンダー作成情報の生成 -->
@@ -78,8 +78,8 @@ p.hiduke{font-weight: bold;font-size: 110%;}
 			if ((d + weekday - 1) % 7 == 0) {%>
 				</tr><tr>
 			<%}%>
-			<td align="center"valign="top"<%if((d + weekday - 1) % 7 == 0){%>bgcolor="#ff9999"<%} %>>
-			<p class="hiduke"><%=d%></p><br/>
+			<td style="height:4em"align="center"valign="top"<%if((d + weekday - 1) % 7 == 0){%>bgcolor="#ff9999"<%} %>>
+			<p class="hiduke"><%=d%></p>
 			<table><tr><td class="nakami">
 			<%	LessonLogic SLC = new LessonLogic();
 				Schedule SLL = SLC.showSchedule(d);
@@ -181,7 +181,7 @@ p.hiduke{font-weight: bold;font-size: 110%;}
 				</tr><tr>
 			<%}%>
 			<td align="center"valign="top"<%if((d + weekday2 - 1) % 7 == 0){%>bgcolor="#ff9999"<%} %>>
-			<p class="hiduke"><%=d%></p><br/>
+			<p class="hiduke"><%=d%></p>
 			<table><tr><td class="nakami">
 			<%	LessonLogic SLC = new LessonLogic();
 				Schedule SLL = SLC.showSchedule2(d);

@@ -40,7 +40,7 @@ public class LessonLogic {
 		le6[1] = le4[1] = le3[1] = sLD;
 		if (N == false) {
 
-			le3[2] = "COSE";
+			le3[2] = "  ";
 			Schedule sle = new Schedule(le3);
 
 			// System.out.println(1);
@@ -138,7 +138,7 @@ public class LessonLogic {
 				return sle;
 
 			} else if ((FDATE[0] == "無し") && (FDATE[1] == "無し")) {
-				le3[2] = "CLOSE";
+				le3[2] = " ";
 				Schedule sle = new Schedule(le3);
 
 				// System.out.println(4);
@@ -182,7 +182,7 @@ public class LessonLogic {
 		le6[1] = le4[1] = le3[1] = sLD;
 		if (N == false) {
 
-			le3[2] = " CLOSE ";
+			le3[2] = "  ";
 			Schedule sle = new Schedule(le3);
 
 			// System.out.println(1);
@@ -280,7 +280,7 @@ public class LessonLogic {
 				return sle;
 
 			} else if ((FDATE[0] == "無し") && (FDATE[1] == "無し")) {
-				le3[2] = "CLOSE";
+				le3[2] = " ";
 				Schedule sle = new Schedule(le3);
 
 				// System.out.println(4);

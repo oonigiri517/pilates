@@ -56,10 +56,23 @@ p {	width: 100%;}
 
 p.example {	line-height: 50%;}
 table.calendar {width:48%;
-	  margin:5px
+	  margin:5px;
+	  font-size:11px;
 	  }
-td.nakami{height:3em;}
+	 table input{
+	 font-size:15px;
+	 }
+td.nakami{width:10em;height:4em;valign:top}
 p.hiduke{font-weight: bold;font-size: 110%;}
+caption{font-size: 150%;}
+
+div.contentsInner {
+	width: 1200px;
+	margin: 0 auto;
+	padding-top: 100px;
+	position: relative;
+
+}
 
 /*h2{
 		font-size:200%;
