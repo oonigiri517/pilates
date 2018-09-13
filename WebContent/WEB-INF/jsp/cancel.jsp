@@ -29,6 +29,9 @@
 			<div class="button-panel">
 				<input type="submit" name="abc" class="button" title="実行" value="確認"></input>
 			</div>
+			<div class="button-panel">
+				<input value="戻る" onclick="history.back();" class="button" type="button">
+			</div>
 			<br>
 		</form>
 	</div>

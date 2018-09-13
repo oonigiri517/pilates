@@ -26,7 +26,8 @@
 			<input type="date" name="lesson1"> ～ <input type="date" name="lesson2">
 			<div class="button-panel">
 				<input type="hidden" value="1" name="page">
-				<input type="submit" name="submit" class="button" title="送信" value="出力">
+				<input type="submit" name="submit" class="button" title="送信" value="出力"><br><br>
+				<input value="戻る" onclick="history.back();" class="button" type="button">
 			</div>
 		</form>
 		<%
