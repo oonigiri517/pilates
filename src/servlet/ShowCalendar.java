@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.Calendar;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,11 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import bo.LessonLogic;
-import model.CalSchedule;
-import model.Schedule;
 
 @WebServlet("/ShowCalendar")
 public class ShowCalendar extends HttpServlet {

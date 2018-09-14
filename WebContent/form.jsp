@@ -76,7 +76,7 @@
 						<table align="center">
 
 							<tr>
-							<p>${lesson.date} ${lesson.time}の予約</p>
+							<p align="center" font-weight=" bold"font-size="110%">${lesson.date} ${lesson.time}の予約</p>
 								<th>姓</th>
 								<td><input type="text" name="family_name" size="20"
 									maxlength="20" value="<%=family_name%>" placeholder="山田">

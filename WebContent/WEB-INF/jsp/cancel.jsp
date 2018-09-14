@@ -27,10 +27,12 @@
 					required="required" placeholder="メールアドレス入力"></input>
 			</div>
 			<div class="button-panel">
-				<input type="submit" name="abc" class="button" title="実行" value="確認"></input>
+				<input type="submit" name="submit" class="button" title="実行" value="確認"></input>
 			</div>
+		</form>
+		<form action="/Pilates/Reservation" method="post">
 			<div class="button-panel">
-				<input value="戻る" onclick="history.back();" class="button" type="button">
+				<input type="submit" name="submit" class="button" title="実行" value="戻る"></input>
 			</div>
 			<br>
 		</form>

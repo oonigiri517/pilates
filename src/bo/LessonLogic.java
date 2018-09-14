@@ -40,7 +40,7 @@ public class LessonLogic {
 		le6[1] = le4[1] = le3[1] = sLD;
 		if (N == false) {
 
-			le3[2] = " 締切 ";
+			le3[2] = "  ";
 			Schedule sle = new Schedule(le3);
 
 			// System.out.println(1);
@@ -65,26 +65,26 @@ public class LessonLogic {
 				int CC1 = CCDAO.countCustomer(lesson);
 				switch (CC1) {
 				case 0:
-					le6[3] = "残り2人";
+					le6[3] = "2人";
 					break;
 				case 1:
-					le6[3] = "残り1人";
+					le6[3] = "1人";
 					break;
 				case 2:
-					le6[3] = " 満員 ";
+					le6[3] = "FULL";
 					break;
 				}
 				lesson.setTime(FDATE[1]);
 				int CC2 = CCDAO.countCustomer(lesson);
 				switch (CC2) {
 				case 0:
-					le6[5] = "残り2人";
+					le6[5] = "2人";
 					break;
 				case 1:
-					le6[5] = "残り1人";
+					le6[5] = "1人";
 					break;
 				case 2:
-					le6[5] = " 満員 ";
+					le6[5] = "FULL";
 					break;
 
 				}
@@ -102,13 +102,13 @@ public class LessonLogic {
 				int CC2 = CCDAO.countCustomer(lesson);
 				switch (CC2) {
 				case 0:
-					le4[3] = "残り2人";
+					le4[3] = "2人";
 					break;
 				case 1:
-					le4[3] = "残り1人";
+					le4[3] = "1人";
 					break;
 				case 2:
-					le4[3] = " 満員 ";
+					le4[3] = "FULL";
 					break;
 				}
 
@@ -122,13 +122,13 @@ public class LessonLogic {
 				int CC1 = CCDAO.countCustomer(lesson);
 				switch (CC1) {
 				case 0:
-					le4[3] = "残り2人";
+					le4[3] = "2人";
 					break;
 				case 1:
-					le4[3] = "残り1人";
+					le4[3] = "1人";
 					break;
 				case 2:
-					le4[3] = " 満員 ";
+					le4[3] = "FULL";
 					break;
 				}
 				Schedule sle = new Schedule(le4);
@@ -138,7 +138,7 @@ public class LessonLogic {
 				return sle;
 
 			} else if ((FDATE[0] == "無し") && (FDATE[1] == "無し")) {
-				le3[2] = " 休み ";
+				le3[2] = " ";
 				Schedule sle = new Schedule(le3);
 
 				// System.out.println(4);
@@ -182,7 +182,7 @@ public class LessonLogic {
 		le6[1] = le4[1] = le3[1] = sLD;
 		if (N == false) {
 
-			le3[2] = " 締切 ";
+			le3[2] = "  ";
 			Schedule sle = new Schedule(le3);
 
 			// System.out.println(1);
@@ -207,26 +207,26 @@ public class LessonLogic {
 				int CC1 = CCDAO.countCustomer(lesson);
 				switch (CC1) {
 				case 0:
-					le6[3] = "残り2人";
+					le6[3] = "2人";
 					break;
 				case 1:
-					le6[3] = "残り1人";
+					le6[3] = "1人";
 					break;
 				case 2:
-					le6[3] = " 満員 ";
+					le6[3] = "FULL";
 					break;
 				}
 				lesson.setTime(FDATE[1]);
 				int CC2 = CCDAO.countCustomer(lesson);
 				switch (CC2) {
 				case 0:
-					le6[5] = "残り2人";
+					le6[5] = "2人";
 					break;
 				case 1:
-					le6[5] = "残り1人";
+					le6[5] = "1人";
 					break;
 				case 2:
-					le6[5] = " 満員 ";
+					le6[5] = "FULL";
 					break;
 
 				}
@@ -244,13 +244,13 @@ public class LessonLogic {
 				int CC2 = CCDAO.countCustomer(lesson);
 				switch (CC2) {
 				case 0:
-					le4[3] = "残り2人";
+					le4[3] = "2人";
 					break;
 				case 1:
-					le4[3] = "残り1人";
+					le4[3] = "1人";
 					break;
 				case 2:
-					le4[3] = " 満員 ";
+					le4[3] = "FULL";
 					break;
 				}
 
@@ -264,13 +264,13 @@ public class LessonLogic {
 				int CC1 = CCDAO.countCustomer(lesson);
 				switch (CC1) {
 				case 0:
-					le4[3] = "残り2人";
+					le4[3] = "2人";
 					break;
 				case 1:
-					le4[3] = "残り1人";
+					le4[3] = "1人";
 					break;
 				case 2:
-					le4[3] = " 満員 ";
+					le4[3] = "FULL";
 					break;
 				}
 				Schedule sle = new Schedule(le4);
@@ -280,7 +280,7 @@ public class LessonLogic {
 				return sle;
 
 			} else if ((FDATE[0] == "無し") && (FDATE[1] == "無し")) {
-				le3[2] = " 休み ";
+				le3[2] = " ";
 				Schedule sle = new Schedule(le3);
 
 				// System.out.println(4);

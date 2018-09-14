@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.Calendar" import="model.CalSchedule"
+<%@ page import="java.util.Calendar"
 	import="model.Schedule" import="bo.LessonLogic"%>
 
 
@@ -15,20 +15,22 @@
 	<link href="css/reset.css" type="text/css" rel="stylesheet" />
 	<link href="css/common.css" type="text/css" rel="stylesheet" />
 	<link href="css/menu.css" type="text/css" rel="stylesheet" />
+	<link href="css/calendar.css" type="text/css" rel="stylesheet" />
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="js/function.js"></script>
 
-	<jsp:include page="/menu.jsp"/>
-</head>
-<style type="text/css">
+<!-- <style type="text/css">
 p {	width: 100%;}
 
 p.example {	line-height: 50%;}
-table {width:45%;
-	  margin:2%
+table {width:48%;
+	  margin:5px
 	  }
-td.nakami{height:5em;}
-</style>
+td.nakami{height:3em;}
+p.hiduke{font-weight: bold;font-size: 110%;}
+</style> -->
+	<jsp:include page="/menu.jsp"/>
+</head>
 <body>
 	<div id="main">
 		<div id="mainInner">
@@ -38,7 +40,7 @@ td.nakami{height:5em;}
 	</div>
 
 	<div id="contentsArea" class="clearfix">
-			<div id="contentsInner">
+			<div class="contentsInner">
 			<div id="wrapper">
 
 	<!-- 当月分カレンダー作成情報の生成 -->
@@ -54,7 +56,7 @@ td.nakami{height:5em;}
     <div style="display:flex;">
 
 
-	<table border='1'>
+	<table class="calendar" border='1'>
 	<!-- 当月分年月日表示部分 -->
 	<caption><%=year%>年<%=month + 1%>月</caption>
 	<tr>
@@ -62,7 +64,7 @@ td.nakami{height:5em;}
 
 	<!-- 当月分曜日表示欄 -->
 	<%for (int i = 0; i < 7; i++) {%>
-		<td bgcolor="blue" align="center"><font color="white"><%=week[i]%></font></td>
+		<td bgcolor="#A7F1FF" align="center"><font color="#fff"><%=week[i]%></font></td>
 	<%}%>
 	<tr>
 
@@ -76,7 +78,8 @@ td.nakami{height:5em;}
 			if ((d + weekday - 1) % 7 == 0) {%>
 				</tr><tr>
 			<%}%>
-			<td align="center"<%if((d + weekday - 1) % 7 == 0){%>bgcolor="#ff9999"<%} %>><%=d%><br/>
+			<td style="height:4em"align="center"valign="top"<%if((d + weekday - 1) % 7 == 0){%>bgcolor="#ff9999"<%} %>>
+			<p class="hiduke"><%=d%></p>
 			<table><tr><td class="nakami">
 			<%	LessonLogic SLC = new LessonLogic();
 				Schedule SLL = SLC.showSchedule(d);
@@ -87,20 +90,20 @@ td.nakami{height:5em;}
 
 			<!-- 休みor締切のとき -->
 			<%if (sll == 3) {%>
-				<pre><%=SL[2]%></pre>
+				<%=SL[2]%>
 
 			<!-- レッスンが1回の時 -->
 			<%} else if (sll == 4) {%>
-				<%if (SL[3] == "満員") {%>
-					<pre><%=SL[2]%><br>
-					<%=SL[3]%></pre>
+				<%if (SL[3] == "FULL") {%>
+
+					<%=SL[3]%>
 				<%} else {%>
 					<% String DAYS=String.format("%04d-%02d-%02d", year, month+1, d);%>
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[2]%>">
-						<input type="submit" name="LT" value="<%=SL[2]%>"><br>
-						<pre><%=SL[3]%></pre>
+						<input type="submit" name="LT" value="<%=SL[2]%>">
+						<%=SL[3]%>
 					</form>
 				<%} %>
 
@@ -108,30 +111,30 @@ td.nakami{height:5em;}
  			<%} else if (sll == 6) {%>
 
  				<!-- 1回目 -->
- 				<%if (SL[3] == "満員") {%>
- 					<pre><%=SL[2]%><br>
- 					<%=SL[3]%></pre>
+ 				<%if (SL[3] == "FULL") {%>
+
+ 					<%=SL[3]%>
  				<%}else {%>
  					<% String DAYS=String.format("%04d-%02d-%02d", year, month+1, d);%>
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[2]%>">
-						<input type="submit" name="LT" value="<%=SL[2]%>"><br>
-						<pre><%=SL[3]%></pre>
+						<input type="submit" name="LT" value="<%=SL[2]%>">
+						<%=SL[3]%>
 					</form>
 				<%}%>
 
 				<!-- 2回目 -->
-				<%if (SL[5] == "満員") {%>
-					<pre><%=SL[4]%><br>
-					<%=SL[5]%></pre>
+				<%if (SL[5] == "FULL") {%>
+
+					<%=SL[5]%>
 				<%} else {%>
 					<% String DAYS=String.format("%04d-%02d-%02d", year, month+1, d);%>
 					<form action="/Pilates/Form" method="get">
 					<input type="hidden" name="YMD" value="<%=DAYS%>">
 					<input type="hidden" name="TIME" value="<%=SL[4]%>">
-					<input type="submit" name="LT" value="<%=SL[4]%>"><br>
-					<pre><%=SL[5]%></pre>
+					<input type="submit" name="LT" value="<%=SL[4]%>">
+					<%=SL[5]%>
 					</form>
 				<%}%>
 			<%}%>
@@ -155,7 +158,7 @@ td.nakami{height:5em;}
 
 
 
-	<table border='1'>
+	<table class="calendar" border='1'>
 	<!-- 翌月分年月日表示部分 -->
 	<caption><%=year%>年<%=month2 + 1%>月</caption>
 	<tr>
@@ -163,7 +166,7 @@ td.nakami{height:5em;}
 
 	<!-- 翌月分曜日表示欄 -->
 	<%for (int i = 0; i < 7; i++) {%>
-		<td bgcolor="blue" align="center"><font color="white"><%=week2[i]%></font></td>
+		<td bgcolor="#A7F1FF" align="center"><font color="white"><%=week2[i]%></font></td>
 	<%}%>
 	<tr>
 
@@ -177,7 +180,8 @@ td.nakami{height:5em;}
 			if ((d + weekday2 - 1) % 7 == 0) {%>
 				</tr><tr>
 			<%}%>
-			<td align="center"<%if((d + weekday2 - 1) % 7 == 0){%>bgcolor="#ff9999"<%} %>><%=d%><br/>
+			<td align="center"valign="top"<%if((d + weekday2 - 1) % 7 == 0){%>bgcolor="#ff9999"<%} %>>
+			<p class="hiduke"><%=d%></p>
 			<table><tr><td class="nakami">
 			<%	LessonLogic SLC = new LessonLogic();
 				Schedule SLL = SLC.showSchedule2(d);
@@ -188,19 +192,19 @@ td.nakami{height:5em;}
 
 			<!-- 休みor締切のとき -->
 			<%if (sll == 3) {%>
-				<pre><%=SL[2]%></pre>
+				<%=SL[2]%>
 			<!-- レッスンが1回の時 -->
 			<%} else if (sll == 4) {%>
-				<%if (SL[3] == "満員") {%>
-					<pre><%=SL[2]%><br>
-					<%=SL[3]%></pre>
+				<%if (SL[3] == "FULL") {%>
+
+					<%=SL[3]%>
 				<%} else { %>
 					<% String DAYS=String.format("%04d-%02d-%02d", year2, month2+1, d);%>
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[2]%>">
-						<input type="submit" name="LT" value="<%=SL[2]%>"><br>
-						<pre><%=SL[3]%></pre>
+						<input type="submit" name="LT" value="<%=SL[2]%>">
+						<%=SL[3]%>
 					</form>
 				<%}%>
 
@@ -208,21 +212,21 @@ td.nakami{height:5em;}
 			<%} else if (sll == 6) {%>
 
 				<!-- 1回目 -->
-				<%if (SL[3] == "満員") {%>
-					<pre><%=SL[2]%><br>
-					<%=SL[3]%></pre>
+				<%if (SL[3] == "FULL") {%>
+
+					<%=SL[3]%>
 				<%} else {%>
 					<% String DAYS=String.format("%04d-%02d-%02d", year2, month2+1, d);%>
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[2]%>">
-						<input type="submit" name="LT" value="<%=SL[2]%>"><br>
-						<pre><%=SL[3]%></pre>
+						<input type="submit" name="LT" value="<%=SL[2]%>">
+						<%=SL[3]%>
 					</form>
 				<%}%>
 
 				<!-- 2回目 -->
-				<%if (SL[5] == "満員") {%>
+				<%if (SL[5] == "FULL") {%>
 					<%=SL[4]%><br>
 					<%=SL[5]%>
 				<%} else {%>
@@ -230,8 +234,8 @@ td.nakami{height:5em;}
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[4]%>">
-						<input type="submit" name="LT" value="<%=SL[4]%>"><br>
-						<pre><%=SL[5]%></pre>
+						<input type="submit" name="LT" value="<%=SL[4]%>">
+						<%=SL[5]%>
 					</form>
 				<%}%>
 			<%}%>
