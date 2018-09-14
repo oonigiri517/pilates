@@ -52,7 +52,7 @@
 
 	<!-- 当月分曜日表示欄 -->
 	<%for (int i = 0; i < 7; i++) {%>
-		<td bgcolor="#A7F1FF" align="center"><font color="#fff"><%=week[i]%></font></td>
+		<td bgcolor="#007cc9" align="center"><font color="white"><%=week[i]%></font></td>
 	<%}%>
 	<tr>
 
@@ -66,7 +66,7 @@
 			if ((d + weekday - 1) % 7 == 0) {%>
 				</tr><tr>
 			<%}%>
-			<td style="height:4em"align="center"valign="top"<%if((d + weekday - 1) % 7 == 0){%>bgcolor="#ff9999"<%} %>>
+			<td style="height:4em"align="center"valign="top"<%if((d + weekday - 1) % 7 == 0){%>bgcolor="#c5c5c5"<%} %>>
 			<p class="hiduke"><%=d%></p>
 			<table><tr><td class="nakami">
 			<%	LessonLogic SLC = new LessonLogic();
@@ -90,7 +90,7 @@
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[2]%>">
-						<input type="submit" name="LT" value="<%=SL[2]%>">
+						<input id="submit_button" type="submit" name="LT" value="<%=SL[2]%>">
 						<%=SL[3]%>
 					</form>
 				<%} %>
@@ -106,7 +106,7 @@
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[2]%>">
-						<input type="submit" name="LT" value="<%=SL[2]%>">
+						<input id="submit_button" type="submit" name="LT" value="<%=SL[2]%>">
 						<%=SL[3]%>
 					</form>
 				<%}%>
@@ -120,7 +120,7 @@
 					<form action="/Pilates/Form" method="get">
 					<input type="hidden" name="YMD" value="<%=DAYS%>">
 					<input type="hidden" name="TIME" value="<%=SL[4]%>">
-					<input type="submit" name="LT" value="<%=SL[4]%>">
+					<input id="submit_button" type="submit" name="LT" value="<%=SL[4]%>">
 					<%=SL[5]%>
 					</form>
 				<%}%>
@@ -153,7 +153,7 @@
 
 	<!-- 翌月分曜日表示欄 -->
 	<%for (int i = 0; i < 7; i++) {%>
-		<td bgcolor="#A7F1FF" align="center"><font color="white"><%=week2[i]%></font></td>
+		<td bgcolor="#007cc9" align="center"><font color="white"><%=week2[i]%></font></td>
 	<%}%>
 	<tr>
 
@@ -167,7 +167,7 @@
 			if ((d + weekday2 - 1) % 7 == 0) {%>
 				</tr><tr>
 			<%}%>
-			<td align="center"valign="top"<%if((d + weekday2 - 1) % 7 == 0){%>bgcolor="#ff9999"<%} %>>
+			<td align="center"valign="top"<%if((d + weekday2 - 1) % 7 == 0){%>bgcolor="#c5c5c5"<%} %>>
 			<p class="hiduke"><%=d%></p>
 			<table><tr><td class="nakami">
 			<%	LessonLogic SLC = new LessonLogic();
@@ -190,7 +190,7 @@
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[2]%>">
-						<input type="submit" name="LT" value="<%=SL[2]%>">
+						<input id="submit_button" type="submit" name="LT" value="<%=SL[2]%>">
 						<%=SL[3]%>
 					</form>
 				<%}%>
@@ -207,7 +207,7 @@
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[2]%>">
-						<input type="submit" name="LT" value="<%=SL[2]%>">
+						<input id="submit_button" type="submit" name="LT" value="<%=SL[2]%>">
 						<%=SL[3]%>
 					</form>
 				<%}%>
@@ -221,7 +221,7 @@
 					<form action="/Pilates/Form" method="get">
 						<input type="hidden" name="YMD" value="<%=DAYS%>">
 						<input type="hidden" name="TIME" value="<%=SL[4]%>">
-						<input type="submit" name="LT" value="<%=SL[4]%>">
+						<input id="submit_button" type="submit" name="LT" value="<%=SL[4]%>">
 						<%=SL[5]%>
 					</form>
 				<%}%>
