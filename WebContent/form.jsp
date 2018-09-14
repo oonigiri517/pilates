@@ -78,7 +78,7 @@
 					<tr>
 						<p align="center" font-weight=" bold"font-size="110%">${lesson.date} ${lesson.time}の予約</p>
 							<th>姓</th>
-							<td><input type="text" name="family_name" size="20"
+							<td><input type="text" name="family_name"
 									maxlength="20" value="<%=family_name%>" placeholder="山田">
 									<span class="error"> <%
  	if (ems != null && ems.size() > 0) {
@@ -92,7 +92,7 @@
 
 							<tr>
 								<th>名</th>
-								<td><input type="text" name="first_name" size="20"
+								<td><input type="text" name="first_name"
 									maxlength="20" value="<%=first_name%>" placeholder="花子">
 									<span class="error"> <%
  	if (ems != null && ems.size() > 0) {
@@ -106,7 +106,7 @@
 
 							<tr>
 								<th>メールアドレス</th>
-								<td><input type="text" name="mail" size="60"
+								<td><input type="text" name="mail"
 									maxlength="100" value="<%=mail%>" placeholder="yamada@mail.com">
 									<span class="error"> <%
  	if (ems != null && ems.size() > 0) {
@@ -125,7 +125,7 @@
 								</th>
 								<td><input type="text" oncopy="return false"
 									onpaste="return false" oncontextmenu="return false"
-									name="confMail" size="60" maxlength="100" value="<%=confMail%>"
+									name="confMail" size="30" maxlength="100" value="<%=confMail%>"
 									placeholder="yamada@mail.com"> <span class="error">
 										<%
 											if (ems != null && ems.size() > 0) {
@@ -139,7 +139,7 @@
 
 							<tr>
 								<th>電話番号（任意）</th>
-								<td><input type="text" name="tel" size="20" maxlength="20"
+								<td><input type="text" name="tel" maxlength="20"
 									value="<%=tel%>" placeholder="09012345678"> <span
 									class="error"> <%
  	if (ems != null && ems.size() > 0) {
@@ -153,7 +153,7 @@
 
 							<tr>
 								<th>備考（任意）</th>
-								<td><textarea name="memo" cols="40" maxlength="200"
+								<td><textarea name="memo" cols="40" rows="10" maxlength="200"
 										placeholder="何でも書いてね♪"><%=memo%></textarea></td>
 							</tr>
 						</table>
