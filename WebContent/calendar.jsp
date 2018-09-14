@@ -149,7 +149,7 @@
 	<!-- 翌月分年月日表示部分 -->
 	<caption><%=year%>年<%=month2 + 1%>月</caption>
 	<tr>
-	<%String[] week2 = { "Sun", "mon", "Tue", "Wed", "Thu", "Fri", "Sta" };%>
+	<%String[] week2 = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };%>
 
 	<!-- 翌月分曜日表示欄 -->
 	<%for (int i = 0; i < 7; i++) {%>
