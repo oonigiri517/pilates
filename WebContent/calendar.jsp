@@ -28,6 +28,9 @@
 			</div>
 		<!-- #main --></div>
 <div class="contentsInner">
+	<h4><img src="images/subTtl14.png" width="560" height="40" alt="レッスン内容" /></h4>
+
+
 	<!-- 当月分カレンダー作成情報の生成 -->
 	<%
 		Calendar cal = Calendar.getInstance();
@@ -45,7 +48,7 @@
 	<!-- 当月分年月日表示部分 -->
 	<caption><%=year%>年<%=month + 1%>月</caption>
 	<tr>
-	<%String[] week = { "Sun", "mon", "Tue", "Wed", "Thu", "Fri", "Sta" };%>
+	<%String[] week = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sta" };%>
 
 	<!-- 当月分曜日表示欄 -->
 	<%for (int i = 0; i < 7; i++) {%>
