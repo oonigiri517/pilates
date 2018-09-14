@@ -97,9 +97,7 @@
 
  				<!-- 1回目 -->
  				<%if (SL[3] == "FULL") {%>
- 				<br>
-
- 					<%=SL[3]%>
+ 				<%=SL[3]%><br>
  				<%}else {%>
  					<% String DAYS=String.format("%04d-%02d-%02d", year, month+1, d);%>
 					<form action="/Pilates/Form" method="get">
