@@ -99,8 +99,6 @@
 						<span class="button">
 						<a href="/Pilates/Form?action=cancel">キャンセル</a></span>
 					</div>
-
-
 				</form>
 
 

@@ -19,30 +19,15 @@
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="js/function.js"></script>
 
-<!-- <style type="text/css">
-p {	width: 100%;}
-
-p.example {	line-height: 50%;}
-table {width:48%;
-	  margin:5px
-	  }
-td.nakami{height:3em;}
-p.hiduke{font-weight: bold;font-size: 110%;}
-</style> -->
 	<jsp:include page="/menu.jsp"/>
 </head>
 <body>
-	<div id="main">
-		<div id="mainInner">
-			<h2><img src="images/menuTtl4.png" width="210" height="60" alt="Menu メニュー" /></h2>
-		</div>
-	<!-- #main -->
-	</div>
-
-	<div id="contentsArea" class="clearfix">
-			<div class="contentsInner">
-			<div id="wrapper">
-
+		<div id="main">
+			<div id="mainInner">
+				<h2><img src="images/menuTtl4.png" width="210" height="60" alt="Menu メニュー" /></h2>
+			</div>
+		<!-- #main --></div>
+<div class="contentsInner">
 	<!-- 当月分カレンダー作成情報の生成 -->
 	<%
 		Calendar cal = Calendar.getInstance();
@@ -112,8 +97,7 @@ p.hiduke{font-weight: bold;font-size: 110%;}
 
  				<!-- 1回目 -->
  				<%if (SL[3] == "FULL") {%>
-
- 					<%=SL[3]%>
+ 				<%=SL[3]%><br>
  				<%}else {%>
  					<% String DAYS=String.format("%04d-%02d-%02d", year, month+1, d);%>
 					<form action="/Pilates/Form" method="get">
@@ -214,7 +198,7 @@ p.hiduke{font-weight: bold;font-size: 110%;}
 				<!-- 1回目 -->
 				<%if (SL[3] == "FULL") {%>
 
-					<%=SL[3]%>
+					<%=SL[3]%><br>
 				<%} else {%>
 					<% String DAYS=String.format("%04d-%02d-%02d", year2, month2+1, d);%>
 					<form action="/Pilates/Form" method="get">
@@ -243,7 +227,7 @@ p.hiduke{font-weight: bold;font-size: 110%;}
 	<%}%></tr></table>
 	</div>
 	<!-- 翌月分日付表示部分のループ終了 -->
-	</div></div></div>
+	</div>
 	<br>
 	<br>
 	<br>

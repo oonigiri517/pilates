@@ -20,7 +20,7 @@
 				<p id="illust01"><img src="images/illust01.png" width="140" height="290" alt="" /></p>
 				<p id="illust02"><img src="images/illust02.png" width="140" height="100" alt="" /></p>
 			</div>
-			</div>
+		</div>
 
 
 </body>

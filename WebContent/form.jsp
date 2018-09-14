@@ -71,14 +71,14 @@
 
 
 
-					<form action="/Pilates/Form" method="post">
+			<form action="/Pilates/Form" method="post">
 
-						<table align="center">
+				<table align="center">
 
-							<tr>
-							<p align="center" font-weight=" bold"font-size="110%">${lesson.date} ${lesson.time}の予約</p>
-								<th>姓</th>
-								<td><input type="text" name="family_name" size="20"
+					<tr>
+						<p align="center" font-weight=" bold"font-size="110%">${lesson.date} ${lesson.time}の予約</p>
+							<th>姓</th>
+							<td><input type="text" name="family_name" size="20"
 									maxlength="20" value="<%=family_name%>" placeholder="山田">
 									<span class="error"> <%
  	if (ems != null && ems.size() > 0) {
