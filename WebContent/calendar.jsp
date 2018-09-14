@@ -48,7 +48,7 @@
 	<!-- 当月分年月日表示部分 -->
 	<caption><%=year%>年<%=month + 1%>月</caption>
 	<tr>
-	<%String[] week = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sta" };%>
+	<%String[] week = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };%>
 
 	<!-- 当月分曜日表示欄 -->
 	<%for (int i = 0; i < 7; i++) {%>
