@@ -53,6 +53,9 @@ th {
 	background: #ffffff; /* 文字色     */
 	}
 
+input,textarea{ width: 300px; }
+input.button{width:150px;}
+
 /*h2{
 		font-size:200%;
 		}*/
