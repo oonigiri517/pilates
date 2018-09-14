@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="model.ReserveData,model.Color,java.util.HashMap"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	ReserveData reserveData = (ReserveData) session.getAttribute("reserveData");
 	Color color = new Color();
@@ -63,6 +64,7 @@
 
 					<table>
 						<tr>
+						<p align="center" font-weight=" bold"font-size="110%">${lesson.date} ${lesson.time}の予約</p>
 							<th>姓</th>
 							<td><%=reserveData.getFamily_name()%></td>
 						</tr>
@@ -93,8 +95,9 @@
 						</tr>
 					</table>
 					<div class="kakutei">
-						<input type="submit" value="確定" class="button"> <span
-							class="button"> <a href="/Pilates/Form?action=cancel">キャンセル</a></span>
+						<input type="submit" value="確定" class="button">
+						<span class="button">
+						<a href="/Pilates/Form?action=cancel">キャンセル</a></span>
 					</div>
 
 
