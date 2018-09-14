@@ -16,7 +16,6 @@ import model.SQL;
 
 public class OutPutDAO {
 
-	//public static void main(String[] args)throws Exception {
 	public String OutputCSV() {
 
 		SQL sqlUrl = new SQL();
