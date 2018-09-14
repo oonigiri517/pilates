@@ -54,14 +54,17 @@ h1 {
 
 #nav02 {
 	margin-left: 120px;
+	z-index: 4;
 }
 
 #nav03 {
 	margin-left: 290px;
+	z-index: 4;
 }
 
 #nav04 {
 	margin-left: 120px;
+	z-index: 4;
 }
 
 #illust01 {
