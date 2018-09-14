@@ -25,26 +25,28 @@ public class Form extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-
-		String YMD=request.getParameter("YMD");
-		String TIME=request.getParameter("TIME");
-
-		Lesson lesson=new Lesson(YMD,TIME);
 		HttpSession session=request.getSession();
-		session.setAttribute("lesson",lesson);
 
-		System.out.println(lesson.getDate());
-		System.out.println(lesson.getTime());
 		//フォワード先
 
 		String forwardPath=null;
-
 		String action=request.getParameter("action");
 
 		if(action==null){
+			String YMD=request.getParameter("YMD");
+			String TIME=request.getParameter("TIME");
+
+			Lesson lesson=new Lesson(YMD,TIME);
+
+			session.setAttribute("lesson",lesson);
+
+			System.out.println(lesson.getDate());
+			System.out.println(lesson.getTime());
+
 			forwardPath="/form.jsp";
 		}else if(action.equals("cancel")){
 //			セッションスコープに保存
+			forwardPath="/form.jsp";
 			ReserveData reserveData=(ReserveData)session.getAttribute("reserveData");
 			request.setAttribute("reserveData",reserveData);
 		}
