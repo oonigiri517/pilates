@@ -40,8 +40,8 @@ public class SendMail {
 				+ "お会いできる日を楽しみにしています。\n"
 				+ "\n";
 
-		String fromAddress="relax.pilates123@gmail.com";//送信元
-		String password="relax321";//送信元のパスワード
+		String fromAddress="メアド@mail.com";//送信元
+		String password="パス";//送信元のパスワード
 
 		mailSend(title,text,toAddress,fromAddress,password);
 		return true;//時間があれば送信できてないか確認追加する
