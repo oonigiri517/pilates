@@ -6,7 +6,7 @@ public class SQL {
 	//山本のSQLに接続できます。
 	//SQLファイルの場所･･･授業用\アプリケーション\おにぎり\
 	//?useSSL=false
-	final String JDBC_URL_y = "jdbc:mysql://192.168.10.27/pilates";
+	final String JDBC_URL_y = "/*dbのアドレス*/";
 	final String DB_USER = "onigiri";
 	final String DB_PASS = "onigiri";
 
